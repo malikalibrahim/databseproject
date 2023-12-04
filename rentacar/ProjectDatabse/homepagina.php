@@ -26,7 +26,7 @@ if (isset($_SESSION['email'])) {
     $rol = $db->getRoleByEmail($_SESSION['email']);
 
     if ($rol == 1) {
-      echo '<li><a href="adminPanel.php">Admin</a></li>';
+      echo '<li><a href="adminPanel.html">Admin</a></li>';
     }
 
     echo '<li><a href="loguit.php">Uitloggen</a></li>';
