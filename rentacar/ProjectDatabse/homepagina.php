@@ -16,17 +16,24 @@
             <li><a href="">Services</a></li>
             <li><a href="">bestellingen</a></li>
             <?php
-            session_start();
+session_start();
+include "Database.php";
 
+$db = new Database();
 
-            if (isset($_SESSION["email"])) {
-                $gebruikersnaam = $_SESSION["email"];
-                echo '<li><a href="loguit.php">Uitloggen</a></li>';
-                echo '<li><a href="profile.php">Profile</a></li>';
-            } else {
-                echo '<li><a href="login.php">Inloggen</a></li>';
-            }    
-            ?>
+if (isset($_SESSION['email'])) {
+
+    $rol = $db->getRoleByEmail($_SESSION['email']);
+
+    if ($rol == 1) {
+      echo '<li><a href="adminPanel.php">Admin</a></li>';
+    }
+
+    echo '<li><a href="loguit.php">Uitloggen</a></li>';
+} else {
+    echo '<li><a href="login.php">Inloggen</a></li>';
+}
+?>
         </ul>
     </nav>
     <div class="contener">

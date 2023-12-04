@@ -62,7 +62,14 @@ class Database {
         }
         return false;
     }
+    public function getRoleByEmail($email) {
+        $sql = "SELECT rol FROM klanten WHERE Emailadres = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$email]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        return $result['rol'];
+    }
     public function employeeLogin(string $username, string $password): bool {
         $sql = "SELECT * FROM medewerkers WHERE Gebruikersnaam = ?";
         $stmt = $this->pdo->prepare($sql);

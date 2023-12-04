@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     if ($db->customerLogin($email, $wachtwoord)) {
         
         $_SESSION['email'] = $email;  
+        $_SESSION['rol'];
         header("Location: homepagina.php");
         exit();
     } else {
