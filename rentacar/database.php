@@ -7,7 +7,7 @@ class Database {
     private $customerTable = "klanten";
 
     public function __construct($db = 'autosverkopen', $user = 'root', $pass = '', $host = 'localhost:3306') {
-        try {
+        try {a
             $this->pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
