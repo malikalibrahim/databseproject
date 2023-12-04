@@ -1,4 +1,28 @@
+<?php
+session_start();
+include "database.php";
+include "Users/user.class.php";
+include "Users/UserRegistration.php";
 
+$db = new Database();
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['Emailadres'];
+    $wachtwoord = $_POST['Wachtwoord'];
+
+    if ($db->customerLogin($email, $wachtwoord)) {
+        // Inloggen is succesvol
+        $_SESSION['email'] = $email;  // Sla de gebruiker op in de sessie
+        header("Location: homepagina.php");
+        exit();
+    } else {
+        // Inloggen is mislukt
+        echo "Login failed. Invalid email or password.";
+    }
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +53,11 @@
              <div class="pagina">
                <div class="ce">  
              <h1>Login</h1>
-            <label for="email">E-mail</label><br>
-            <input type="email" name="email"><br>
+            <label for="Emailadres">E-mail</label><br>
+            <input type="email" name="Emailadres"><br>
             
-            <label for="password">Wachtwoord</label><br>
-            <input type="password" name="wachtwoord"><br>
+            <label for="Wachtwoord">Wachtwoord</label><br>
+            <input type="password" name="Wachtwoord"><br>
 
             <input type="submit" name="submit">
             <a href="registreren.php">Maak hier acccount</a>

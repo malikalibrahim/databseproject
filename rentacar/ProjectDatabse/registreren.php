@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" name="Wachtwoord"><br>
 
             <input type="submit" name="submit">
-            <a href="login.html">Login</a>
+            <a href="login.php">Login</a>
             </div></div>
         </form>
     

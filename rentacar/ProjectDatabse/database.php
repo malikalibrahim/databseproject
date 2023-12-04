@@ -52,7 +52,15 @@ class Database {
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return ($user && password_verify($password, $user['Wachtwoord']));
+        if ($user) {
+
+            if (password_verify($password, $user['Wachtwoord'])) {
+                return true;
+            } elseif ($password == $user['Wachtwoord']) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function employeeLogin(string $username, string $password): bool {

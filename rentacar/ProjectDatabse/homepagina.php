@@ -15,7 +15,18 @@
             <li><a href="">Onze modellen</a></li>
             <li><a href="">Services</a></li>
             <li><a href="">bestellingen</a></li>
-            <li><a href="login.html">Inloggen</a></li>
+            <?php
+            session_start();
+
+
+            if (isset($_SESSION["email"])) {
+                $gebruikersnaam = $_SESSION["email"];
+                echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                echo '<li><a href="profile.php">Profile</a></li>';
+            } else {
+                echo '<li><a href="login.php">Inloggen</a></li>';
+            }    
+            ?>
         </ul>
     </nav>
     <div class="contener">
