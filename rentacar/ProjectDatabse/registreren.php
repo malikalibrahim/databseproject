@@ -1,4 +1,25 @@
-
+<?php
+session_start();
+ 
+include "database.php";
+include "Users/user.class.php";
+include "Users/UserRegistration.php";
+ 
+$db = new Database();
+ 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['Naam'];
+    $adres = $_POST['Adres'];
+    $Rijbewijsnummer = $_POST['Rijbewijsnummer'];
+    $Telefoonnummer = $_POST['Telefoonnummer'];
+    $Emailadres = $_POST['Emailadres'];
+    $Wachtwoord = $_POST['Wachtwoord'];
+ 
+    $newUser = new User($name, $adres, $Rijbewijsnummer,$Telefoonnummer, $Emailadres, $Wachtwoord  );
+    $userRegistration = new UserRegistration();
+    $userRegistration->registerUser($db, $newUser);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,18 +48,28 @@
             
              <div class="pagina">
                
-                 <div class="ce">  <h1>Registreren</h1>
-                    <label for="email">Naam:</label><br>
-                    <input type="text" name="naam">
-            <label for="email">E-mail:</label><br>
-            <input type="email" name="email"><br>
+            <div class="ce">  <h1>Registreren</h1>
+            <label for="Naam">Naam:</label><br>
+            <input type="text" name="Naam">
+
+            <label for="Adres">Adres:</label><br>
+            <input type="text" name="Adres"><br>
+
+            <label for="Rijbewijsnummer">Rijbewijsnummer:</label><br>
+            <input type="tel" name="Rijbewijsnummer"><br>
+
+            <label for="Telefoonnummer">Telefoonnummer:</label><br>
+            <input type="tel" name="Telefoonnummer"><br>
+
+            <label for="Emailadres">E-mail:</label><br>
+            <input type="text" name="Emailadres"><br>
             
-            <label for="password">Wachtwoord:</label><br>
-            <input type="password" name="wachtwoord"><br>
+            <label for="Wachtwoord">Wachtwoord:</label><br>
+            <input type="password" name="Wachtwoord"><br>
 
             <input type="submit" name="submit">
             <a href="login.html">Login</a>
-        </div></div>
+            </div></div>
         </form>
     
     </div>

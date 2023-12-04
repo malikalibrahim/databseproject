@@ -28,8 +28,24 @@ class Database {
     }
     
     
-    
-    
+    public function selectDataByEmail($email) {
+        $stmt = $this->pdo->prepare("SELECT * FROM klanten WHERE Emailadres = :Emailadres");
+        $stmt->execute(['Emailadres' => $email]);
+ 
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function addUser(User $user) {
+        $sql = "INSERT INTO klanten (Naam, Adres, Rijbewijsnummer,Telefoonnummer,Emailadres, Wachtwoord ) VALUES (:Naam, :Adres, :Rijbewijsnummer, :Telefoonnummer, :Emailadres, :Wachtwoord)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            "Naam" => $user->Name,
+            "Adres" => $user->Adres,
+            "Rijbewijsnummer" => $user->Rijbewijsnummer,
+            "Telefoonnummer" => $user->Telefoonnummer,
+            "Emailadres" => $user->Emailadres,
+            "Wachtwoord" => $user->HashedPassword()
+        ]);
+    }
     public function customerLogin($email, $password): bool {
         $sql = "SELECT * FROM klanten WHERE Emailadres = ?";
         $stmt = $this->pdo->prepare($sql);
