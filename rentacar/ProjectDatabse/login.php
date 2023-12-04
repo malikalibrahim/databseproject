@@ -11,12 +11,12 @@ if (isset($_POST['submit'])) {
     $wachtwoord = $_POST['Wachtwoord'];
 
     if ($db->customerLogin($email, $wachtwoord)) {
-        // Inloggen is succesvol
-        $_SESSION['email'] = $email;  // Sla de gebruiker op in de sessie
+        
+        $_SESSION['email'] = $email;  
         header("Location: homepagina.php");
         exit();
     } else {
-        // Inloggen is mislukt
+        
         echo "Login failed. Invalid email or password.";
     }
 }
