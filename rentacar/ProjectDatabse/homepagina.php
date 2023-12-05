@@ -6,12 +6,14 @@
     <title>Demo</title> 
      <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
     <nav>
-        <img src="Haima-logo.jpg" alt="logo" class="logo">
+      <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
         <ul>
-            <li><a href="">Home</a></li>
+            <li><a href="homepagina.php">Home</a></li>
             <li><a href="">Onze modellen</a></li>
             <li><a href="">Services</a></li>
             <li><a href="">bestellingen</a></li>
@@ -65,16 +67,17 @@ if (isset($_SESSION['email'])) {
             <p>Tel: 061234567</p>
           </div>
           <div class="footer-section">
-            <h3>Volg ons</h3>
-            <div class="social-icons">
-              <a href="#" target="_blank"><i class="fab fa-facebook"></i>facebook</a>
-              <a href="#" target="_blank"><i class="fab fa-twitter"></i>instagram</a>
-              <a href="#" target="_blank"><i class="fab fa-instagram"></i>twitter</a>
-              <a href="#" target="_blank"><i class="fab fa-linkedin"></i>linkidn</a>
-            </div>
-          </div>
-          
+  <h3>Volg ons</h3>
+  <div class="social-icons">
+    <a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  </div>       
         </div>
+        </div>
+        
+           </div>
         <div class="footer-bottom">
           <p>&copy; 2023 Demo. All rights reserved.</p>
         </div>
