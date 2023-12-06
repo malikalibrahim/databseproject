@@ -1,3 +1,35 @@
+.auto {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.car-details {
+  width: 25%; 
+  margin: 10px;
+  background-color: white; 
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.image-container {
+  overflow: hidden;
+  height: 200px;
+}
+
+.autoss {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.voeg-auto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
 body{
     padding: 0;
@@ -49,7 +81,7 @@ h1{
     border-top: solid 1px rgb(46, 46, 46);
     border-bottom: solid 1px rgb(46, 46, 46);
     width: 100%;
-    height: 900px;
+    height: 1700px;
     background-color: black;
 }
 nav{

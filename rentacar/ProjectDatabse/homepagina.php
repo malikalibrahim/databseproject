@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-<?php 
-include('database.php');
-$db = new database;
 
-// Retrieve information for all cars
-$cars = $db->selectAllCars(1);
 
-if ($cars) {
-  // Loop through each car
-  foreach ($cars as $car) {
-      // Construct the image URL for each car
-      $imageurl = "fotos/" . $car['image'];
-
-      // Display car details and image within a styled div
-      echo "<div class='car-details'>";
-      echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
-      echo "<p>Year: {$car['Jaar']}</p>";
-      // Add other details you want to display
-
-      // Display the image with specified height and width
-      echo "<div class='image-container' style='height: 400px; width: 400px;'>";
-      echo "<img class='autoss' src='{$imageurl}' alt='toyta.png  '>";
-      echo "</div>"; // Close the image container div
-
-      echo "</div>"; // Close the car details div
-  }
-} else {
-  // Handle the case when no cars are found
-  echo "<p>No cars available</p>";
-}
-
-?>
-  
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,16 +49,46 @@ if (isset($_SESSION['email'])) {
         
         </div>
         <div class="auto">
-            <div class="container">
-                <i class="fas fa-search"></i>
-                <input id="search" type="text" placeholder="Zoek iets">
-              </div>
-            </div>
-            <div class="voeg-auto">
-        </div>
-        </div>
-    </div>
+  <div class="container">
+    <i class="fas fa-search"></i>
+    <input id="search" type="text" placeholder="Zoek iets">
+  </div>
 
+  <div class="voeg-auto">
+    <?php 
+    $db = new database;
+
+    // Retrieve information for all cars
+    $cars = $db->selectAllCars();
+
+    if ($cars) {
+      // Loop through each car
+      foreach ($cars as $car) {
+        // Construct the image URL for each car
+        $imageurl = "fotos/" . $car['image'];
+    
+        echo "<div class='car-details'>";
+        echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
+        echo "<p>Year: {$car['Jaar']}</p>";
+    
+        // Display the image with specified height and width
+        echo "<div class='image-container'>";
+        echo "<img class='autoss' src='{$imageurl}' alt='{$car['Merk']} {$car['Model']}'>";
+        echo "</div>"; // Close the image container div
+    
+        echo "</div>"; 
+      }
+    
+      echo "</div>"; 
+    } else {
+      echo "<p>No cars available</p>";
+    }
+    ?>
+  </div>
+</div>
+
+         </div>
+</div>
     <footer class="footer">
         <div class="footer-container">
           <div class="footer-section">
