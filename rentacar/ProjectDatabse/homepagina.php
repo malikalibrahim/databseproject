@@ -28,11 +28,15 @@ if (isset($_SESSION['email'])) {
 
     $rol = $db->getRoleByEmail($_SESSION['email']);
 
-    if ($rol == 1) {
+    if ($rol == 'Admin') {
       echo '<li><a href="adminPanel.html">Admin</a></li>';
-    }
+      echo '<li><a href="loguit.php">Uitloggen</a></li>';
+    }else if ($rol == 'medewerker'){  
+        echo '<li><a href="medewerkers.php">Medewerker</a></li>';
+        echo '<li><a href="loguit.php">Uitloggen</a></li>';
+      }
 
-    echo '<li><a href="loguit.php">Uitloggen</a></li>';
+
 } else {
     echo '<li><a href="login.php">Inloggen</a></li>';
 }
