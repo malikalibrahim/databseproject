@@ -69,13 +69,15 @@ if (isset($_SESSION['email'])) {
     
         echo "<div class='car-details'>";
         echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
-        echo "<p>Year: {$car['Jaar']}</p>";
     
         // Display the image with specified height and width
         echo "<div class='image-container'>";
         echo "<img class='autoss' src='{$imageurl}' alt='{$car['Merk']} {$car['Model']}'>";
+        
         echo "</div>"; // Close the image container div
-    
+        echo "<p>Year: {$car['Jaar']}</p>";
+        echo "<p>Kenteken: {$car['Kenteken']}</p>";
+        echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
         echo "</div>"; 
       }
     

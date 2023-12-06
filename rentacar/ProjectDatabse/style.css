@@ -2,7 +2,9 @@
   display: flex;
   flex-wrap: wrap;
 }
-
+.car-details h2{
+  text-align: center;
+}
 .car-details {
   width: 25%; 
   margin: 10px;
