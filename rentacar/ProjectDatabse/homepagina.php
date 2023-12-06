@@ -1,25 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 <?php 
 include('database.php');
 $db = new database;
 
+// Retrieve information for all cars
+$cars = $db->selectAllCars(1);
 
+if ($cars) {
+  // Loop through each car
+  foreach ($cars as $car) {
+      // Construct the image URL for each car
+      $imageurl = "fotos/" . $car['image'];
 
-    $data = $db->selectCar(1);
+      // Display car details and image within a styled div
+      echo "<div class='car-details'>";
+      echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
+      echo "<p>Year: {$car['Jaar']}</p>";
+      // Add other details you want to display
+
+      // Display the image with specified height and width
+      echo "<div class='image-container' style='height: 400px; width: 400px;'>";
+      echo "<img class='autoss' src='{$imageurl}' alt='toyta.png  '>";
+      echo "</div>"; // Close the image container div
+
+      echo "</div>"; // Close the car details div
+  }
+} else {
+  // Handle the case when no cars are found
+  echo "<p>No cars available</p>";
+}
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
- <?php 
-$imageurl = "fotos/" . $data['image'];
-
- ?>
-<img class="autoss" src="<?php echo $imageurl ?>" alt=""/>
+  
 </body>
 </html>
 <!DOCTYPE html>

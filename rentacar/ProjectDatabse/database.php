@@ -18,11 +18,10 @@ class Database {
     private function validateInput(string $input) : string {
         return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
     }
-    public function selectCar($carID) {
-        $sql = "SELECT * FROM $this->carsTable WHERE AutoID = ?";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$carID]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function selectAllCars() {
+        $sql = "SELECT * FROM $this->carsTable";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function createCustomerAccount($name, $email, $password, $address,  $licenseNumber, $phoneNumber,) : void {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
