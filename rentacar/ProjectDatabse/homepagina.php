@@ -78,6 +78,9 @@ if (isset($_SESSION['email'])) {
         echo "<p>Year: {$car['Jaar']}</p>";
         echo "<p>Kenteken: {$car['Kenteken']}</p>";
         echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
+        echo "<div class='add-car-button-container'>";
+        echo "<button class='add-car-button'>Add a Car</button>";
+        echo "</div>";
         echo "</div>"; 
       }
     
