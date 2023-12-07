@@ -9,15 +9,16 @@
      <link rel="stylesheet" href="style.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 </head>
 <body>
     <nav>
       <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
         <ul>
             <li><a href="homepagina.php">Home</a></li>
-            <li><a href="">Onze modellen</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">bestellingen</a></li>
+          
+            <li><a href="services.php">Services</a></li>
+
             <?php
 session_start();
 include "Database.php";
@@ -32,8 +33,15 @@ if (isset($_SESSION['email'])) {
       echo '<li><a href="adminPanel.html">Admin</a></li>';
       echo '<li><a href="loguit.php">Uitloggen</a></li>';
     }else if ($rol == 'medewerker'){  
+ 
         echo '<li><a href="medewerkers.php">Medewerker</a></li>';
         echo '<li><a href="loguit.php">Uitloggen</a></li>';
+      } else if ($rol == 0){
+        echo '<li>';
+echo '<a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">';
+echo '<path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>';
+echo '</svg></a>';
+echo '<li><a href="loguit.php">Uitloggen</a></li>';
       }
 
 
