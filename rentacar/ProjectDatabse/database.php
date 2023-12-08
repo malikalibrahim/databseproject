@@ -184,6 +184,20 @@ class Database {
         $stmt->execute([$today]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function searchCars($searchTerm) {
+        try {
+            // Use prepared statements to prevent SQL injection
+            $searchTerm = "%{$searchTerm}%";
+            $sql = "SELECT * FROM $this->carsTable WHERE Merk LIKE ? OR Model LIKE ? OR Jaar LIKE ? OR Kenteken LIKE ? OR Beschikbaarheid LIKE ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Search failed: " . $e->getMessage());
+        }
+    }
+    
+    
     
 }
 ?>
