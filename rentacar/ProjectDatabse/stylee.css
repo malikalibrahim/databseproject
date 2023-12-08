@@ -7,14 +7,28 @@
   text-align: center;
 }
 .car-details {
-  width: 25%; 
-  margin: 10px;
+  width: 100%;
+  margin: 10px 0;
   background-color: white; 
-  margin: 10px;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+@media only screen and (min-width: 768px) {
+  .car-details {
+    width: 48%;
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .car-details {
+    width: 25%;
+  }
+}
+
 
 .image-container {
   overflow: hidden;
@@ -211,11 +225,37 @@ input#search {
     padding-bottom: 10px;
   }
   
-  .social-icons a {
-    color: white;
-    margin-right: 10px;
-    
+/* ... (previous styles) ... */
+
+.social-icons {
+  display: flex;
+  align-items: center; /* Center vertically within the footer */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 10px;
+  margin-bottom: 5px; /* Add some margin between items */
+}
+
+.footer-section h3 {
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+  margin-bottom: 10px; /* Add some margin for separation */
+}
+
+/* Adjust the layout for larger screens */
+@media only screen and (min-width: 769px) {
+  .social-icons {
+    flex-direction: row; /* Display items in a row on larger screens */
   }
+
+  .social-icons a {
+    margin-bottom: 0; /* Remove margin between items on larger screens */
+  }
+}
+
   
   
   
@@ -250,4 +290,87 @@ input#search {
       margin-bottom: 20px;
     }
   }
+ /* Default styles */
+
+/* ... (previous styles) ... */
+
+/* Responsive styles for the whole page */
+body {
+  font-size: 16px; /* Set a base font size for better scalability */
+}
+
+/* Responsive styles for the main content */
+.pagina {
+  width: 90%; /* Adjust width for larger screens */
+  max-width: 1200px; /* Set a maximum width to avoid stretching on large screens */
+  margin: 0 auto; /* Center the main content */
+  padding: 20px; /* Add padding to the main content */
+}
+
+/* Responsive styles for headings */
+h1, h2, h3 {
+  text-align: center; /* Center the headings */
+  margin: 10px 0; /* Add space around headings */
+}
+
+/* Responsive styles for paragraphs and other content */
+p, .content {
  
+  margin: 10px 0; /* Add space around paragraphs and content */
+}
+
+/* Responsive styles for links */
+a {
+  
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Responsive styles for buttons */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #545454;
+}
+
+/* Responsive styles for images */
+img {
+  max-width: 100%; /* Make images responsive */
+  height: auto;
+}
+
+/* Responsive styles for the footer */
+.footer-bottom {
+  background-color: #030303;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Additional media queries can be added as needed */
+@media only screen and (min-width: 768px) {
+  /* Adjust styles for medium screens and larger */
+  body {
+    font-size: 18px; /* Increase font size for better readability on larger screens */
+  }
+
+  .pagina {
+    width: 80%; /* Adjust width for medium screens */
+  }
+}
+
+
+
+
