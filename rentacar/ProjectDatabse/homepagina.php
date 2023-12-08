@@ -14,7 +14,7 @@
         <ul>
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
-
+   
             <?php
             session_start();
             include "Database.php";
@@ -120,79 +120,50 @@
             </style>
 
             <div class="voeg-auto">
-                <?php
-                $db = new Database;
+        <?php
+        $db = new Database;
 
-                // Check if the search parameter is set
-                if (isset($_GET['search'])) {
-                    // Retrieve information for cars that match the search criteria
-                    $cars = $db->searchCars($_GET['search']);
-                } else {
-                    // Retrieve information for all cars
-                    $cars = $db->selectAllCars();
-                }
+        // Check if the search parameter is set
+        if (isset($_GET['search'])) {
+            // Retrieve information for cars that match the search criteria
+            $cars = $db->searchCars($_GET['search']);
+        } else {
+            // Retrieve information for all cars
+            $cars = $db->selectAllCars();
+        }
 
-                if ($cars) {
-                    // Loop through each car
-                    foreach ($cars as $car) {
-                        // Construct the image URL for each car
-                        $imageurl = "fotos/" . $car['image'];
+        if ($cars) {
+            // Loop through each car
+            foreach ($cars as $car) {
+                // Construct the image URL for each car
+                $imageurl = "fotos/" . $car['image'];
 
-                        echo "<div class='car-details'>";
-                        echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
+                echo "<div class='car-details'>";
+                echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
 
-                        // Display the image with specified height and width
-                        echo "<div class='image-container'>";
-                        echo "<img class='autoss' src='{$imageurl}' alt='{$car['Merk']} {$car['Model']}'>";
-                        echo "</div>"; // Close the image container div
-                        echo "<p>Year: {$car['Jaar']}</p>";
-                        echo "<p>Kenteken: {$car['Kenteken']}</p>";
-                        echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
-                        echo "<div class='add-car-button-container'>";
-                        echo "<button class='add-car-button'>Add a Car</button>";
-                        echo "</div>";
-                        echo "</div>";
-                    }
+                // Display the image with specified height and width
+                echo "<div class='image-container'>";
+                echo "<img class='autoss' src='{$imageurl}' alt='{$car['Merk']} {$car['Model']}'>";
+                echo "</div>"; // Close the image container div
+                echo "<p>Year: {$car['Jaar']}</p>";
+                echo "<p>Kenteken: {$car['Kenteken']}</p>";
+                echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
+                
+                // Add a unique identifier to the button, for example, car ID
+                echo "<div class='add-car-button-container'>";
+                echo "<button class='add-car-button' onclick='addToNavigation({$car['AutoID']})'>Add a Car</button>";
+                echo "</div>";
+                
+                echo "</div>";
+            }
 
-                    echo "</div>";
-                } else {
-                    echo "<p>No cars available</p>";
-                }
-                ?>
-            </div>
-        </div>
+            echo "</div>";
+        } else {
+            echo "<p>No cars available</p>";
+        }
+        ?>
     </div>
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Info</h3>
-                <p>Amstelveen</p>
-                <p>E-mail: info@demo.com</p>
-                <p>Tel: 061234567</p>
-            </div>
-            <div class="footer-section">
-                <h3>Volg ons</h3>
-                <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-                    <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                </div>       
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2023 Demo. All rights reserved.</p>
-    </div>
-</footer>
 
-<script>
-    function scrollDown(amount) {
-        window.scrollBy({
-            top: amount,
-            behavior: 'smooth'
-        });
-    }
-</script>
+
 </body>
 </html>
