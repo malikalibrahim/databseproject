@@ -183,7 +183,7 @@ input#search {
     background-color: #000000;
     color: white;
     padding: 30px 0;
-    
+
     
   }
   
@@ -454,4 +454,7 @@ input#search {
     .search-btn {
       background: #f1f1f1;
     }
+  }
+  *{
+
   }

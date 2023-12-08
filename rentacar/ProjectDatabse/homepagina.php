@@ -14,7 +14,7 @@
         <ul>
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
-            <li><a href="services.php">Services</a></li>
+           
    
             <?php
             session_start();
