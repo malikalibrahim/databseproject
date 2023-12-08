@@ -1,3 +1,54 @@
+.auto {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.car-details h2{
+  text-align: center;
+}
+.car-details {
+  width: 25%; 
+  margin: 10px;
+  background-color: white; 
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.image-container {
+  overflow: hidden;
+  height: 200px;
+}
+
+.autoss {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.voeg-auto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+.add-car-button {
+  text-align: end;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-car-button:hover {
+  background-color: #545454;
+}
 body{
     padding: 0;
     margin: 0;
@@ -10,93 +61,23 @@ body{
     background-repeat: no-repeat; 
     background-size: cover; 
     height: 985px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
 }
-.pagina {
-    background-color: rgba(0, 0, 0, 0.317);
-    backdrop-filter: blur(20px);
-    width: 600px;
-    height: 600px;
-    border-radius: 30px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(210, 210, 210);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- 
-}
-/* Voeg deze stijlen toe aan je CSS-bestand */
-
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    height: 600px; /* Maak het formulier schermvullend */
-    margin: 0;
-}
-.ce {
-    text-align: center;
-    width: 100%;
-    height: 100%;
+.pagina{
+    width: 40%;
+    height: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: start;
+    padding-left: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(210, 210, 210);
 }
-
-h1 {
-    color: #fff;
-    text-align: center;
-}
-
-label:nth-child(1) {
-    width: 100%;
-    padding-right: 16rem;
-    text-align: start;
-    color: #fff;
-}
-label {
-    width: 50%;
-   
-    text-align: start;
-    color: #fff;
-}
-
-
-input {
-    width: 50%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="submit"] {
-    background-color: #4caf50;
-    color: #fff;
-    cursor: pointer;
-}
-
-a {
-    color: #2196F3;
-    text-decoration: none;
-    display: block;
-    margin-top: 10px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-
 .hf-bt{
 width: 12rem;
 height: 3rem;
-background-color: rgba(0, 0, 0, 0.726);
+background-color: rgba(0, 0, 0);
 color: white;
 border: none;
 border-radius: 5px;
@@ -104,7 +85,7 @@ cursor: pointer;
 
 }
 .hf-bt:hover{
-    background-color: rgba(16, 16, 16, 0.63)
+    background-color: rgb(42, 42, 42)
 }
 h1{
     color: white;
@@ -117,8 +98,7 @@ h1{
 .auto{
     border-top: solid 1px rgb(46, 46, 46);
     border-bottom: solid 1px rgb(46, 46, 46);
-    width: 100%;
-    height: 900px;
+    height: 100%;
     background-color: black;
 }
 nav{
@@ -127,7 +107,6 @@ nav{
     display: flex; 
     background-color: black;
     position: fixed;
-    z-index: 1;
     
     
 }
@@ -149,6 +128,7 @@ ul{
     padding-right: 30px;
     
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -198,10 +178,13 @@ input#search {
 }
 
 
+
+
 .footer {
     background-color: #000000;
     color: white;
     padding: 30px 0;
+
     
   }
   
@@ -242,12 +225,28 @@ input#search {
     border-top: solid 1px rgb(46, 46, 46);
   }
   
-
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .form input {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
   
   @media only screen and (max-width: 768px) {
     .footer-section {
       margin-bottom: 20px;
     }
   }
-
  

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title> 
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="stylee.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
@@ -53,72 +53,16 @@
             </div>
         </div>
         <div class="auto">
-            <!-- Add a form element for searching -->
-            <div class="container">
-            <form action="" class="search-bar">
-	<input type="search" name="search" pattern=".*\S.*" required>
-	<button class="search-btn" type="submit">
-		<span>Search</span>
-	</button>
-</form>
-
-            </div>
-            <style>
-                  body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    
-     
-      justify-content: center;
-      align-items: center;
  
-    }
+        <div class="container">
+                <form method="GET" action="">
+                    <i class="fas fa-search"></i>
+                    <input id="search" type="text" name="search" placeholder="Zoek iets" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                    <button class="button" type="submit">Search</button>
+                </form>
+            </div>
 
-    .container {
-      text-align: center;
-    }
-
-    .search-bar {
-      display: inline-block;
-    }
-
-    input[type="search"] {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-right: -1px; /* Fixing a small alignment issue */
-    }
-
-    .search-btn {
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .search-btn:hover {
-      background-color: #45a049;
-    }
-
-    /* Simple animation */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    span {
-      display: inline-block;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-            </style>
+</div>
 
             <div class="voeg-auto">
         <?php
@@ -165,6 +109,30 @@
         ?>
     </div>
 
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Info</h3>
+            <p>Amstelveen</p>
+            <p>E-mail: info@demo.com</p>
+            <p>Tel: 061234567</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Volg ons</h3>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2023 Demo. All rights reserved.</p>
+    </div>
+</footer>
 
 </body>
 </html>
