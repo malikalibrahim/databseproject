@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
     $newUser = new User($name, $adres, $Rijbewijsnummer,$Telefoonnummer, $Emailadres, $Wachtwoord  );
     $userRegistration = new UserRegistration();
-    $userRegistration->registerUser($db, $newUser);
+    $klantID = $userRegistration->registerUser($db, $newUser);
+    $_SESSION['klantID'] = $klantID;
 }
 ?>
 <!DOCTYPE html>

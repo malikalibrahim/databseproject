@@ -14,7 +14,26 @@ class Database {
             die("Database connection failed: " . $e->getMessage());
         }
     }
+    public function selectCarByID($autoID) {
+        try {
+            $autoID = (int)$autoID;
 
+            // Voorbereid statement om SQL Injection te voorkomen
+            $stmt = $this->pdo->prepare("SELECT * FROM $this->carsTable WHERE AutoID = ?");
+            $stmt->execute([$autoID]);
+
+            // Haal de auto-informatie op
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($result) {
+                return $result;
+            } else {
+                return null; // Geen auto gevonden met dit ID
+            }
+        } catch (PDOException $e) {
+            die("Error fetching car information: " . $e->getMessage());
+        }
+    }
     private function validateInput(string $input) : string {
         return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
     }
@@ -196,8 +215,37 @@ class Database {
             die("Search failed: " . $e->getMessage());
         }
     }
+    public function getKlantIDByEmail($email) {
+        $sql = "SELECT KlantID FROM klanten WHERE Emailadres = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$email]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
+        return $result['KlantID'];
+    }
+    public function getPricePerDay($autoID) {
+        $sql = "SELECT Prijs FROM autos WHERE AutoID = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$autoID]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
+        return $result['Prijs'];
+    }
+    
+    public function getCarPrice($autoID) {
+        $sql = "SELECT Prijs FROM autos WHERE AutoID = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$autoID]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $result['Prijs'];
+    }
+    public function addReservering($verhuurdatum, $eindVerhuurdatum, $klantID, $autoID, $totaalBedrag) {
+        $sql = "INSERT INTO verhuringen (Verhuurdatum, endVerhuurdatum, KlantID, AutoID, Huurperiode, Kosten) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$verhuurdatum, $eindVerhuurdatum, $klantID, $autoID, $totaalBedrag]);
+    }
+        
     
 }
 ?>

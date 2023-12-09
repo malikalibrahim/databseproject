@@ -11,7 +11,8 @@ if (isset($_POST['submit'])) {
     $wachtwoord = $_POST['Wachtwoord'];
 
     if ($db->customerLogin($email, $wachtwoord)) {
-        
+      $klantID = $db->getKlantIDByEmail($email);
+      $_SESSION['klantID'] = $klantID;
         $_SESSION['email'] = $email;  
         $_SESSION['rol'];
         header("Location: homepagina.php");
