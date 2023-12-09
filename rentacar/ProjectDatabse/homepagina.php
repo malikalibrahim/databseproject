@@ -9,41 +9,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
-        <ul>
+<nav>
+    <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="dropdown" id="dropdown">
+        <ul class="nav-list">
+
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
-           
-   
-            <?php
-            session_start();
-            include "Database.php";
+        
+        <?php
+        session_start();
+        include "Database.php";
 
-            $db = new Database();
+        $db = new Database();
 
-            if (isset($_SESSION['email'])) {
-                $rol = $db->getRoleByEmail($_SESSION['email']);
+        if (isset($_SESSION['email'])) {
+            $rol = $db->getRoleByEmail($_SESSION['email']);
 
-                if ($rol == 'Admin') {
-                    echo '<li><a href="adminPanel.html">Admin</a></li>';
-                    echo '<li><a href="loguit.php">Uitloggen</a></li>';
-                } else if ($rol == 'medewerker') {
-                    echo '<li><a href="medewerkers.php">Medewerker</a></li>';
-                    echo '<li><a href="loguit.php">Uitloggen</a></li>';
-                } else if ($rol == 0) {
-                    echo '<li>';
-                    echo '<a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">';
-                    echo '<path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>';
-                    echo '</svg></a>';
-                    echo '<li><a href="loguit.php">Uitloggen</a></li>';
-                }
-            } else {
-                echo '<li><a href="login.php">Inloggen</a></li>';
+            if ($rol == 'Admin') {
+                echo '<li><a href="adminPanel.html">Admin</a></li>';
+                echo '<li><a href="loguit.php">Uitloggen</a></li>';
+            } else if ($rol == 'medewerker') {
+                echo '<li><a href="medewerkers.php">Medewerker</a></li>';
+                echo '<li><a href="loguit.php">Uitloggen</a></li>';
+            } else if ($rol == 0) {
+                echo '<li><a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">';
+                echo '<path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>';
+                echo '</svg></a></li>';
+                echo '<li><a href="loguit.php">Uitloggen</a></li>';
             }
-            ?>
-        </ul>
-    </nav>
+        } else {
+            echo '<li><a href="login.php">Inloggen</a></li>';
+        }
+        ?>
+    </ul>
+    </div>
+</nav>
     <div class="contener">
         <div class="hoofdpagina">
             <div class="pagina">
@@ -133,6 +135,22 @@
         <p>&copy; 2023 Demo. All rights reserved.</p>
     </div>
 </footer>
+<script>
+    function scrollDown(amount) {
+        var currentPosition = window.scrollY || window.pageYOffset;
+        var targetPosition = currentPosition + amount;
 
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+    function toggleMenu() {
+    var dropdown = document.getElementById("dropdown");
+    dropdown.classList.toggle("active");
+}
+
+
+</script>
 </body>
 </html>

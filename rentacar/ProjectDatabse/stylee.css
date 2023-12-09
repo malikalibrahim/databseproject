@@ -79,14 +79,14 @@ body{
 
 }
 .pagina{
-    width: 40%;
+    width: 30%;
     height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: start;
     padding-left: 100px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(210, 210, 210);
 }
 .hf-bt{
@@ -120,6 +120,7 @@ nav{
     width: 100%;
     height: 100px;
     display: flex; 
+    justify-content: space-between;
     background-color: black;
     position: fixed;
     
@@ -134,11 +135,11 @@ nav img{
   
 
 }
-ul{
+nav ul{
     display: flex;
     align-items: center;
     justify-content: end;
-    width: 100%;
+    width: 700px;
     height: 100%;
     padding-right: 30px;
     
@@ -199,6 +200,7 @@ input#search {
     background-color: #000000;
     color: white;
     padding: 30px 0;
+    height: 180px;
 
     
   }
@@ -210,6 +212,7 @@ input#search {
     gap: 100px;
     max-width: 1200px;
     margin: 0 auto;
+    height: 100%;
     
   }
   
@@ -301,9 +304,8 @@ body {
 
 /* Responsive styles for the main content */
 .pagina {
-  width: 90%; /* Adjust width for larger screens */
+  width: 40%; /* Adjust width for larger screens */
   max-width: 1200px; /* Set a maximum width to avoid stretching on large screens */
-  margin: 0 auto; /* Center the main content */
   padding: 20px; /* Add padding to the main content */
 }
 
@@ -320,13 +322,9 @@ p, .content {
 }
 
 /* Responsive styles for links */
-a {
-  
-  text-decoration: none; /* Remove underline */
-}
-
-a:hover {
-  text-decoration: underline; /* Add underline on hover */
+.nav-list a {
+  text-decoration: none !important;  /* Remove underline from anchor elements */
+  color: white; /* Set the text color for anchor elements */
 }
 
 /* Responsive styles for buttons */
@@ -367,10 +365,82 @@ img {
   }
 
   .pagina {
-    width: 80%; /* Adjust width for medium screens */
+   width: 50%;
+  }
+  .pagina h1 {
+    text-align: start;/* Adjust width for medium screens */
   }
 }
 
 
 
 
+@media screen and (max-width: 768px) {
+  .pagina {
+    width: 80%;
+   }
+   .pagina h1 {
+    text-align: start;
+   }
+   
+   nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    position: fixed;
+  }
+
+  nav img {
+    padding-top: 14px;
+    padding-left: 15px;
+    width: 100px;
+    height: 70px;
+  }
+
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    padding: 0 15px;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .nav-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .dropdown.active {
+    display: block;
+  }
+
+  .nav-list li {
+    margin-bottom: 15px;
+  }
+}

@@ -9,175 +9,20 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome voor iconen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <style>
-        /* Voeg je bestaande stijlen toe hier */
-
-        body {
-         
-            margin: 0;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 70px 0;
-        }
-        #contact{
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(bg.jpg);
-
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-     color: white;
-        }
-       
-
-        section {
-            padding: 50px 0;
-        }
-
-        footer {
-            background-color: black;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-       
-
-        .navbar-dark .navbar-nav .nav-link {
-            color: white;
-        }
-
-        .navbar-dark .navbar-toggler-icon {
-        
-        }
-
-        a {
-            text-decoration: none;
-            color: white;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #007bff;
-        }
-
-        /* Aanvullende stijlen voor extra secties */
-        .popular-cars {
-            background-color: #f8f9fa;
-            padding: 50px 0;
-        }
-
-        .review {
-            background-color: black;
-            padding: 70px 0;
-        }
-
-        .contact {
-            background-color: #f8f9fa;
-            padding: 50px 0;
-        }
-
-        .icon {
-            font-size: 2em;
-            margin-right: 10px;
-        }
-
-        /* Nieuwe stijlen voor de 2e container met achtergrondafbeelding */
-        .container-2 {
-            background-image: url('rental-car-background.jpg'); /* Vervang met de link naar je eigen afbeelding */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 50px 0;
-        }
-
-        /* Aanvullende stijlen voor sterren */
-        .stars {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .stars:before {
-            content: "\2605\2605\2605\2605\2605";
-            font-size: 24px;
-            color: #FFD700;
-        }
-        .review .card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.review .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-#services{
-    background-color: black;
-    color: black;
-}
-#services h2{
-    color: white;
+    <link rel="stylesheet" href="styleser.css">
     
-}
-nav{
-    width: 100%;
-    height: 100px;
-    display: flex; 
-    background-color: black;
-    position: fixed;
-    z-index: 1;
-    
-    
-}
-nav img{
-    padding-top: 14px;
-    padding-left: 15px;
-    width: 100px;
-    height: 70px;
-    display: flex;  
-  
-
-}
-ul{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    width: 100%;
-    height: 100%;
-    padding-right: 30px;
-    
-    
-}
-a{
-    text-decoration: none;
-    color: white;
-    text-decoration: none;
-}
-ul li {
-    list-style: none;
-    padding-left: 60px;
-    color: white;
-    display: block;
-text-decoration: none;
-}
-
-
-    </style>
 </head>
 
 <body>
 
-    <!-- Navigatiemenu -->
-    <nav>
-         
-      <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
-        <ul>
+<nav>
+    <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="dropdown" id="dropdown">
+        <ul class="nav-list">
+
             <li><a href="homepagina.php">Home</a></li>
-          
-            <li><a href="">Services</a></li>
+            <li><a href="services.php">Services</a></li>
 
             <?php
 session_start();
@@ -210,6 +55,7 @@ echo '<li><a href="loguit.php">Uitloggen</a></li>';
 }
 ?>
         </ul>
+        </div>
     </nav>
 
     <!-- Header met welkomstboodschap -->
@@ -343,12 +189,30 @@ echo '<li><a href="loguit.php">Uitloggen</a></li>';
     <!-- 2e container met achtergrondafbeelding -->
     
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p class="m-0">© 2023 Rent a Car Services</p>
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>Info</h3>
+            <p>Amstelveen</p>
+            <p>E-mail: info@demo.com</p>
+            <p>Tel: 061234567</p>
         </div>
-    </footer>
+
+        <div class="footer-section">
+            <h3>Volg ons</h3>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2023 Demo. All rights reserved.</p>
+    </div>
+</footer>
 
     <!-- Bootstrap JavaScript en afhankelijkheden -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -362,8 +226,23 @@ echo '<li><a href="loguit.php">Uitloggen</a></li>';
             $('html, body').animate({
                 scrollTop: $(targetElement).offset().top
             }, 1000);
-        }
+        } 
+        function scrollDown(amount) {
+        var currentPosition = window.scrollY || window.pageYOffset;
+        var targetPosition = currentPosition + amount;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+    function toggleMenu() {
+    var dropdown = document.getElementById("dropdown");
+    dropdown.classList.toggle("active");
+}
+
     </script>
+ 
 
 </body>
 
