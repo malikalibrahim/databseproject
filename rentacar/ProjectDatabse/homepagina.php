@@ -83,7 +83,7 @@
             // Loop through each car
             foreach ($cars as $car) {
                 // Construct the image URL for each car
-                $imageurl = "fotos/" . $car['image'];
+                $imageurl = "imagess/" . $car['image'];
 
                 echo "<div class='car-details'>";
                 echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
