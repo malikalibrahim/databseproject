@@ -71,7 +71,7 @@ $prijsPerDag = $db->getCarPrice($autoID);
         // Toon de auto-informatie in een div
         echo "<div style='max-width: 400px; margin: 0 auto;'>"; // Hier wordt max-width ingesteld op 400 pixels, je kunt dit aanpassen aan je behoeften
         echo "<h2>{$carInfo['Merk']} {$carInfo['Model']}</h2>";
-        echo "<img src='imagess/{$carInfo['image']}' alt='{$carInfo['Merk']} {$carInfo['Model']}' style='max-width: 100%; height: auto;'>";
+        echo "<img src='images/{$carInfo['image']}' alt='{$carInfo['Merk']} {$carInfo['Model']}' style='max-width: 100%; height: auto;'>";
         echo "<p>Jaar: {$carInfo['Jaar']}</p>";
         echo "<p>Kenteken: {$carInfo['Kenteken']}</p>";
         // Voeg hier andere velden toe
