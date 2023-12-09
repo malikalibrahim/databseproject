@@ -42,7 +42,7 @@ $klantID = $_SESSION['klantID'];
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 0) {
                 
-                echo '<li><a href="reserveerFormulier.php">Reserveeringen</a></li>';
+                echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             }
         } else {
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
              <div class="pagina">
               
-            <div class="ce">  <h1>Reserveeringen</h1>
+            <div class="ce">  <h1>Reserveringen</h1>
        
             <form method="post" action="jouw_php_script.php" >
     <label for="Verhuurdatum">Startdatum verhuur:</label>

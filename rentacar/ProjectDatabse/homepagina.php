@@ -35,7 +35,7 @@
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 0) {
                 
-                echo '<li><a href="reserveerFormulier.php">Reserveeringen</a></li>';
+                echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             }
         } else {
