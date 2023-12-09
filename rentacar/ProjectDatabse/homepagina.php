@@ -34,8 +34,7 @@
                 echo '<li><a href="medewerkers.php">Medewerker</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 0) {
-                
-                echo '<li><a href="reserveerFormulier.php">Reserveeringen</a></li>';
+              
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             }
         } else {
@@ -67,50 +66,50 @@
 
 </div>
 
-<div class="voeg-auto">
-    <?php
-    $db = new Database;
+            <div class="voeg-auto">
+        <?php
+        $db = new Database;
 
-    // Check if the search parameter is set
-    if (isset($_GET['search'])) {
-        // Retrieve information for cars that match the search criteria
-        $cars = $db->searchCars($_GET['search']);
-    } else {
-        // Retrieve information for all cars
-        $cars = $db->selectAllCars();
-    }
-
-    if ($cars) {
-        // Loop through each car
-        foreach ($cars as $car) {
-            // Construct the image URL for each car
-            $imageurl = "fotos/" . $car['image'];
-
-            echo "<div class='car-details'>";
-            echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
-
-            // Display the image with specified height and width
-            echo "<div class='image-container'>";
-            echo "<img class='autoss' src='{$imageurl}' alt='{$car['Merk']} {$car['Model']}'>";
-            echo "</div>"; // Close the image container div
-            echo "<p>Year: {$car['Jaar']}</p>";
-            echo "<p>Kenteken: {$car['Kenteken']}</p>";
-            echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
-            
-            // Add a unique identifier to the button, for example, car ID
-            echo "<div class='add-car-button-container'>";
-            echo "<a href='reserveerFormulier.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
-            echo "</div>";
-            
-            echo "</div>";
+        // Check if the search parameter is set
+        if (isset($_GET['search'])) {
+            // Retrieve information for cars that match the search criteria
+            $cars = $db->searchCars($_GET['search']);
+        } else {
+            // Retrieve information for all cars
+            $cars = $db->selectAllCars();
         }
 
-        echo "</div>";
-    } else {
-        echo "<p>No cars available</p>";
-    }
-    ?>
-</div>
+        if ($cars) {
+            // Loop through each car
+            foreach ($cars as $car) {
+                // Construct the image URL for each car
+                $imageurl = "imagess/" . $car['image'];
+
+                echo "<div class='car-details'>";
+                echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
+
+                // Display the image with specified height and width
+                echo "<div class='image-container'>";
+                echo "<img class='autoss' src='{$imageurl}' alt='{$car['Merk']} {$car['Model']}'>";
+                echo "</div>"; // Close the image container div
+                echo "<p>Year: {$car['Jaar']}</p>";
+                echo "<p>Kenteken: {$car['Kenteken']}</p>";
+                echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
+                
+                // Add a unique identifier to the button, for example, car ID
+                echo "<div class='add-car-button-container'>";
+                echo "<button class='add-car-button' onclick='addToNavigation({$car['AutoID']})'>Add a Car</button>";
+                echo "</div>";
+                
+                echo "</div>";
+            }
+
+            echo "</div>";
+        } else {
+            echo "<p>No cars available</p>";
+        }
+        ?>
+    </div>
 
     <footer class="footer">
     <div class="footer-container">
@@ -151,24 +150,7 @@
     dropdown.classList.toggle("active");
 }
 
-    function fillReservationForm(merk, model, jaar, kenteken) {
-        // You can use JavaScript to populate the form fields with the selected car details
-        document.getElementById('car').value = merk + ' ' + model;
-        document.getElementById('year').value = jaar;
-        document.getElementById('license_plate').value = kenteken;
 
-        // You might want to scroll to the reservation form after filling the details
-        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
-    }
-    function fillReservationForm(merk, model, jaar, kenteken) {
-        // You can use JavaScript to populate the form fields with the selected car details
-        document.getElementById('car').value = merk + ' ' + model;
-        document.getElementById('year').value = jaar;
-        document.getElementById('license_plate').value = kenteken;
-
-        // You might want to scroll to the reservation form after filling the details
-        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
-    }
 
 </script>
 </body>
