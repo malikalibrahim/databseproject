@@ -158,6 +158,15 @@
         // You might want to scroll to the reservation form after filling the details
         document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
     }
+    function fillReservationForm(merk, model, jaar, kenteken) {
+        // You can use JavaScript to populate the form fields with the selected car details
+        document.getElementById('car').value = merk + ' ' + model;
+        document.getElementById('year').value = jaar;
+        document.getElementById('license_plate').value = kenteken;
+
+        // You might want to scroll to the reservation form after filling the details
+        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
+    }
 
 </script>
 </body>
