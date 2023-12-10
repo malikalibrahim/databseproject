@@ -7,7 +7,8 @@ include "Users/user.class.php";
 include "Users/UserRegistration.php";
  
 $db = new Database();
-$klantID = $_SESSION['klantID'];
+if (isset($_SESSION['klantID'])) 
+    $klantID = $_SESSION['klantID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
