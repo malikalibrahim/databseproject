@@ -52,13 +52,14 @@
 
 .add-car-button {
   text-align: end;
-  padding: 10px 20px;
+  padding-right: 10px 20px;
   font-size: 16px;
   background-color: #000000;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+
 }
 
 .add-car-button:hover {
@@ -443,4 +444,7 @@ img {
   .nav-list li {
     margin-bottom: 15px;
   }
+}
+.button-container{
+  padding-right: 40%;
 }

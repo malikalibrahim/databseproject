@@ -2,7 +2,7 @@
 
 class Database {
     private $pdo; 
-
+  
     private $carsTable = "autos";
     
 
@@ -116,17 +116,25 @@ class Database {
     }
     
 
-    public function addCustomer(string $name, string $address, string $licenseNumber, 
-                                string $phoneNumber, string $email) :void {
-        $name = $this->validateInput($name);
-        $address = $this->validateInput($address);
-        $licenseNumber = $this->validateInput($licenseNumber);
-        $phoneNumber = $this->validateInput($phoneNumber);
-        $email = $this->validateInput($email);
-        $sql = "INSERT INTO klanten (Naam, Adres, Rijbewijsnummer, Telefoonnummer, Emailadres) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $address, $licenseNumber, $phoneNumber, $email]);
+    public function addCustomer(string $name, string $address, string $rol, string $licenseNumber, string $phoneNumber, string $email, string $password): void {
+        try {
+            $name = $this->validateInput($name);
+            $address = $this->validateInput($address);
+            $rol = $this->validateInput($rol);
+            $licenseNumber = $this->validateInput($licenseNumber);
+            $phoneNumber = $this->validateInput($phoneNumber);
+            $email = $this->validateInput($email);
+            $password = password_hash($password, PASSWORD_DEFAULT);
+    
+            $sql = "INSERT INTO klanten (Naam, Adres, rol, Rijbewijsnummer, Telefoonnummer, Emailadres, Wachtwoord) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$name, $address, $rol, $licenseNumber, $phoneNumber, $email, $password]);
+    
+        } catch (PDOException $e) {
+            die("Error adding customer: " . $e->getMessage());
+        }
     }
+
 
     public function rentCar($rentDate, $customerID, $carID, $rentPeriod) {
         try {
@@ -248,8 +256,116 @@ class Database {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$verhuurdatum, $eindVerhuurdatum, $klantID, $autoID, $totaalBedrag]);
     }
-        
+    public function editCarWithoutImage($autoID, $merk, $model, $jaar, $kenteken, $beschikbaarheid, $prijs): void {
+        try {
+            // Validate input
+            $autoID = (int) $autoID;
+            $merk = $this->validateInput($merk);
+            $model = $this->validateInput($model);
+            $jaar = (int) $jaar;
+            $kenteken = $this->validateInput($kenteken);
+            $beschikbaarheid = $this->validateInput($beschikbaarheid);
+            $prijs = (float) $prijs;
     
+            // Update car information
+            $sql = "UPDATE $this->carsTable SET Merk = ?, Model = ?, Jaar = ?, Kenteken = ?, Beschikbaarheid = ?, Prijs = ? WHERE AutoID = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$merk, $model, $jaar, $kenteken, $beschikbaarheid, $prijs, $autoID]);
     
-}
+            echo "Auto-informatie (zonder afbeelding) succesvol bijgewerkt.";
+        } catch (PDOException $e) {
+            die("Fout bijwerken auto-informatie: " . $e->getMessage());
+        }
+    }
+    
+    public function editCar($autoID, $image, $merk, $model, $jaar, $kenteken, $beschikbaarheid, $prijs): void {
+        try {
+            // Validate input
+            $autoID = (int) $autoID;
+            $image = $this->validateInput($image);
+            $merk = $this->validateInput($merk);
+            $model = $this->validateInput($model);
+            $jaar = (int) $jaar;
+            $kenteken = $this->validateInput($kenteken);
+            $beschikbaarheid = $this->validateInput($beschikbaarheid);
+            $prijs = (float) $prijs;
+    
+            // Update car information
+            $sql = "UPDATE $this->carsTable SET image = ?, Merk = ?, Model = ?, Jaar = ?, Kenteken = ?, Beschikbaarheid = ?, Prijs = ? WHERE AutoID = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$image, $merk, $model, $jaar, $kenteken, $beschikbaarheid, $prijs, $autoID]);
+    
+            echo "Auto-informatie succesvol bijgewerkt.";
+        } catch (PDOException $e) {
+            die("Fout bijwerken auto-informatie: " . $e->getMessage());
+        }
+    }
+    public function deleteCar($autoID): bool {
+        try {
+            // Validate input
+            $autoID = (int) $autoID;
+    
+            // Delete car from the database
+            $sql = "DELETE FROM $this->carsTable WHERE AutoID = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $success = $stmt->execute([$autoID]);
+    
+            return $success;
+        } catch (PDOException $e) {
+            die("Fout bij verwijderen auto: " . $e->getMessage());
+        }
+    }
+    public function addAdminUser($name, $email, $password, $address, $licenseNumber, $phoneNumber) : void {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO admins (Name, Address, LicenseNumber, Email, PhoneNumber, Password) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$name, $address, $licenseNumber, $email, $phoneNumber, $hashedPassword]);
+    }
+
+    // Add a new method to edit an admin user
+    public function editAdminUser($adminID, $name, $email, $address, $licenseNumber, $phoneNumber) {
+        try {
+            // Validate input
+            $adminID = (int) $adminID;
+            $name = $this->validateInput($name);
+            $email = $this->validateInput($email);
+            $address = $this->validateInput($address);
+            $licenseNumber = $this->validateInput($licenseNumber);
+            $phoneNumber = $this->validateInput($phoneNumber);
+
+            // Update admin user information
+            $sql = "UPDATE admins SET Name = ?, Address = ?, LicenseNumber = ?, Email = ?, PhoneNumber = ? WHERE AdminID = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$name, $address, $licenseNumber, $email, $phoneNumber, $adminID]);
+
+            echo "Admin Gebruikerinformatie succesvol bijgewerkt.";
+        } catch (PDOException $e) {
+            die("Fout bijwerken admin gebruikerinformatie: " . $e->getMessage());
+        }
+    }
+    public function fetchAllCustomers() {
+        try {
+            $sql = "SELECT * FROM klanten";
+            $stmt = $this->pdo->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Error fetching customers: " . $e->getMessage());
+        }
+    }
+
+    public function selectklanten() {
+        try {
+            $sql = "SELECT * FROM klanten";
+            $stmt = $this->pdo->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Error fetching customers: " . $e->getMessage());
+        }
+    }
+}    
+    
+
+    
+
 ?>

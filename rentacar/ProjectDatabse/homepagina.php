@@ -31,7 +31,7 @@
                 echo '<li><a href="admin_panel.php">Admin</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 'medewerker') {
-                echo '<li><a href="medewerkers.php">Medewerker</a></li>';
+                echo '<li><a href="admin_panel.php">Medewerker</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 0) {
                 
@@ -90,17 +90,19 @@
             echo "</div>";
             echo "<p>Year: {$car['Jaar']}</p>";
             echo "<p>Kenteken: {$car['Kenteken']}</p>";
-            echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
+            echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}";
     
             echo "<div class='add-car-button-container'>";
     
-            // Check if the user is an admin
-            if ($rol == 'Admin') {
-                // Provide a link or handle the edit functionality for admins
+            // Check if the user is an admin or medewerker
+            if ($rol == 'Admin' || $rol == 'medewerker') {
+                // Provide a link for admins/medewerkers to edit the car
+                
                 echo "<a href='editCar.php?id={$car['AutoID']}' class='add-car-button'>bewerken</a>";
+                // Provide additional functionality for admins/medewerkers, e.g., reserve or delete
                 echo "<a href='DeleteCar.php?id={$car['AutoID']}' class='add-car-button'>verwijder</a>";
             } else {
-                // For non-admin users, show the "Add a Car" button
+                // For non-admin and non-medewerker users, show the "Add a Car" button
                 echo "<a href='reserveerFormulier.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
             }
     
@@ -108,7 +110,7 @@
             echo "</div>";
         }
     }
-    
+
     ?>
 </div>
 
