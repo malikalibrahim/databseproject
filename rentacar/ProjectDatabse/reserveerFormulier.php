@@ -180,32 +180,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
   // Voeg een event listener toe voor het veranderen van de datums
-  document.getElementById('reserveringFormulier').addEventListener('input', function() {
-        // Haal de geselecteerde datums op
-        const startDatum = new Date(document.getElementsByName("Verhuurdatum")[0].value);
-        const eindDatum = new Date(document.getElementsByName("endVerhuurdatum")[0].value);
+  document.addEventListener('DOMContentLoaded', function() {
+            // Haal de geselecteerde datums op
+            const startDatumInput = document.getElementsByName("Verhuurdatum")[0];
+            const eindDatumInput = document.getElementsByName("endVerhuurdatum")[0];
 
-        // Bereken het aantal dagen tussen de datums
-        const verschilInTijd = eindDatum.getTime() - startDatum.getTime();
-        const aantalDagen = verschilInTijd / (1000 * 3600 * 24);
+            // Voeg event listeners toe voor het veranderen van de datums
+            startDatumInput.addEventListener('input', updateTotaalBedrag);
+            eindDatumInput.addEventListener('input', updateTotaalBedrag);
 
-        // Haal de prijs per dag op uit de database via een AJAX-verzoek
-        const autoID = document.getElementsByName("AutoID")[0].value;
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                const prijsPerDag = parseFloat(this.responseText);
-                
-                // Bereken de totale kosten
-                const totaalBedrag = prijsPerDag * aantalDagen;
+            function updateTotaalBedrag() {
+                // Haal de geselecteerde datums op
+                const startDatum = new Date(startDatumInput.value);
+                const eindDatum = new Date(eindDatumInput.value);
 
-                // Update het veld in het formulier
-                document.getElementsByName("totaalBedrag")[0].value = totaalBedrag.toFixed(2);
+                // Controleer of de datums geldig zijn
+                if (!isNaN(startDatum.getTime()) && !isNaN(eindDatum.getTime())) {
+                    // Bereken het aantal dagen tussen de datums
+                    const verschilInTijd = eindDatum.getTime() - startDatum.getTime();
+                    const aantalDagen = verschilInTijd / (1000 * 3600 * 24);
+
+                    // Haal de prijs per dag op uit de database via een AJAX-verzoek
+                    const autoID = document.getElementsByName("AutoID")[0].value;
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                const prijsPerDag = parseFloat(this.responseText);
+                                
+                                // Bereken de totale kosten
+                                const totaalBedrag = prijsPerDag * aantalDagen;
+
+                                // Update het veld in het formulier
+                                document.getElementsByName("totaalBedrag")[0].value = totaalBedrag.toFixed(2);
+                            } else {
+                                console.error("Er is een probleem opgetreden bij het ophalen van de prijs per dag.");
+                            }
+                        }
+                    };
+                    xhttp.open("GET", "getPrijsPerDag.php?autoID=" + autoID, true);
+                    xhttp.send();
+                } else {
+                    console.error("Ongeldige datums ingevoerd.");
+                }
             }
-        };
-        xhttp.open("GET", "getPrijsPerDag.php?autoID=" + autoID, true);
-        xhttp.send();
-    });
+
+            // Roep de functie updateTotaalBedrag aan bij het laden van de pagina
+            updateTotaalBedrag();
+        }); 
 </script>
 </body>
 </html>

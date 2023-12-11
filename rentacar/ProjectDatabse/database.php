@@ -102,16 +102,19 @@ class Database {
         return ($user && password_verify($password, $user['Wachtwoord']));
     }
 
-    public function addCar($brand, $model, $year, $licensePlate, $availability) : void {
+    public function addCar($brand, $model, $year, $licensePlate, $availability, $price, $image) : void {
         $brand = $this->validateInput($brand);
         $model = $this->validateInput($model);
         $year = $this->validateInput($year);
         $licensePlate = $this->validateInput($licensePlate);
         $availability = $this->validateInput($availability);
-        $sql = "INSERT INTO $this->carsTable (Merk, Model, Jaar, Kenteken, Beschikbaarheid) VALUES (?, ?, ?, ?, ?)";
+        $price = $this->validateInput($price);
+        $image = $this->validateInput($image);
+        $sql = "INSERT INTO $this->carsTable (Merk, Model, Jaar, Kenteken, Beschikbaarheid, Prijs, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$brand, $model, $year, $licensePlate, $availability]);
+        $stmt->execute([$brand, $model, $year, $licensePlate, $availability, $price, $image]);
     }
+    
 
     public function addCustomer(string $name, string $address, string $licenseNumber, 
                                 string $phoneNumber, string $email) :void {
@@ -246,6 +249,7 @@ class Database {
         $stmt->execute([$verhuurdatum, $eindVerhuurdatum, $klantID, $autoID, $totaalBedrag]);
     }
         
+    
     
 }
 ?>

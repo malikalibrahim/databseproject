@@ -28,7 +28,7 @@
             $rol = $db->getRoleByEmail($_SESSION['email']);
 
             if ($rol == 'Admin') {
-                echo '<li><a href="adminPanel.html">Admin</a></li>';
+                echo '<li><a href="admin_panel.php">Admin</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 'medewerker') {
                 echo '<li><a href="medewerkers.php">Medewerker</a></li>';
@@ -67,7 +67,6 @@
 
 <div class="voeg-auto">
     <?php
-    $db = new Database;
 
     // Check if the search parameter is set
     if (isset($_GET['search'])) {
@@ -79,34 +78,37 @@
     }
 
     if ($cars) {
-        // Loop through each car
-        foreach ($cars as $car) {
-            // Construct the image URL for each car
-            $imageurl = "images/" . $car['image'];
+        $rol = $db->getRoleByEmail($_SESSION['email']);
 
+        foreach ($cars as $car) {
+            $imageurl = "images/" . $car['image'];
+    
             echo "<div class='car-details'>";
             echo "<h2>{$car['Merk']} {$car['Model']}</h2>";
-
-            // Display the image with specified height and width
             echo "<div class='image-container'>";
             echo "<img class='autoss' src='{$imageurl}' alt='{$car['Merk']} {$car['Model']}'>";
-            echo "</div>"; // Close the image container div
+            echo "</div>";
             echo "<p>Year: {$car['Jaar']}</p>";
             echo "<p>Kenteken: {$car['Kenteken']}</p>";
             echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}</p>";
-            
-            // Add a unique identifier to the button, for example, car ID
+    
             echo "<div class='add-car-button-container'>";
-            echo "<a href='reserveerFormulier.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
+    
+            // Check if the user is an admin
+            if ($rol == 'Admin') {
+                // Provide a link or handle the edit functionality for admins
+                echo "<a href='editCar.php?id={$car['AutoID']}' class='add-car-button'>bewerken</a>";
+                echo "<a href='DeleteCar.php?id={$car['AutoID']}' class='add-car-button'>verwijder</a>";
+            } else {
+                // For non-admin users, show the "Add a Car" button
+                echo "<a href='reserveerFormulier.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
+            }
+    
             echo "</div>";
-            
             echo "</div>";
         }
-
-        echo "</div>";
-    } else {
-        echo "<p>No cars available</p>";
     }
+    
     ?>
 </div>
 
