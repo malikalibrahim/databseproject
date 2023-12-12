@@ -100,7 +100,7 @@
                 
                 echo "<a href='editCar.php?id={$car['AutoID']}' class='add-car-button'>bewerken</a>";
                 // Provide additional functionality for admins/medewerkers, e.g., reserve or delete
-                echo "<a href='DeleteCar.php?id={$car['AutoID']}' class='add-car-button'>verwijder</a>";
+                echo "<a href='DeleteCar.php?id={$car['AutoID']}' class='add-car-button2'>verwijder</a>";
             } else {
                 // For non-admin and non-medewerker users, show the "Add a Car" button
                 echo "<a href='reserveerFormulier.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";

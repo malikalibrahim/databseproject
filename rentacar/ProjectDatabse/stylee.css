@@ -51,19 +51,39 @@
 
 
 .add-car-button {
-  text-align: end;
+ 
   padding-right: 10px 20px;
   font-size: 16px;
-  background-color: #000000;
+  background-color: #3c5297;
   color: #fff;
-  border: none;
-  border-radius: 5px;
+  padding: 7px;
+  border-radius: 6px;
+ 
+  cursor: pointer;
+
+}
+.add-car-button2 {
+ 
+  padding-right: 10px 20px;
+  font-size: 16px;
+  background-color: #7f2d2d;
+  color: #fff;
+  padding: 7px;
+  border-radius: 6px;
+ 
   cursor: pointer;
 
 }
 
 .add-car-button:hover {
-  background-color: #545454;
+  background-color: #16602d;
+}
+.add-car-button2:hover {
+  background-color: #691212;
+}
+.add-car-button-container{
+  display: flex;
+  justify-content: space-between;
 }
 body{
     padding: 0;
