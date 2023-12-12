@@ -6,7 +6,7 @@ include 'database.php'; // Replace with the actual file name
 $database = new Database();
 
 // Fetch customers for display
-$customers = $database->fetchAllCustomers();
+$customers = $database->selectklanten();
 ?>
 
 <!DOCTYPE html>

@@ -356,7 +356,7 @@ class Database {
 
     public function selectklanten() {
         try {
-            $sql = "SELECT * FROM klanten";
+            $sql = "SELECT * FROM klanten WHERE rol = '0' OR rol = 'medewerker'";
             $stmt = $this->pdo->query($sql);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
