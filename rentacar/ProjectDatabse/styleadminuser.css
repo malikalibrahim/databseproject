@@ -157,3 +157,12 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 }
+
+.containerr{
+    width:95%;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
