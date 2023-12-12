@@ -5,6 +5,25 @@ include 'database.php'; // Replace with the actual file name
 // Create an instance of the Database class
 $database = new Database();
 
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addCustomer'])) {
+    // Retrieve form data
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $rol = $_POST['rol'];
+    $licenseNumber = $_POST['licenseNumber'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Add customer to the database
+    $database->addCustomer($name, $address, $rol, $licenseNumber, $phoneNumber, $email, $password);
+
+    // Redirect to the same page to prevent form resubmission on page refresh
+    header("Location: {$_SERVER['PHP_SELF']}");
+    exit();
+}
+
 // Fetch customers for display
 $customers = $database->fetchAllCustomers();
 ?>
