@@ -59,6 +59,18 @@ if (isset($_SESSION['klantID']))
        
       <div class=" car-details">
       <?php
+      if (isset($_SESSION['klantID'])) {
+        $klantID = $_SESSION['klantID'];
+    
+        // Haal facturen op voor de klant
+        $facturen = $db->queryForCustomer("SELECT * FROM facturen WHERE KlantID = :klantID", ['klantID' => $klantID]);
+       
+        
+    } else {
+        // Als de klant niet is ingelogd, stuur ze naar de inlogpagina
+        header("Location: login.php");
+        exit();
+    }
 if (isset($_GET['id'])) {
     $autoID = $_GET['id'];
     $carInfo = $db->selectCarByID($autoID);
