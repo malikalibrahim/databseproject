@@ -46,6 +46,21 @@ class Database {
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function deleteCustomer($klantID): bool {
+        try {
+            // Validate input
+            $klantID = (int) $klantID;
+    
+            // Verwijder klant uit de database
+            $sql = "DELETE FROM klanten WHERE KlantID = :KlantID";
+            $stmt = $this->pdo->prepare($sql);
+            $success = $stmt->execute(['KlantID' => $klantID]);
+    
+            return $success;
+        } catch (PDOException $e) {
+            die("Fout bij het verwijderen van de klant: " . $e->getMessage());
+        }
+    }
     
     
     private function validateInput(string $input) : string {
@@ -290,6 +305,29 @@ class Database {
     
         return $result['Prijs'];
     }
+    public function editUser($klantID, $name, $address, $rol, $licenseNumber, $phoneNumber, $email, $password): bool {
+        try {
+            // Validate input
+            $klantID = (int)$klantID;
+            $name = $this->validateInput($name);
+            $address = $this->validateInput($address);
+            $rol = $this->validateInput($rol);
+            $licenseNumber = $this->validateInput($licenseNumber);
+            $phoneNumber = $this->validateInput($phoneNumber);
+            $email = $this->validateInput($email);
+            $password = password_hash($password, PASSWORD_DEFAULT);
+    
+            // Update gebruikersinformatie
+            $sql = "UPDATE klanten SET Naam = ?, Adres = ?, rol = ?, Rijbewijsnummer = ?, Telefoonnummer = ?, Emailadres = ?, Wachtwoord = ? WHERE KlantID = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $success = $stmt->execute([$name, $address, $rol, $licenseNumber, $phoneNumber, $email, $password, $klantID]);
+    
+            return $success;
+        } catch (PDOException $e) {
+            die("Fout bijwerken gebruikersinformatie: " . $e->getMessage());
+        }
+    }
+    
     public function addReservering($verhuurdatum, $eindVerhuurdatum, $klantID, $autoID, $totaalBedrag) {
         $sql = "INSERT INTO verhuringen (Verhuurdatum, endVerhuurdatum, KlantID, AutoID, Huurperiode, Kosten) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);

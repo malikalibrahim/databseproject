@@ -153,7 +153,7 @@ if (isset($_SESSION['klantID'])) {
     .car-details {
         padding: 20px;
     
-        width: 100%;
+        width: 80%;
         text-align: center;
     }
 

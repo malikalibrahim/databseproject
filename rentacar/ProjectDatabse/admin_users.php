@@ -118,8 +118,8 @@ $customers = $database->fetchAllCustomers();
                                 <td ><?= $customer['Wachtwoord'] ?></td>
                                 <td>
                                     <div class="btn-group">
-                                        <button type="button" class="btn-sm"><a href="">Edit</a></button>
-                                        <button type="button" class="btn-sms"><a href="">Delete</a></button>
+                                        <button type="button" class="btn-sm"><a href="edit_customer.php?id=<?= $customer['KlantID'] ?>">Edit</a></button>
+                                        <button type="button" class="btn-sms"><a href="update_customer.php?id=<?= $customer['KlantID'] ?>">Delete</a></button>
                                     </div>
                                 </td>
                             </tr>

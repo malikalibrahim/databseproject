@@ -6,18 +6,18 @@ body{
   
 }
 .hoofdpagina{
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(achtergrondhoofdpagina.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(black-sports-cars-in-autumn-3emz4gcsbzabsn9u.jpg);
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover; 
-  height: 985px;
+  height: 940px;
   display: flex;
   justify-content: center;
   align-items: center;
 
 }
 .pagina {
-  background-color: rgba(0, 0, 0, 0.317);
+  background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(20px);
   width: 600px;
   height: 650px;
@@ -72,25 +72,44 @@ input {
   margin-top: 5px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
 }
 
+/* Basisstijl voor de knop */
+/* Basisstijlen voor de submitknop */
 input[type="submit"] {
-  background-color: #4caf50;
+  background-color: #0b0b0b;
   color: #fff;
   cursor: pointer;
+  padding: 10px 20px; /* Optioneel: voeg wat vulling toe voor een betere uitstraling */
+  border: none; /* Verwijder de standaardrand */
+  border-radius: 5px; /* Voeg wat afgeronde hoeken toe */
+  transition: background-color 0.3s ease; /* Voeg een overgang toe voor een vloeiende verandering van achtergrondkleur */
 }
+
+/* Stijlen voor de submitknop bij hover */
+input[type="submit"]:hover {
+  background-color: #000000;
+  color: #fff;
+  transform: scale(1.05); /* Optioneel: voeg een schaal toe bij hover voor een subtiele vergrotingseffect */
+}
+
+
 
 a {
-  color: #2196F3;
-  text-decoration: none !important;
-  display: block;
-  margin-top: 10px;
+  padding-top: 6px;
+  text-decoration: none;
+  color: #ffffff;
 }
 
+/* Stijlen voor de link bij hover */
 a:hover {
   text-decoration: underline;
+  color: white;
+}
+nav a:hover{
+  text-decoration: none;
 }
 
 
