@@ -4,17 +4,17 @@ include 'database.php';
 $database = new Database();
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
-    $klantID = $_GET['id'];
+    $autoID = $_GET['id'];
 
-    // Verwijder de gebruiker
-    $success = $database->deleteUser($klantID);
+    // Verwijder de auto
+    $success = $database->deleteCar($autoID);
 
     if ($success) {
-        // Redirect terug naar de pagina met gebruikerslijst na succesvol verwijderen
-        header("Location: medewerker_panel.php");
+        // Redirect terug naar de pagina met autolijst na succesvol verwijderen
+        header("Location: homepagina.php");
         exit();
     } else {
-        echo "Fout bij het verwijderen van de gebruiker.";
+        echo "Fout bij het verwijderen van de auto.";
     }
 } else {
     echo "Ongeldige toegang tot deze pagina.";
