@@ -27,7 +27,7 @@ if (isset($_SESSION['klantID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title> 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="stylefacturennnn.css">
+    <link rel="stylesheet" href="stylefacc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
@@ -172,7 +172,6 @@ if (isset($_SESSION['klantID'])) {
 
      {
         backdrop-filter: blur(30px);
-     
         color: white;
         display: block;
         height: 150px;
@@ -202,22 +201,35 @@ if (isset($_SESSION['klantID'])) {
         margin-bottom: 10px;
         padding: 8px;
     }
+    .car-details{
+        backdrop-filter: blur(30px);
+     text-align: center;
+     color: white;
+     display: block;
+     height: 80px;
+     margin-bottom: 10px;
+     padding: 8px;
+    }
 
 </style>
 <div class="hoofdpagina" >
-   <?php
-       if (!$facturen) {
-        // Toon de auto-informatie in een div
-        echo "<div  class='car-details style='max-width: 400px; margin: 0 auto;'>"; // Hier wordt max-width ingesteld op 400 pixels, je kunt dit aanpassen aan je behoeften
-        echo "<h2>Je hebt nog geen facaturen!</h2>";
-        // Voeg hier andere velden toe
-        echo "</div>";
-       }
+<?php
+if ($facturen) {
+    // Toon het formulier voor facturen alleen als er bestellingen zijn
+    
+    echo "<style>.car-details { display: none; }</style>";
+  
+} else {
+    // Verberg het formulier als er geen bestellingen zijn
+    echo "<style>.factuur { display: none; }</style>";
+    // Toon een bericht als er geen bestellingen zijn
+    echo "<div class='car-details' style='max-width: 400px; margin: 0 auto;'>";
+    echo "<h2>Je hebt nog geen facturen!</h2>";
+    // Voeg hier andere velden toe
+    echo "</div>";
+}
+?>
 
-   
-   
-   
-   ?>
         <div class="factuur">
           
             <ul>
