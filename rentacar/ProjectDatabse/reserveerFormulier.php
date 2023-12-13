@@ -16,7 +16,7 @@ if (isset($_SESSION['klantID']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo</title> 
-     <link rel="stylesheet" href="stylereserveeringg.css">
+     <link rel="stylesheet" href="stylereserveering.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
@@ -78,10 +78,10 @@ $prijsPerDag = $db->getCarPrice($autoID);
         // Voeg hier andere velden toe
         echo "</div>";
     } else {
-        echo "<p>Geen auto gevonden met dit ID.</p>";
+      
     }
 } else {
-    echo "<p>Auto ID niet opgegeven.</p>";
+    echo "<p>Voeg een Auto toe!</p>";
 }
 
 $totaalBedrag = 0.00; // Initialiseer de variabele
@@ -112,29 +112,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     </div>      
-        <form action="" method="POST">
-            
-             <div class="pagina">
+        
+             <form method="post" action="factuurpagina.php" <?php if (!isset($autoID) || empty($autoID)) echo 'style="display: none;"'; ?>> >
+             <div class="pagina" >
               
             <div class="ce">  <h1>Reserveringen</h1>
        
-            <form method="post" action="jouw_php_script.php" >
-    <label for="Verhuurdatum">Startdatum verhuur:</label>
-    <input type="date" name="Verhuurdatum" required>
+           
+            <label for="Verhuurdatum">Startdatum verhuur:</label>
+            <input type="date" id="Verhuurdatum" name="Verhuurdatum" oninput="calculateAndDisplay()" required>
 
-    <label for="endVerhuurdatum">Einddatum verhuur:</label>
-    <input type="date" name="endVerhuurdatum" required>
+            <label for="endVerhuurdatum">Einddatum verhuur:</label>
+            <input type="date" id="endVerhuurdatum" name="endVerhuurdatum" oninput="calculateAndDisplay()" required>
 
-    <label for="KlantID">Klant ID:</label>
-    <input type="text" name="KlantID" readonly required value="<?php echo $klantID; ?>" >
+            <label for="KlantID">Klant ID:</label>
+            <input type="text" id="KlantID" name="KlantID" readonly required value="<?php echo $klantID; ?>">
 
-    <label for="AutoID">Auto ID:</label>
-    <input type="text" name="AutoID" readonly required value="<?php echo $autoID; ?>">
+            <label for="AutoID">Auto ID:</label>
+            <input type="text" id="AutoID" name="AutoID" readonly required value="<?php if (isset($autoID)){echo $autoID;
+            if ($autoID){
+                
+            }} ?>">
 
-    <label for="totaalBedrag">Totaal bedrag:</label>
-            <input type="text" name="totaalBedrag" value="<?php echo number_format($totaalBedrag, 2); ?>" readonly>
-   <div class=" button-container"> <button type="submit">Boeken</button><button type="submit">berekenprijs</button>
-            </div></div></div>
+            <label for="totaalBedrag">Totaal bedrag:</label>
+            <input type="text" id="totaalBedrag" name="totaalBedrag" readonly>
+
+            <div class="button-container">
+                <button type="submit">Boeken</button>
+            </div>
+            </div></div>
         </form>
     
     </div>
@@ -228,6 +234,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Roep de functie updateTotaalBedrag aan bij het laden van de pagina
             updateTotaalBedrag();
         }); 
+     
+        function calculateAndDisplay() {
+        let verhuurdatum = document.getElementById("Verhuurdatum").value.trim();
+        let endVerhuurdatum = document.getElementById("endVerhuurdatum").value.trim();
+
+        // Perform date validation if needed
+
+        let startDatum = new Date(verhuurdatum);
+        let eindDatum = new Date(endVerhuurdatum);
+        let verschil = Math.ceil((eindDatum - startDatum) / (1000 * 60 * 60 * 24)); // Calculate difference in days
+
+        // Assume $prijsPerDag is available in your PHP script
+        let prijsPerDag = <?php echo $prijsPerDag; ?>;
+
+        // Calculate totaalBedrag
+        let totaalBedrag = prijsPerDag * verschil;
+
+        // Display totaalBedrag in the input field
+        document.getElementById("totaalBedrag").value = totaalBedrag.toFixed(2);
+}
+</script>
 </script>
 </body>
 </html>

@@ -17,6 +17,7 @@
 
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
+            <li><a href="facaturen.php">Facaturen</a></li>
         
         <?php
         session_start();
@@ -67,14 +68,18 @@
 
 <div class="voeg-auto">
     <?php
-
+if ($rol == 'Admin') {
+     $cars = $db->selectadminAllCars();
+} else {
+   $cars = $db->selectAllCars();
+}
     // Check if the search parameter is set
-    if (isset($_GET['search'])) {
+    if (isset($_GET['search'])){
         // Retrieve information for cars that match the search criteria
         $cars = $db->searchCars($_GET['search']);
     } else {
         // Retrieve information for all cars
-        $cars = $db->selectAllCars();
+       
     }
 
     if ($cars) {
@@ -97,11 +102,12 @@
             // Check if the user is an admin or medewerker
             if ($rol == 'Admin' || $rol == 'medewerker') {
                 // Provide a link for admins/medewerkers to edit the car
-                
+                $cars = $db->selectadminAllCars();
                 echo "<a href='editCar.php?id={$car['AutoID']}' class='add-car-button'>bewerken</a>";
                 // Provide additional functionality for admins/medewerkers, e.g., reserve or delete
                 echo "<a href='DeleteCar.php?id={$car['AutoID']}' class='add-car-button2'>verwijder</a>";
             } else {
+                $cars = $db->selectAllCars();
                 // For non-admin and non-medewerker users, show the "Add a Car" button
                 echo "<a href='reserveerFormulier.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
             }

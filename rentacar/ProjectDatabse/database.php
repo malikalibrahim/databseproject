@@ -1,7 +1,7 @@
 <?php
 
 class Database {
-    private $pdo; 
+    public $pdo; 
   
     private $carsTable = "autos";
     
@@ -34,13 +34,22 @@ class Database {
             die("Error fetching car information: " . $e->getMessage());
         }
     }
-    private function validateInput(string $input) : string {
-        return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
-    }
+
     public function selectAllCars() {
+        $sql = "SELECT * FROM $this->carsTable WHERE Beschikbaarheid = 0 ";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+   
+    public function selectadminAllCars() {
         $sql = "SELECT * FROM $this->carsTable";
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    
+    private function validateInput(string $input) : string {
+        return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
     }
     public function createCustomerAccount($name, $email, $password, $address,  $licenseNumber, $phoneNumber,) : void {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -242,7 +251,37 @@ class Database {
     
         return $result['Prijs'];
     }
+    public function getCustomerByID($klantID) {
+        $query = "SELECT * FROM klanten WHERE KlantID = :klantID";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':klantID', $klantID);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     
+    public function query($sql, $params = []) {
+        $stmt = $this->pdo->prepare($sql);
+
+        foreach ($params as $key => $value) {
+            $stmt->bindValue(":$key", $value);
+        }
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function queryForCustomer($sql, $params = []) {
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Query failed: " . $e->getMessage();
+        }
+    }
+  
+
     public function getCarPrice($autoID) {
         $sql = "SELECT Prijs FROM autos WHERE AutoID = ?";
         $stmt = $this->pdo->prepare($sql);
@@ -306,15 +345,16 @@ class Database {
             $autoID = (int) $autoID;
     
             // Delete car from the database
-            $sql = "DELETE FROM $this->carsTable WHERE AutoID = ?";
+            $sql = "DELETE FROM $this->carsTable WHERE AutoID = :AutoID";
             $stmt = $this->pdo->prepare($sql);
-            $success = $stmt->execute([$autoID]);
+            $success = $stmt->execute(['AutoID' => $autoID]);
     
             return $success;
         } catch (PDOException $e) {
             die("Fout bij verwijderen auto: " . $e->getMessage());
         }
     }
+    
     public function addAdminUser($name, $email, $password, $address, $licenseNumber, $phoneNumber) : void {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
