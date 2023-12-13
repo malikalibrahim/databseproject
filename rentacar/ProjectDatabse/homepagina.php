@@ -55,6 +55,7 @@
                 <h1>Welkom bij Demo - Jouw Betrouwbare Partner in Auto's</h1>
                 <p>Bij Demo zijn we gepassioneerd over het leveren van uitzonderlijke auto-ervaringen. Als een toonaangevende speler in de industrie zijn we trots op het aanbieden van een gevarieerd assortiment hoogwaardige voertuigen en diensten die aansluiten bij de unieke behoeften en voorkeuren van onze gewaardeerde klanten.</p>
                 <button class="hf-bt" onclick="scrollDown(890)">Ontdek onze acties</button>
+                
             </div>
         </div>
         <div class="auto">
