@@ -6,23 +6,6 @@ include "Users/UserRegistration.php";
 
 $db = new Database();
 
-if (isset($_POST['submit'])) {
-    $email = $_POST['Emailadres'];
-    $wachtwoord = $_POST['Wachtwoord'];
-
-    if ($db->customerLogin($email, $wachtwoord)) {
-      $klantID = $db->getKlantIDByEmail($email);
-      $_SESSION['klantID'] = $klantID;
-        $_SESSION['email'] = $email;  
-        $_SESSION['rol'];
-        header("Location: homepagina.php");
-        exit();
-    } else {
-        
-        echo "Login failed. Invalid email or password.";
-    }
-}
-
 
 ?>
 
@@ -68,6 +51,30 @@ if (isset($_POST['submit'])) {
 
             <input type="submit" name="submit">
             <a href="registreren.php">Geen acccount? registreer hier!</a>
+            <?php
+
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['Emailadres'];
+    $wachtwoord = $_POST['Wachtwoord'];
+
+    if ($db->customerLogin($email, $wachtwoord)) {
+      $klantID = $db->getKlantIDByEmail($email);
+      $_SESSION['klantID'] = $klantID;
+        $_SESSION['email'] = $email;  
+        $_SESSION['rol'];
+        header("Location: homepagina.php");
+        exit();
+    } else {
+        
+        echo '<p style="color: red;">Ongeldig e-mailadres of wachtwoord!</p>';
+
+
+    }
+}
+
+
+?>
         </div></div>
         </form>
     
