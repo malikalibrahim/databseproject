@@ -4,57 +4,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Admin Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #2c3e50;
+            color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            padding-left: 20px;
+            position: fixed;
+            z-index: 1;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #sidebar a {
+            padding: 15px;
+            display: block;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #sidebar a:hover {
+            background-color: #34495e;
+        }
+
+        #menu-icon {
+            cursor: pointer;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            position: fixed;
+            z-index: 2;
+            
+            transition: margin-left 0.5s;
+        }
+
+        #menu-icon i {
+            font-size: 24px;
+        }
+
+        .content {
+            transition: margin-left 0.5s;
+            padding: 16px;
+            flex-grow: 1;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            margin: 10px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        .add-car-button {
+            background-color: #27ae60;
+        }
+
+        .card {
+            margin: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            #sidebar {
+                width: 0;
+            }
+
+            #menu-icon {
+                margin-left: 0;
+                
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            #menu-icon i {
+                display: none;
+            }
+        }
+    </style>
 </head>
-<style>/* adminpanel.css */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-    padding: 20px;
-    background-color: #fff;
-    margin: 0;
-}
-
-a {
-    display: block;
-    padding: 10px;
-    margin: 10px;
-    background-color: #3498db;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-a:hover {
-    background-color: #2980b9;
-}
-
-.add-car-button {
-    background-color: #27ae60;
-}
-</style>
 <body>
-    <h1>Admin Panel</h1>
+    <div id="sidebar">
+        <a href="#" onclick="toggleNav()"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="add_car.php"><i class="fas fa-car"></i> Add New Car</a>
+        <a href="admin_users.php"><i class="fas fa-user"></i> Add User</a>
+        <a href="reserveeringenmedewerker.php"><i class="fas fa-calendar"></i> Reservations</a>
+        <a href="beschikbaar.php" class="add-car-button"><i class="fas fa-calendar-check"></i> Availability</a>
+        <!-- Add other links as needed -->
+    </div>
 
-    <!-- Voeg een link toe naar het formulier om een nieuwe auto toe te voegen -->
-    <a href="add_car.php">Voeg een nieuwe auto toe</a>
-    <a href="admin_users.php">Voeg een user toe</a>
-    <a href="reserveeringenmedewerker.php">Reserveeringen</a>
-    <?php 
-    echo "<a href=beschikbaar.php class='add-car-button'>Beschikbaarheid aanpasen</a>";
+    <div id="menu-icon" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
 
-;?>
-    <!-- Voeg andere adminpanel-inhoud toe zoals nodig -->
+    <div class="content">
+        <h1>Admin Dashboard</h1>
+        <!-- Your dashboard content goes here -->
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <script>
+        function toggleNav() {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.getElementById("content");
+            var menuIcon = document.getElementById("menu-icon");
+
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                content.style.marginLeft = "0";
+                menuIcon.style.marginLeft = "0";
+            } else {
+                sidebar.style.width = "250px";
+                content.style.marginLeft = "250px";
+                menuIcon.style.marginLeft = "250px";
+            }
+        }
+    </script>
 </body>
 
 </html>
