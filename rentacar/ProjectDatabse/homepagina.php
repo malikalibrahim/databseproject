@@ -17,7 +17,7 @@
 
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
-            <li><a href="facaturen.php">Facaturen</a></li>
+           
         
         <?php
         error_reporting(0);
@@ -35,10 +35,12 @@
                 echo '<li><a href="admin_panel.php">Admin</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 'medewerker') {
+              
                 echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
+               
             } else if ($rol == 0) {
-                
+                echo '<li><a href="facaturen.php">Facturen</a></li>';
                 echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             }
@@ -99,7 +101,7 @@ if ($rol == 'Admin' || $rol == 'medewerker') {
             echo "</div>";
             echo "<p>Year: {$car['Jaar']}</p>";
             echo "<p>Kenteken: {$car['Kenteken']}</p>";
-            echo "<p>Beschikbaarheid: {$car['Beschikbaarheid']}";
+           
     
             echo "<div class='add-car-button-container'>";
     
