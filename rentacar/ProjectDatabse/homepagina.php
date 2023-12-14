@@ -72,7 +72,7 @@
 
 <div class="voeg-auto">
     <?php
-if ($rol == 'Admin') {
+if ($rol == 'Admin' || $rol == 'medewerker') {
      $cars = $db->selectadminAllCars();
 } else {
    $cars = $db->selectAllCars();
