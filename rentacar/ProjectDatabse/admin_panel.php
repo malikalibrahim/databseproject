@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Car Rental Admin Dashboard</title>
     <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Include Font Awesome for icons -->
@@ -25,7 +25,7 @@
         #sidebar {
             width: 250px;
             height: 100%;
-            background-color: #2c3e50;
+            background-color: #000;
             color: white;
             overflow-x: hidden;
             transition: 0.5s;
@@ -34,6 +34,7 @@
             position: fixed;
             z-index: 1;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            left: -250px;
         }
 
         #sidebar a {
@@ -45,29 +46,35 @@
         }
 
         #sidebar a:hover {
-            background-color: #34495e;
+            background-color: #333;
         }
 
         #menu-icon {
             cursor: pointer;
             padding: 20px;
-            background-color: #2c3e50;
+            background-color: transparent;
             color: white;
             text-align: center;
             position: fixed;
             z-index: 2;
-            
-            transition: margin-left 0.5s;
+            transition: margin-left 0.5s, background-color 0.5s;
+            top: 20px;
+            left: 20px;
         }
 
         #menu-icon i {
             font-size: 24px;
         }
 
+        #menu-icon.closed {
+            background-color: transparent;
+        }
+
         .content {
             transition: margin-left 0.5s;
             padding: 16px;
             flex-grow: 1;
+            margin-left: 0;
         }
 
         a {
@@ -92,20 +99,45 @@
 
         .card {
             margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .dashboard-info {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         @media screen and (max-width: 768px) {
             #sidebar {
                 width: 0;
+                box-shadow: none;
             }
 
             #menu-icon {
-                margin-left: 0;
-                
+                margin-left: 20px;
             }
 
             .content {
                 margin-left: 0;
+            }
+
+            #menu-icon.closed {
+                background-color: transparent;
+            }
+
+            #menu-icon i {
+                font-size: 32px;
             }
         }
 
@@ -113,6 +145,27 @@
             #menu-icon i {
                 display: none;
             }
+        }
+
+        .quick-links {
+            margin-top: 20px;
+        }
+
+        .quick-links a {
+            background-color: #e74c3c;
+        }
+
+        .quick-links a:hover {
+            background-color: #c0392b;
+        }
+
+        .statistics {
+            margin-top: 20px;
+        }
+
+        .statistics .card {
+            background-color: #ecf0f1;
+            color: #333;
         }
     </style>
 </head>
@@ -125,13 +178,38 @@
         <a href="reserveeringenmedewerker.php"><i class="fas fa-calendar"></i> Reservations</a>
         <a href="beschikbaar.php" class="add-car-button"><i class="fas fa-calendar-check"></i> Availability</a>
         <!-- Add other links as needed -->
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <a href="#"><i class="fas fa-chart-pie"></i> Analytics</a>
+            <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+        </div>
     </div>
 
     <div id="menu-icon" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
 
     <div class="content">
-        <h1>Admin Dashboard</h1>
-        <!-- Your dashboard content goes here -->
+        <div class="dashboard-info">
+            <h2>Car Rental Admin Dashboard</h2>
+            <p>Welcome to your car rental dashboard. Manage cars, users, reservations, and availability.</p>
+        </div>
+
+        <h1>Recent Activity</h1>
+        <div class="card">
+            <h2>Activity Log</h2>
+            <p>View recent activities and updates related to car rentals.</p>
+        </div>
+
+        <h1>Car Statistics</h1>
+        <div class="statistics">
+            <div class="card">
+                <h2>Car Usage Statistics</h2>
+                <p>Explore statistics on car usage, popular models, and more.</p>
+            </div>
+            <!-- Add more statistics cards as needed -->
+        </div>
+
+        <!-- Add more sections and elements as needed -->
+
     </div>
 
     <!-- Include Bootstrap JS -->
@@ -142,20 +220,21 @@
     <script>
         function toggleNav() {
             var sidebar = document.getElementById("sidebar");
-            var content = document.getElementById("content");
             var menuIcon = document.getElementById("menu-icon");
+            var content = document.getElementById("content");
 
-            if (sidebar.style.width === "250px") {
-                sidebar.style.width = "0";
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+                menuIcon.classList.add("closed");
                 content.style.marginLeft = "0";
-                menuIcon.style.marginLeft = "0";
             } else {
-                sidebar.style.width = "250px";
+                sidebar.style.left = "0";
+                menuIcon.classList.remove("closed");
                 content.style.marginLeft = "250px";
-                menuIcon.style.marginLeft = "250px";
             }
         }
     </script>
 </body>
 
 </html>
+ 
