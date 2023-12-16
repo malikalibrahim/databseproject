@@ -30,24 +30,49 @@ if (isset($_SESSION['klantID']))
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
             <?php
-        
-    
+        error_reporting(0);
+        ini_set('display_errors', '0');
+        ini_set('log_errors', '1');
+        session_start();
+        include "Database.php";
+
+        $db = new Database();
+
         if (isset($_SESSION['email'])) {
             $rol = $db->getRoleByEmail($_SESSION['email']);
 
             if ($rol == 'Admin') {
-                echo '<li><a href="adminPanel.html">Admin</a></li>';
+              
+                echo '<li><a href="admin_panel.php">Admin</a></li>';
+                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href="loguit.php"></a></li>';
+                echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                echo '</ul>';
             } else if ($rol == 'medewerker') {
-                echo '<li><a href="medewerkers.php">Medewerker</a></li>';
+              
+                echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
+                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href="loguit.php"></a></li>';
+                echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
-            } else if ($rol == 0) {
-                
+                echo '</ul>';
+               
+            } else if ($rol == 0) {  
+                echo '<li><a href="facaturen.php">Facturen</a></li>';
                 echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+                echo '<ul  class="nav-list2">';
+           
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                echo '</ul>';
             }
         } else {
+            
+            echo '<li><a href="facaturen.php">Facturen</a></li>';
+            echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+            echo '<ul  class="nav-list2">';
             echo '<li><a href="login.php">Inloggen</a></li>';
+            echo '</ul>';
         }
         ?>
             </ul>
