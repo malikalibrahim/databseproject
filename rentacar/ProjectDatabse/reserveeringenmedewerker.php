@@ -1,6 +1,6 @@
 <?php
 // Verbind met de database en haal de reserveringen op
-include "Database.php";
+include "database.php";
 $db = new Database();
 
 $reserveringen = $db->query("SELECT * FROM facturen");
@@ -65,6 +65,49 @@ $reserveringen = $db->query("SELECT * FROM facturen");
             color: #777;
             margin-top: 20px;
         }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: start;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
@@ -111,6 +154,25 @@ $reserveringen = $db->query("SELECT * FROM facturen");
     <?php else : ?>
         <p>Er zijn geen reserveringen.</p>
     <?php endif; ?>
+
+    <form method="post" action="insertfactuur.php">
+        <label for="klantID">Klant ID:</label>
+        <input type="text" id="klantID" name="klantID" required>
+
+        <label for="autoID">Auto ID:</label>
+        <input type="text" id="autoID" name="autoID" required>
+
+        <label for="verhuurdatum">Verhuurdatum:</label>
+        <input type="date" id="verhuurdatum" name="verhuurdatum" required>
+
+        <label for="eindVerhuurdatum">EindVerhuurdatum:</label>
+        <input type="date" id="eindVerhuurdatum" name="eindVerhuurdatum" required>
+
+        <label for="totaalBedrag">TotaalBedrag:</label>
+        <input type="text" id="totaalBedrag" name="totaalBedrag" required>
+
+        <button type="submit">Factuur Toevoegen</button>
+    </form>
 </body>
 
 </html>

@@ -1,0 +1,650 @@
+.auto {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.car-details h2{
+  text-align: center;
+}
+.car-details {
+  width: 100%;
+  margin: 10px 0;
+  background-color: white; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .car-details {
+    width: 48%;
+    margin: 10px;
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .car-details {
+    width: 25%;
+  }
+}
+
+
+
+.image-container {
+  overflow: hidden;
+  height: 200px;
+}
+
+.autoss {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.voeg-auto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background-color: black;
+}
+
+
+.add-car-button {
+ 
+  padding-right: 10px 20px;
+  font-size: 16px;
+  background-color: #3c5297;
+  color: #fff;
+  padding: 7px;
+  border-radius: 6px;
+ 
+  cursor: pointer;
+
+}
+.add-car-button2 {
+ 
+  padding-right: 10px 20px;
+  font-size: 16px;
+  background-color: #7f2d2d;
+  color: #fff;
+  padding: 7px;
+  border-radius: 6px;
+ 
+  cursor: pointer;
+
+}
+
+.add-car-button:hover {
+  background-color: #16602d;
+}
+.add-car-button2:hover {
+  background-color: #691212;
+}
+.add-car-button-container{
+  display: flex;
+  justify-content: space-between;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+.hoofdpagina{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(br.jpg);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    
+    height: 982px;
+   
+
+}
+.pagina{
+ 
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 10px;
+    align-items: start;
+    padding-left: 100px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(210, 210, 210);
+}
+.hf-bt{
+width: 12rem;
+height: 3rem;
+backdrop-filter: blur(15px);
+background-color: rgba(37, 25, 25, 0.639);
+border: none;
+color: white;
+border-radius: 5px;
+cursor: pointer;
+
+
+}
+.bot{
+  width: 100%;
+}
+.bot2{
+ text-align: start;
+ display: flex;
+ gap: 2rem;
+}
+.hf-bt:hover{
+  background-color: rgba(66, 47, 47, 0.45);
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+h1{
+    color: white;
+}
+.contener{
+    width: 100%;
+    height: 100%;
+    
+}
+.auto{
+    border-top: solid 1px rgb(46, 46, 46);
+    border-bottom: solid 1px rgb(46, 46, 46);
+    height: 150px;
+    background-color: black;
+}
+nav{
+    width: 100%;
+    height: 100px;
+    display: flex; 
+    gap: 18px;
+    font-size: 20px;
+    justify-content: space-between;
+    background-color: black;
+    position: fixed;
+    
+    
+}
+
+
+nav img{
+    padding-top: 14px;
+    padding-left: 15px;
+    max-width: 130px;
+    max-height: 100px;
+    padding-top: 7px;
+    
+  
+
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 30px;
+    
+}
+.menu-toggle{
+display: none;
+}
+.nav-list2{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-align: end;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  padding-left: 45rem;
+  padding-right: 30px;
+}
+.nav-list2 li{
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  margin: 0%;
+  width: 130px;
+  height: 50px;
+  padding: 0;
+  border-radius: 40px;
+  
+
+}
+.nav-list2 li a{
+
+  padding-top: 22px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.nav-list2 li:hover{
+  background-color: #ffffff;
+  color: black !important;
+}
+.nav-list2  a:hover {
+  color: black !important;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+ul li {
+    list-style: none;
+    padding-left: 60px;
+    padding-top: 5px;
+    color: white;
+    display: block;
+}
+.footer{
+    width: 100%;
+    height: 150px;
+    background-color: black;
+    
+}
+
+
+.nav-list2 li:hover  {
+  transform:  scale(1.1);
+}
+
+
+
+.container {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input#search {
+    color: inherit;
+    padding: 12px 10px;
+    width: 60vw;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.match {
+    font-weight: 600;
+    color: green;
+}
+
+@media only screen and (min-width: 600px) {
+    input#search {
+        width: 40vw;
+    }
+}
+
+
+
+
+.footer {
+    background-color: #000000;
+    color: white;
+    padding: 30px 0;
+    height: 180px;
+
+    
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    
+  }
+  
+  .footer-section {
+    flex: 1;
+    max-width: 300px;
+    margin: 0 20px;
+    
+  }
+  
+  .footer-section h3 {
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+  }
+  
+/* ... (previous styles) ... */
+
+.social-icons {
+  display: flex;
+  align-items: center; /* Center vertically within the footer */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 10px;
+  margin-bottom: 5px; /* Add some margin between items */
+}
+
+.footer-section h3 {
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+  margin-bottom: 10px; /* Add some margin for separation */
+}
+
+/* Adjust the layout for larger screens */
+@media only screen and (min-width: 769px) {
+  .social-icons {
+    flex-direction: row; /* Display items in a row on larger screens */
+  }
+
+  .social-icons a {
+    margin-bottom: 0; /* Remove margin between items on larger screens */
+  }
+}
+
+  
+  
+  
+  .footer-bottom {
+    background-color: #030303;
+    padding: 10px 0;
+    text-align: center;
+    border-top: solid 1px rgb(46, 46, 46);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .form input {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .footer-section {
+      margin-bottom: 20px;
+    }
+  }
+ /* Default styles */
+
+/* ... (previous styles) ... */
+
+/* Responsive styles for the whole page */
+body {
+  font-size: 16px; /* Set a base font size for better scalability */
+}
+
+/* Responsive styles for the main content */
+.pagina {
+  width: 40%; /* Adjust width for larger screens */
+  max-width: 1200px; /* Set a maximum width to avoid stretching on large screens */
+  padding: 20px; /* Add padding to the main content */
+}
+
+/* Responsive styles for headings */
+h1, h2, h3 {
+  text-align: center; /* Center the headings */
+  margin: 10px 0; /* Add space around headings */
+}
+
+/* Responsive styles for paragraphs and other content */
+p, .content {
+ 
+  margin: 10px 0; /* Add space around paragraphs and content */
+}
+
+/* Responsive styles for links */
+.nav-list a {
+  text-decoration: none !important;  /* Remove underline from anchor elements */
+  color: white; /* Set the text color for anchor elements */
+}
+
+
+
+/* Responsive styles for buttons */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #545454;
+}
+
+/* Responsive styles for images */
+img {
+  max-width: 100%; /* Make images responsive */
+  height: auto;
+}
+
+/* Responsive styles for the footer */
+.footer-bottom {
+  background-color: #030303;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Additional media queries can be added as needed */
+@media only screen and (min-width: 768px) {
+  /* Adjust styles for medium screens and larger */
+  body {
+    font-size: 18px; /* Increase font size for better readability on larger screens */
+  }
+
+  .pagina {
+   width: 45%;
+   
+   font-size: 20px;
+  }
+  .pagina h1 {
+    text-align: start;/* Adjust width for medium screens */
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .pagina {
+    width: 80%;
+  }
+
+  .pagina h1 {
+    text-align: start;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    position: fixed;
+  }
+
+  nav img {
+    padding-top: 14px;
+    padding-left: 15px;
+    width: 100px;
+    height: 70px;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    padding: 0 15px;
+    order: 1; /* Change the order property to move it to the right */
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 0; /* Align dropdown to the right */
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .nav-list,
+  .nav-list2 {
+   display: block;
+   padding: 0%;
+
+   height: auto;
+   
+  }
+  .nav-list2  li{
+   border: none;
+   padding-left: 3px;
+
+  }
+  .nav-list2  li:hover{
+    
+    background-color: #440b0b00;
+    color: rgb(255, 255, 255) !important;
+    transform:  scale(1);
+ 
+   }
+   .nav-list2 li a{
+
+    padding-top: 22px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .nav-list2  a:hover {
+    color: rgb(210, 26, 26) !important;
+  }
+
+  .menu-toggle {
+    display: block;
+   
+  }
+
+  .dropdown.active {
+    display: block;
+  }
+
+  .nav-list li {
+    text-align: start;
+  }
+ul li{
+  padding-left: 28px;
+}
+.logo{
+  padding-left: 0;
+}
+  .button-container {
+    padding-right: 40%;
+  }
+
+}
+.button-container{
+  padding-right: 40%;
+}
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+/* Individual hover colors */
+.social-icon.facebook:hover {
+  color: #3b5998; /* Facebook blue */
+  
+}
+
+.social-icon.twitter:hover {
+  color: #1da1f2; /* Twitter blue */
+}
+
+.social-icon.instagram:hover {
+  color: #e4405f; /* Instagram pink */
+}
+
+.social-icon.linkedin:hover {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.social-icon.pinterest:hover {
+  color: #bd081c; /* Pinterest red */
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 71%;
+  font-size: clamp(2rem, 2.8vw, 5rem);
+  font-family: Raleway;
+  font-weight: bold;
+}
+.typewriter {
+    width: 80.5ch;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #212121;
+    animation: cursor 1s step-start infinite, text 5s steps(100) alternate infinite;
+}
+
+@keyframes cursor {
+    0%, 100% {
+        border-color: #ffffff;
+    }
+}
+
+@keyframes text {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 36.5ch;
+    }
+}
+.bot{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+

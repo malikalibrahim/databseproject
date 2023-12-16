@@ -1,5 +1,0 @@
-public function selectAllCars() {
-        $sql = "SELECT * FROM $this->carsTable WHERE Beschikbaarheid = 'Beschikbaar' ";
-        $stmt = $this->pdo->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }

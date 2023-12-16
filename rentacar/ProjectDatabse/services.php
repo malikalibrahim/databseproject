@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Rent a Car Services</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome voor iconen -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent A Car</title> 
+    <link rel="icon" href="logog4.png" >
+    <link rel="stylesheet" href="stylesrer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="styleser.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
 </head>
-
 <body>
-
-<nav>
-    <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+<nav> 
+     
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>  <a href="homepagina.php"><img src="logog.png" alt="logo" class="logo"></a>
     <div class="dropdown" id="dropdown">
-        <ul class="nav-list">
+    <ul class="nav-list">
+  
+   
 
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
-
-            <?php
+         
+        
+        
+           
+        
+        <?php
+        error_reporting(0);
+        ini_set('display_errors', '0');
+        ini_set('log_errors', '1');
         session_start();
         include "Database.php";
 
@@ -34,154 +40,34 @@
             $rol = $db->getRoleByEmail($_SESSION['email']);
 
             if ($rol == 'Admin') {
-                echo '<li><a href="adminPanel.html">Admin</a></li>';
+                echo '<li><a href="admin_panel.php">Admin</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
             } else if ($rol == 'medewerker') {
-                echo '<li><a href="medewerkers.php">Medewerker</a></li>';
+              
+                echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
-            } else if ($rol == 0) {
-                
-                echo '<li><a href="reserveerFormulier.php">Reserveeringen</a></li>';
+               
+            } else if ($rol == 0) {  
+                echo '<li><a href="facaturen.php">Facturen</a></li>';
+                echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+                echo '<ul  class="nav-list2">';
+           
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                echo '</ul>';
             }
         } else {
             echo '<li><a href="login.php">Inloggen</a></li>';
         }
         ?>
-        </ul>
-        </div>
-    </nav>
-
-    <!-- Header met welkomstboodschap -->
-
-    
-
-    <!-- Dienstensectie -->
-    <section id="services">
-        <div class="container">
-            <h2 class="font-weight-bold text-center mb-4">Onze Diensten</h2>
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Flexibele Autoverhuur</h4>
-                            <p class="card-text">Kies uit een divers assortiment voertuigen voor elke gelegenheid.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Betrouwbare Chauffeurservice</h4>
-                            <p class="card-text">Ontspan en laat onze professionele chauffeurs u veilig naar uw bestemming brengen.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title">Luchthaventransfers</h4>
-                            <p class="card-text">Geniet van naadloze transfers van en naar de luchthaven voor uw gemak.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Populaire auto's sectie -->
- 
-
-    <!-- Klantrecensies sectie -->
-<!-- Klantrecensies sectie -->
-<section id="reviews" class="review">
-    <div class="container">
-        <h2 class="font-weight-bold text-center text-uppercase text-white mb-4">Wat Klanten Zeggen</h2>
-        <div class="row">
-            <!-- Klantrecensie 1 -->
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Fantastische Service</h5>
-                        <div class="stars" data-rating="5"></div>
-                        <p class="card-text">Geweldige autoverhuurservice. De auto was schoon en in uitstekende staat. Zeer aan te bevelen!</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Klantrecensie 2 -->
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Topauto's</h5>
-                        <div class="stars" data-rating="4"></div>
-                        <p class="card-text">Een breed scala aan auto's om uit te kiezen. Betaalbare prijzen en uitstekende klantenservice.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Klantrecensie 3 -->
-            <div class="col-lg-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Snelle en Efficiënte Service</h5>
-                        <div class="stars" data-rating="4.5"></div>
-                        <p class="card-text">Ik waardeer de snelle en efficiënte service. Het huren van een auto was nog nooit zo eenvoudig.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
+    </ul>
     </div>
-</section>
-
-<!-- Aanvullende stijlen voor sterren -->
-<style>
-    .stars {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-    }
-
-    .stars:before {
-        content: "\2605\2605\2605\2605\2605";
-        font-size: 24px;
-        color: #FFD700;
-    }
-</style>
-
-
-    <!-- Contact sectie -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="font-weight-bold text-center mb-4">Neem Contact Met Ons Op</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Naam:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Voer uw naam in">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Voer uw e-mailadres in">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Bericht:</label>
-                            <textarea class="form-control" id="message" rows="3" placeholder="Typ hier uw bericht"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Verstuur</button>
-                    </form>
-                </div>
-                <div class="col-lg-6">
-                    <h4>Contactinformatie</h4>
-                    <p><strong>Adres:</strong> Straatnaam 123, Stad</p>
-                    <p><strong>Telefoon:</strong> +31 123 456 789</p>
-                    <p><strong>E-mail:</strong> info@rentacarservices.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2e container met achtergrondafbeelding -->
-    
+</nav>
+ <div class="contener">
+    <div class="hoofdpagina">
+            
+    </div>
+       </div>
 
     <footer class="footer">
     <div class="footer-container">
@@ -207,21 +93,8 @@
         <p>&copy; 2023 Demo. All rights reserved.</p>
     </div>
 </footer>
-
-    <!-- Bootstrap JavaScript en afhankelijkheden -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <!-- Smooth Scroll Script van W3Schools -->
-    <script>
-        function smoothScroll(target) {
-            var targetElement = document.getElementById(target);
-            $('html, body').animate({
-                scrollTop: $(targetElement).offset().top
-            }, 1000);
-        } 
-        function scrollDown(amount) {
+<script>
+    function scrollDown(amount) {
         var currentPosition = window.scrollY || window.pageYOffset;
         var targetPosition = currentPosition + amount;
 
@@ -233,11 +106,28 @@
     function toggleMenu() {
     var dropdown = document.getElementById("dropdown");
     dropdown.classList.toggle("active");
+    let ul = document.querySelectorAll("ul");
 }
 
-    </script>
- 
+    function fillReservationForm(merk, model, jaar, kenteken) {
+        // You can use JavaScript to populate the form fields with the selected car details
+        document.getElementById('car').value = merk + ' ' + model;
+        document.getElementById('year').value = jaar;
+        document.getElementById('license_plate').value = kenteken;
 
+        // You might want to scroll to the reservation form after filling the details
+        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
+    }
+    function fillReservationForm(merk, model, jaar, kenteken) {
+        // You can use JavaScript to populate the form fields with the selected car details
+        document.getElementById('car').value = merk + ' ' + model;
+        document.getElementById('year').value = jaar;
+        document.getElementById('license_plate').value = kenteken;
+
+        // You might want to scroll to the reservation form after filling the details
+        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+</script>
 </body>
-
 </html>

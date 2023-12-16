@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo</title> 
-   <link rel="stylesheet" href="style.css">
+    <title>Rent A Car</title> 
+    <link rel="icon" href="logog4.png" >
+    <link rel="stylesheet" href="stylehome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
 </head>
 <body>
-<nav>
-    <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+<nav> 
+     
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>  <a href="homepagina.php"><img src="logog.png" alt="logo" class="logo"></a>
     <div class="dropdown" id="dropdown">
-        <ul class="nav-list">
+    <ul class="nav-list">
+  
+   
 
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
+         
+        
+        
            
         
         <?php
@@ -39,25 +47,41 @@
                 echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                
-            } else if ($rol == 0) {
+            } else if ($rol == 0) {  
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
                 echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+                echo '<ul  class="nav-list2">';
+           
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                echo '</ul>';
             }
         } else {
             echo '<li><a href="login.php">Inloggen</a></li>';
         }
         ?>
+       
     </ul>
     </div>
 </nav>
     <div class="contener">
         <div class="hoofdpagina">
             <div class="pagina">
-                <h1>Welkom bij Demo - Jouw Betrouwbare Partner in Auto's</h1>
-                <p>Bij Demo zijn we gepassioneerd over het leveren van uitzonderlijke auto-ervaringen. Als een toonaangevende speler in de industrie zijn we trots op het aanbieden van een gevarieerd assortiment hoogwaardige voertuigen en diensten die aansluiten bij de unieke behoeften en voorkeuren van onze gewaardeerde klanten.</p>
-                <button class="hf-bt" onclick="scrollDown(890)">Ontdek onze acties</button>
-                
+            <div class="container">
+  <div class="typewriter">Welkom bij Rent A Car!</div>
+</div>
+                <p>Bij Rent a Car zijn we gepassioneerd over het leveren van uitzonderlijke auto-ervaringen. Als een toonaangevende speler in de industrie zijn we trots op het aanbieden van een gevarieerd assortiment hoogwaardige voertuigen en diensten die aansluiten bij de unieke behoeften en voorkeuren van onze gewaardeerde klanten. Of je nu op zoek bent naar een luxe auto voor een bijzondere gelegenheid, een betrouwbare gezinsauto voor dagelijks gebruik, of een avontuurlijke terreinwagen voor een roadtrip, Rent a Car staat klaar om aan al jouw mobiliteitsbehoeften te voldoen. Onze toewijding aan kwaliteit, klantenservice en flexibiliteit maakt ons de ideale keuze voor het huren van jouw volgende voertuig.</p>
+
+              <div class="bot">  <div class="bot2"><button class="hf-bt" onclick="scrollDown(890)">Ontdek onze acties</button>
+                <button class="hf-bt" ><a href="services.php">Onze Services</a></button></div><div></div>
+                <div class="social-icons">
+            <a href="#" target="_blank" class="social-icon facebook"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="#" target="_blank" class="social-icon twitter"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="#" target="_blank" class="social-icon instagram"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="#" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="#" target="_blank" class="social-icon pinterest"><i class="fab fa-pinterest fa-2x"></i></a>
+            <!-- Add more icons as needed -->
+        </div>
+                </div>
             </div>
         </div>
         <div class="auto">
@@ -163,6 +187,7 @@ if ($rol == 'Admin' || $rol == 'medewerker') {
     function toggleMenu() {
     var dropdown = document.getElementById("dropdown");
     dropdown.classList.toggle("active");
+    let ul = document.querySelectorAll("ul");
 }
 
     function fillReservationForm(merk, model, jaar, kenteken) {

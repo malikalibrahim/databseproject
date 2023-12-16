@@ -10,13 +10,13 @@ $db = new Database();
 if (isset($_SESSION['klantID'])) {
     $klantID = $_SESSION['klantID'];
     
-    // Haal de klantgegevens op
+   
     $klantData = $db->getCustomerByID($klantID);
     $verhuurdatum = $_POST['Verhuurdatum'];
-$eindVerhuurdatum = $_POST['endVerhuurdatum'];
-$klantID = $_POST['KlantID'];
-$autoID = $_POST['AutoID'];
-$totaalBedrag = $_POST['totaalBedrag'];
+    $eindVerhuurdatum = $_POST['endVerhuurdatum'];
+    $klantID = $_POST['KlantID'];
+    $autoID = $_POST['AutoID'];
+    $totaalBedrag = $_POST['totaalBedrag'];
 
 // Haal klantgegevens op
 $klantGegevens = $db->getCustomerByID($klantID);
@@ -151,6 +151,34 @@ if ($result) {
     color: #007bff;
 }
 
+/* Add these styles to your CSS file or in a style block in your HTML */
+
+button {
+    text-align: center;
+    margin-top: 20px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50; /* Green color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green color on hover */
+}
+
+/* Optional: If you want to style the link within the button */
+button a {
+    color: inherit;
+    text-decoration: none;
+}
+
         /* Andere stijlregels hier ... */
     </style>
 </head>
@@ -189,7 +217,7 @@ if ($result) {
             <p><strong>Emailadres:</strong> <?php echo $klantData['Emailadres']; ?></p>
             <!-- Voeg andere klantgegevens toe zoals nodig -->
         </div>
-
+<button><a href="facaturen.php">Bekijk hier je facatuur</a></button>
         <!-- Auto-informatie sectie -->
         
 

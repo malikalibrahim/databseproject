@@ -441,6 +441,16 @@ class Database {
             die("Error fetching customers: " . $e->getMessage());
         }
     }
+
+    public function execute($sql, $params = []) {
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+            return $stmt;
+        } catch (PDOException $e) {
+            die("Query failed: " . $e->getMessage());
+        }
+    }
 }    
     
 

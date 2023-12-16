@@ -1,9 +1,85 @@
 <?php
 session_start();
-include "database.php";
-include "Users/user.class.php";
-include "Users/UserRegistration.php";
 
+
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent A Car</title> 
+    <link rel="icon" href="logog4.png" >
+    <link rel="stylesheet" href="stylefacaturen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
+</head>
+<body>
+    
+<nav> 
+     
+     <div class="menu-toggle" onclick="toggleMenu()">☰</div>  <a href="homepagina.php"><img src="logog.png" alt="logo" class="logo"></a>
+         <div class="dropdown" id="dropdown">
+         <ul class="nav-list">
+       
+        
+     
+                 <li><a href="homepagina.php">Home</a></li>
+                 <li><a href="services.php">Services</a></li>
+              
+             
+             
+                
+             
+             <?php
+             error_reporting(0);
+             ini_set('display_errors', '0');
+             ini_set('log_errors', '1');
+             session_start();
+             include "Database.php";
+     
+             $db = new Database();
+     
+             if (isset($_SESSION['email'])) {
+                 $rol = $db->getRoleByEmail($_SESSION['email']);
+     
+                 if ($rol == 'Admin') {
+                     echo '<li><a href="admin_panel.php">Admin</a></li>';
+                     echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                 } else if ($rol == 'medewerker') {
+                   
+                     echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
+                     echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                    
+                 } else if ($rol == 0) {  
+                     echo '<li><a href="facaturenn.php">Facturen</a></li>';
+                     echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+                     echo '<ul  class="nav-list2">';
+                
+                     echo '<li><a href="loguit.php">Uitloggen</a></li>';
+                     echo '</ul>';
+                 }
+             } else {
+                 echo '<li><a href="login.php">Inloggen</a></li>';
+             }
+             ?>
+            
+         </ul>
+         </div>
+     </nav>
+     <?php
+  function queryForCustomer($sql, $params = []) {
+    try {
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Query failed: " . $e->getMessage();
+    }
+}
 $db = new Database();
 
 if (isset($_SESSION['klantID'])) {
@@ -20,274 +96,52 @@ if (isset($_SESSION['klantID'])) {
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo</title> 
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="stylefacc.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-</head>
-<body>
-<nav>
-    <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <div class="dropdown" id="dropdown">
-        <ul class="nav-list">
-
-            <li><a href="homepagina.php">Home</a></li>
-            <li><a href="services.php">Services</a></li>
-            <?php
-        
     
-        if (isset($_SESSION['email'])) {
-            $rol = $db->getRoleByEmail($_SESSION['email']);
-
-            if ($rol == 'Admin') {
-                echo '<li><a href="adminPanel.html">Admin</a></li>';
-                echo '<li><a href="loguit.php">Uitloggen</a></li>';
-            } else if ($rol == 'medewerker') {
-                echo '<li><a href="medewerkers.php">Medewerker</a></li>';
-                echo '<li><a href="loguit.php">Uitloggen</a></li>';
-            } else if ($rol == 0) {
-                
-                echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
-                echo '<li><a href="loguit.php">Uitloggen</a></li>';
-            }
-        } else {
-            echo '<li><a href="login.php">Inloggen</a></li>';
-        }
-        ?>
-            </ul>
-    </div>
-</nav>
-<style>body {
-    padding: 0;
-    margin: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #f4f4f4;
-}
-
-
-@media screen and (max-width: 768px) {
-    .pagina {
-        width: 100%;
-        
-    }
-
-    nav img {
-        padding-top: 14px;
-        padding-left: 15px;
-        width: 80px;
-        height: 50px;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .dropdown {
-        display: none;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        width: 100%;
-        background-color: black;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-    }
-
-    .nav-list {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: start;
-        margin: 0;
-        list-style: none;
-        padding: 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .dropdown.active {
-        display: block;
-    }
-
-    .nav-list li {
-        margin-bottom: 15px;
-    }
-
-    .hoofdpagina {
-        display: flex;
-        flex-direction: column;
-        height: 600px;
-        padding-top: 150px;
-    }
-
-    .car-details img {
-        width: 100%;
-    }
-
-    .footer {
-        height: auto;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .footer-section {
-        max-width: none;
-    }
-
-    .car-details {
-        padding: 20px;
-    
-        width: 80%;
-        text-align: center;
-    }
-
-    .factuur li,
-    tr,
-    td {
-  
-       
-        color: white;
-       
-        height: 30px;
-        margin-bottom: 10px;
-        padding: 8px;
-    }
-    .factuur
-
-     {
-        backdrop-filter: blur(30px);
-        color: white;
-        display: block;
-        height: 150px;
-        margin-bottom: 10px;
-        padding: 8px;
-    }
-
-    table {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    th, td {
-        font-size: 14px;
-        padding: 6px;
-    }
-    
-}
-.factuur
-
-     {
-        backdrop-filter: blur(30px);
-     
-        color: white;
-        display: block;
-        height: 180px;
-        margin-bottom: 10px;
-        padding: 8px;
-    }
-    .car-details{
-        backdrop-filter: blur(30px);
-     text-align: center;
-     color: white;
-     display: block;
-     height: 80px;
-     margin-bottom: 10px;
-     padding: 8px;
-    }
-
-</style>
-<div class="hoofdpagina" >
-<?php
-if ($facturen) {
-    // Toon het formulier voor facturen alleen als er bestellingen zijn
-    
+<div class="hoofdpagina">
+  <?php
+  if ($facturen) {
     echo "<style>.car-details { display: none; }</style>";
-  
-} else {
-    // Verberg het formulier als er geen bestellingen zijn
+  } else {
     echo "<style>.factuur { display: none; }</style>";
-    // Toon een bericht als er geen bestellingen zijn
     echo "<div class='car-details' style='max-width: 400px; margin: 0 auto;'>";
     echo "<h2>Je hebt nog geen facturen!</h2>";
-    // Voeg hier andere velden toe
     echo "</div>";
-}
-?>
-
-        <div class="factuur">
-          
-            <ul>
-            <?php foreach ($facturen as $factuur) : ?>
-    <li>
-        <table>
-            <tr>
-                <td><strong>FactuurID:</strong></td>
-                <td><?php echo $factuur['FactuurID']; ?></td>
-            </tr>
-            <tr>
-                <td><strong>Factuurdatum:</strong></td>
-                <td><?php echo $factuur['FactuurDatum']; ?></td>
-            </tr>
-            <tr>
-                <td><strong>TotaalBedrag:</strong></td>
-                <td><?php echo $factuur['TotaalBedrag']; ?></td>
-            </tr>
-            <?php
-            // Haal autogegevens op
-            $autoID = $factuur['AutoID'];
-           
-            
-
-            if (!empty($autoDetails)) {
-                ?>
-                 <tr>
-            <td style="text-align: left;"><strong>Merk:</strong></td>
-            <td style="text-align: center;">
-                <?php
-               
-                echo "<li>" . $autoDetails[0]['Merk'] . "</li>";
-              
-                ?>
-            </td>
-        </tr>
-                <tr>
-                    <td><strong>Model:</strong></td>
-                    <td>
-                        <?php
-                        
-                        echo "<li><strong>Model:</strong> " . $autoDetails[0]['Model'] . "</li>";
-                     
-                        ?>
-                    </td>
-                </tr>
-                <?php
-            }
-            ?>
-        </table>
-    </li>
-<?php endforeach; ?>
-            </ul>
+  }
+  ?>
+  
+  <div class="factuur">
+    <?php foreach ($facturen as $factuur) : ?>
+      <div class="row">
+        <div><strong>FactuurID:</strong></div>
+        <div><?php echo $factuur['FactuurID']; ?></div>
+      </div>
+      <div class="row">
+        <div><strong>Factuurdatum:</strong></div>
+        <div><?php echo $factuur['FactuurDatum']; ?></div>
+      </div>
+      <div class="row">
+        <div><strong>TotaalBedrag:</strong></div>
+        <div><?php echo $factuur['TotaalBedrag']; ?></div>
+      </div>
+      <?php
+      $autoID = $factuur['AutoID'];
+      if (!empty($autoDetails)) :
+      ?>
+        <div class="row">
+          <div><strong>Merk:</strong></div>
+          <div><?php echo $autoDetails[0]['Merk']; ?></div>
         </div>
-   
+        <div class="row">
+          <div><strong>Model:</strong></div>
+          <div><?php echo $autoDetails[0]['Model']; ?></div>
+        </div>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </div>
 </div>
 
-<footer class="footer">
+
+    <footer class="footer">
     <div class="footer-container">
         <div class="footer-section">
             <h3>Info</h3>
@@ -311,9 +165,8 @@ if ($facturen) {
         <p>&copy; 2023 Demo. All rights reserved.</p>
     </div>
 </footer>
-
 <script>
-    function scrollDown(amount) {
+  function scrollDown(amount) {
         var currentPosition = window.scrollY || window.pageYOffset;
         var targetPosition = currentPosition + amount;
 
@@ -327,8 +180,6 @@ if ($facturen) {
         var dropdown = document.getElementById("dropdown");
         dropdown.classList.toggle("active");
     }
-</script>
-
 </script>
 </body>
 </html>
