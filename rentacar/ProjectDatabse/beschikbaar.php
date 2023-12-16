@@ -34,17 +34,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Beschikbaar</title>
+    
+    <style>
+        /* Reset some default styles and set a base font */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Style the forms */
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Style the input fields */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border 0.3s;
+        }
+
+        /* Change input border color on focus */
+        input[type="text"]:focus {
+            border-color: #4caf50;
+        }
+
+        /* Style the submit buttons */
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Change button background color on hover */
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Add some spacing between form elements */
+        form > * {
+            margin-bottom: 15px;
+        }
+
+        /* Style the page title */
+        h1 {
+            text-align: center;
+            color: #4caf50;
+        }
+    </style>
 </head>
 <body>
+    <h1>Beschikbaarheid</h1>
+
     <form action="" method="POST">
-        <input type="text" name="opnull">
-        <input type="submit" name="verzend_naar_nul" value="Set naar 0">
+        <label for="opnull">Zetten naar Beschikbaar:</label>
+        <input type="text" id="opnull" name="opnull" placeholder="Voer een ID">
+        <input type="submit" name="verzend_naar_nul" value="Beschikbaar">
     </form>
 
     <form action="" method="POST">
-        <input type="text" name="opnul">
-        <input type="submit" name="verzend_naar_een" value="Set naar 1">
+        <label for="opnul">Zetten naar Niet Beschikbaar:</label>
+        <input type="text" id="opnul" name="opnul" placeholder="Voer een ID ">
+        <input type="submit" name="verzend_naar_een" value="Niet Beschikbaar">
     </form>
 </body>
 </html>

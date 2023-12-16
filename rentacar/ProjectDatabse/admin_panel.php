@@ -179,9 +179,7 @@
         <a href="beschikbaar.php" class="add-car-button"><i class="fas fa-calendar-check"></i> Availability</a>
         <!-- Add other links as needed -->
         <div class="quick-links">
-            <h3>Quick Links</h3>
-            <a href="#"><i class="fas fa-chart-pie"></i> Analytics</a>
-            <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="loguit.php"><i class="fas fa-chart-pie"></i>Uitloggen</a>
         </div>
     </div>
 
