@@ -190,7 +190,7 @@
         <div class="quick-links">
          
           
-            <a href="loguit.php"><i class="fas fa-chart-pie"></i>Uitloggen</a>
+            <a href="loguit.php"><i class=""></i>Uitloggen</a>
         </div>
     </div>
 
