@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent A Car</title> 
     <link rel="icon" href="logog4.png" >
-    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="stylehomee.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
@@ -58,7 +58,7 @@
                
             } else if ($rol == 0) {  
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
-                echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+                echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
                 echo '<ul  class="nav-list2">';
            
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
@@ -67,7 +67,7 @@
         } else {
             
             echo '<li><a href="facaturen.php">Facturen</a></li>';
-            echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+            echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
             echo '<ul  class="nav-list2">';
             echo '<li><a href="login.php">Inloggen</a></li>';
             echo '</ul>';
@@ -102,7 +102,7 @@
  
         <div class="container">
                 <form method="GET" action="">
-                    <i class="fas fa-search"></i>
+                    
                     <input id="search" type="text" name="search" placeholder="Zoek iets" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                     <button class="button" type="submit">Search</button>
                 </form>
@@ -153,7 +153,7 @@ if ($rol == 'Admin' || $rol == 'medewerker') {
             } else {
                 $cars = $db->selectAllCars();
                 // For non-admin and non-medewerker users, show the "Add a Car" button
-                echo "<a href='reserveerFormulier.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
+                echo "<a href='rserveerformuli.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
             }
     
             echo "</div>";

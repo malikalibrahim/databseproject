@@ -1,34 +1,31 @@
-<?php
- 
-
-session_start();
-include "database.php";
-include "Users/user.class.php";
-include "Users/UserRegistration.php";
- 
-$db = new Database();
-if (isset($_SESSION['klantID'])) 
-    $klantID = $_SESSION['klantID'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo</title> 
-     <link rel="stylesheet" href="stylereserveering.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Rent A Car</title> 
+    <link rel="icon" href="logog4.png" >
+    <link rel="stylesheet" href="stylereserveeringg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
 </head>
 <body>
-<nav>
-    <a href="homepagina.php"><img src="Haima-logo.jpg" alt="logo" class="logo"></a>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+<nav> 
+     
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>  <a href="homepagina.php"><img src="logog.png" alt="logo" class="logo"></a>
     <div class="dropdown" id="dropdown">
-        <ul class="nav-list">
+    <ul class="nav-list">
+  
+   
 
             <li><a href="homepagina.php">Home</a></li>
             <li><a href="services.php">Services</a></li>
+         
+        
+        
+           
             <?php
         error_reporting(0);
         ini_set('display_errors', '0');
@@ -75,11 +72,11 @@ if (isset($_SESSION['klantID']))
             echo '</ul>';
         }
         ?>
-            </ul>
+       
+    </ul>
     </div>
 </nav>
-
-    <div class="contener">
+<div class="contener">
     <div class="hoofdpagina">
        
       <div class=" car-details">
@@ -182,7 +179,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     </div>
 </div>
-<footer class="footer">
+
+    <footer class="footer">
     <div class="footer-container">
         <div class="footer-section">
             <h3>Info</h3>
@@ -219,9 +217,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     function toggleMenu() {
     var dropdown = document.getElementById("dropdown");
     dropdown.classList.toggle("active");
+    let ul = document.querySelectorAll("ul");
 }
 
+    function fillReservationForm(merk, model, jaar, kenteken) {
+        // You can use JavaScript to populate the form fields with the selected car details
+        document.getElementById('car').value = merk + ' ' + model;
+        document.getElementById('year').value = jaar;
+        document.getElementById('license_plate').value = kenteken;
 
+        // You might want to scroll to the reservation form after filling the details
+        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
+    }
+    function fillReservationForm(merk, model, jaar, kenteken) {
+        // You can use JavaScript to populate the form fields with the selected car details
+        document.getElementById('car').value = merk + ' ' + model;
+        document.getElementById('year').value = jaar;
+        document.getElementById('license_plate').value = kenteken;
+
+        // You might want to scroll to the reservation form after filling the details
+        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
+    }
+    
   // Voeg een event listener toe voor het veranderen van de datums
   document.addEventListener('DOMContentLoaded', function() {
             // Haal de geselecteerde datums op
@@ -291,7 +308,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Display totaalBedrag in the input field
         document.getElementById("totaalBedrag").value = totaalBedrag.toFixed(2);
 }
-</script>
+
 </script>
 </body>
 </html>

@@ -1,123 +1,196 @@
-.auto {
-  display: flex;
-  flex-wrap: wrap;
+body{
+  padding: 0;
+  margin: 0;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
+  
 }
-.car-details h2{
-  text-align: center;
-}
-.car-details {
-  width: 100%;
-  margin: 10px 0;
-  background-color: white; 
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-@media only screen and (min-width: 768px) {
-  .car-details {
-    width: 48%;
-    margin: 10px;
-    padding: 15px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .car-details {
-    width: 25%;
-  }
-}
-
-
-
-.image-container {
-  overflow: hidden;
-  height: 200px;
-}
-
-.autoss {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-.voeg-auto{
+.hoofdpagina{
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(logph.avif);
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  height: 940px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  padding-top: 4%;
+
+}
+.pagina {
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(20px);
+  width: 600px;
+  height: 650px;
+  border-radius: 30px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(210, 210, 210);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+/* Voeg deze stijlen toe aan je CSS-bestand */
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 600px; /* Maak het formulier schermvullend */
+  margin: 0;
+}
+.ce {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+}
+
+label:nth-child(1) {
+  width: 100%;
+
+  text-align: start;
+  color: #fff;
+}
+label {
+  width: 50%;
+ 
+  text-align: start;
+  color: #fff;
+}
+
+
+input {
+  width: 50%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Basisstijl voor de knop */
+/* Basisstijlen voor de submitknop */
+input[type="submit"] {
+  background-color: #0b0b0b;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px; /* Optioneel: voeg wat vulling toe voor een betere uitstraling */
+  border: none; /* Verwijder de standaardrand */
+  border-radius: 5px; /* Voeg wat afgeronde hoeken toe */
+  transition: background-color 0.3s ease; /* Voeg een overgang toe voor een vloeiende verandering van achtergrondkleur */
+}
+
+/* Stijlen voor de submitknop bij hover */
+input[type="submit"]:hover {
+  background-color: #000000;
+  color: #fff;
+  transform: scale(1.05); /* Optioneel: voeg een schaal toe bij hover voor een subtiele vergrotingseffect */
+}
+
+
+
+a {
+  padding-top: 6px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Stijlen voor de link bij hover */
+a:hover {
+  text-decoration: underline;
+  color: white;
+}
+nav a:hover{
+  text-decoration: none;
+}
+
+
+.hf-bt{
+width: 12rem;
+height: 3rem;
+background-color: rgba(0, 0, 0, 0.726);
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+
+}
+.hf-bt:hover{
+  background-color: rgba(16, 16, 16, 0.63)
+}
+h1{
+  color: white;
+}
+.contener{
+  width: 100%;
+  height: 100%;
+  
+}
+.auto{
+  border-top: solid 1px rgb(46, 46, 46);
+  border-bottom: solid 1px rgb(46, 46, 46);
+  width: 100%;
+  height: 900px;
   background-color: black;
 }
 
 
-.add-car-button {
- 
-  padding-right: 10px 20px;
-  font-size: 16px;
-  background-color: #3c5297;
-  color: #fff;
-  padding: 7px;
-  border-radius: 6px;
- 
-  cursor: pointer;
-
-}
-.add-car-button2 {
- 
-  padding-right: 10px 20px;
-  font-size: 16px;
-  background-color: #7f2d2d;
-  color: #fff;
-  padding: 7px;
-  border-radius: 6px;
- 
-  cursor: pointer;
-
-}
-
-.add-car-button:hover {
-  background-color: #16602d;
-}
-.add-car-button2:hover {
-  background-color: #691212;
-}
-.add-car-button-container{
+.container {
+  width: 100%;
+  height: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
-body{
-    padding: 0;
-    margin: 0;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
+
+input#search {
+  color: inherit;
+  padding: 12px 10px;
+  width: 60vw;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border: none;
+  outline: none;
 }
-.hoofdpagina{
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(serph.jpg);
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    
-    height: 982px;
-   
+
+.match {
+  font-weight: 600;
+  color: green;
+}
+
+@media only screen and (min-width: 600px) {
+  input#search {
+      width: 40vw;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .footer-section {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* Adjust styles for medium screens and larger */
+  body {
+    font-size: 18px; /* Increase font size for better readability on larger screens */
+  }
+
 
 }
-.pagina{
- 
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    gap: 10px;
-    align-items: start;
-    padding-left: 100px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(210, 210, 210);
-}
+
+
+
 .hf-bt{
 width: 12rem;
 height: 3rem;
@@ -176,7 +249,7 @@ nav img{
     padding-left: 15px;
     max-width: 130px;
     max-height: 100px;
-    padding-top: 7px;
+    padding-top: 0px;
     
   
 
@@ -365,24 +438,7 @@ input#search {
     border-top: solid 1px rgb(46, 46, 46);
   }
   
-  .form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
   
-  .form input {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .form button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
   
   @media only screen and (max-width: 768px) {
     .footer-section {
@@ -400,7 +456,7 @@ body {
 
 /* Responsive styles for the main content */
 .pagina {
-  width: 40%; /* Adjust width for larger screens */
+
   max-width: 1200px; /* Set a maximum width to avoid stretching on large screens */
   padding: 20px; /* Add padding to the main content */
 }
@@ -463,8 +519,7 @@ img {
   }
 
   .pagina {
-   width: 45%;
-   
+
    font-size: 20px;
   }
   .pagina h1 {
@@ -646,5 +701,180 @@ ul li{
   display: flex;
   flex-direction: column;
   padding: 0;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+.pagina {
+    width: 100%;
+    
+}
+
+nav img {
+    padding-top: 14px;
+    padding-left: 15px;
+    width: 80px;
+    height: 50px;
+}
+
+.menu-toggle {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.nav-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.menu-toggle {
+    display: block;
+}
+
+.dropdown.active {
+    display: block;
+}
+
+.nav-list li {
+    margin-bottom: 15px;
+}
+
+.hoofdpagina {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    padding-top: 150px;
+}
+
+.car-details img {
+    width: 100%;
+}
+
+.footer {
+    height: auto;
+}
+
+.footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-section {
+    max-width: none;
+}
+
+.car-details {
+    padding: 20px;
+
+    width: 80%;
+    text-align: center;
+}
+
+}
+
+.factuur th,
+.factuur td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Styles for th element (header) */
+.factuur th {
+  background-color: #ffffff;
+  color: #fff;
+}
+
+/* Styles for h2 element */
+h2 {
+  margin-top: 20px;
+  color: #000000;
+}
+
+/* Styles for the container div */
+.factuur {
+  max-width: 600px;
+  margin: 0 auto;
+  backdrop-filter: blur(20px);
+  background-color: #ffffff0b;
+  border-radius: 18px;
+}
+
+/* Styles for each "row" */
+.factuur .row  {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: white solid 1px;
+  border-radius: 6px;
+  
+}
+
+
+
+/* Text alignment styles */
+.factuur .row div {
+  text-align: left;
+  
+}
+
+/* Styles for alternating row background color */
+
+.factuur div {
+  padding: 15px;
+  text-align: left;
+  
+}
+
+/* Styles for th element (header) */
+.factuur div {
+
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Styles for h2 element */
+h2 {
+  margin-top: 20px;
+  color: #000000;
+}
+
+/* Styles for the container div */
+.factuur {
+  max-width: 600px;
+}
+
+/* Styles for each "row" */
+.factuur .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Text alignment styles */
+.factuur .row div {
+  text-align: left;
+}
+strong{
+  color: white;
 }
 

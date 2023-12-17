@@ -1,19 +1,301 @@
-.auto {
+body{
+  padding: 0;
+  margin: 0;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  
+}
+.hoofdpagina{
+background-image: url('br.jpg');
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value to control darkness (0 is fully transparent, 1 is fully opaque) */
+  background-blend-mode: multiply; /* This blends the background image with the background color */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  padding-top: 40px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 
 }
-.car-details h2{
+.pagina  {
+ 
+  backdrop-filter: blur(30px);
+  width: 600px;
+  height: 650px;
+  border-radius: 30px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+/* Voeg deze stijlen toe aan je CSS-bestand */
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 600px; /* Maak het formulier schermvullend */
+  margin: 0;
+}
+.ce {
+
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #ffffff;
   text-align: center;
 }
-.car-details {
+
+label:nth-child(1) {
   width: 100%;
-  margin: 10px 0;
-  background-color: white; 
-  padding: 10px;
+
+  text-align: start;
+  color: #fff;
+}
+label {
+  width: 50%;
+ 
+  text-align: start;
+  color: #ffffff;
+}
+
+
+input {
+  width: 50%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+a {
+  color: #2196F3;
+  text-decoration: none !important;
+  display: block;
+  margin-top: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+.hf-bt{
+width: 12rem;
+height: 3rem;
+background-color: rgba(0, 0, 0, 0.726);
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+
+}
+.hf-bt:hover{
+  background-color: rgba(16, 16, 16, 0.63)
+}
+
+.contener{
+  width: 100%;
+  height: 100%;
+  
+}
+.auto{
+  border-top: solid 1px rgb(46, 46, 46);
+  border-bottom: solid 1px rgb(46, 46, 46);
+  width: 100%;
+  height: 900px;
+  background-color: black;
+}
+
+/* Container for label, input, and buttons */
+.button-container {
+display: flex;
+align-items: center; /* Align items vertically in the center */
+}
+
+/* Style for the label */
+label {
+margin-right: 10px; /* Add some space between the label and input */
+}
+
+/* Style for the input */
+input {
+padding: 8px;
+}
+
+/* Style for the buttons */
+button[type="submit"] {
+padding: 10px 20px;
+background-color: #333;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin-right: 10px; /* Add some space between the buttons */
+}
+
+button[type="submit"]:hover {
+background-color: #555;
+}
+
+/* Add more specific styles if needed */
+
+
+
+.container {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input#search {
+  color: inherit;
+  padding: 12px 10px;
+  width: 60vw;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.match {
+  font-weight: 600;
+  color: green;
+}
+
+@media only screen and (min-width: 600px) {
+  input#search {
+      width: 40vw;
+  }
+}
+
+
+
+table {
+  font-size: 30px;
+    width: 600px;
+    height: 600px;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    border-radius: 15px;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+    
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #ffffff;
+    color: #fff;
+  }
+  
+  
+  
+  h2 {
+    margin-top: 20px;
+    color: #000000;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    
+  }
+  
+  
+    .factuur ul {
+      
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    
+  }
+  .factuur li {
+    backdrop-filter: blur(30px);
+    border-radius: 8px;
+    color: white;
+    width: auto;
+    display: block;
+    
+  }
+  strong{
+    color: white;
+  }
+  li{
+    text-align: left;
+  }
+  
+
+.car-details {
+  backdrop-filter: blur(30px);
+    padding: 20px;
+    border-radius: 8px;
+ 
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    
+
+ 
+}
+
+.car-details h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.car-details p {
+    color: #ffffff;
+    margin: 5px 0;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .footer-section {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* Adjust styles for medium screens and larger */
+  body {
+    font-size: 18px; /* Increase font size for better readability on larger screens */
+  }
+
+
+}
+
 
 @media only screen and (min-width: 768px) {
   .car-details {
@@ -30,119 +312,6 @@
 }
 
 
-
-.image-container {
-  overflow: hidden;
-  height: 200px;
-}
-
-.autoss {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-.voeg-auto{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  background-color: black;
-}
-
-
-.add-car-button {
- 
-  padding-right: 10px 20px;
-  font-size: 16px;
-  background-color: #3c5297;
-  color: #fff;
-  padding: 7px;
-  border-radius: 6px;
- 
-  cursor: pointer;
-
-}
-.add-car-button2 {
- 
-  padding-right: 10px 20px;
-  font-size: 16px;
-  background-color: #7f2d2d;
-  color: #fff;
-  padding: 7px;
-  border-radius: 6px;
- 
-  cursor: pointer;
-
-}
-
-.add-car-button:hover {
-  background-color: #16602d;
-}
-.add-car-button2:hover {
-  background-color: #691212;
-}
-.add-car-button-container{
-  display: flex;
-  justify-content: space-between;
-}
-body{
-    padding: 0;
-    margin: 0;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
-}
-.hoofdpagina{
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(black-sports-cars-in-autumn-3emz4gcsbzabsn9u.jpg);
-    background-position: center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    padding-left: 100px;
-    height: 982px;
-   
-
-}
-.pagina{
- 
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    gap: 10px;
-    align-items: start;
-    padding-left: 100px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(210, 210, 210);
-}
-.hf-bt{
-width: 12rem;
-height: 3rem;
-backdrop-filter: blur(15px);
-background-color: rgba(37, 25, 25, 0.639);
-border: none;
-color: white;
-border-radius: 5px;
-cursor: pointer;
-
-
-}
-.bot{
-  width: 100%;
-}
-.bot2{
- text-align: start;
- display: flex;
- gap: 2rem;
-}
-.hf-bt:hover{
-  background-color: rgba(66, 47, 47, 0.45);
-    transition: 0.5s;
-    transform: scale(1.1);
-}
 h1{
     color: white;
 }
@@ -166,6 +335,7 @@ nav{
     justify-content: space-between;
     background-color: black;
     position: fixed;
+    z-index: 1;
     
     
 }
@@ -268,15 +438,7 @@ ul li {
     align-items: center;
 }
 
-input#search {
-    color: inherit;
-    padding: 12px 10px;
-    width: 60vw;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border: none;
-    outline: none;
-}
+
 
 .match {
     font-weight: 600;
@@ -400,7 +562,7 @@ body {
 
 /* Responsive styles for the main content */
 .pagina {
-  width: 40%; /* Adjust width for larger screens */
+  
   max-width: 1200px; /* Set a maximum width to avoid stretching on large screens */
   padding: 20px; /* Add padding to the main content */
 }
@@ -462,27 +624,32 @@ img {
     font-size: 18px; /* Increase font size for better readability on larger screens */
   }
 
-  .pagina {
-   width: 45%;
-   
-   font-size: 20px;
-  }
-  .pagina h1 {
-    text-align: start;/* Adjust width for medium screens */
-  }
 }
 
 
 
 @media screen and (max-width: 768px) {
   .pagina {
-    width: 80%;
+      height: 80%;
+    width: 400px;
+   }
+  .hoofdpagina{
+    padding-top: 100px;
+    height: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .car-details{
+    width: 70%;
+   
+  }
+  .footer-container{
+    height: 200px;
   }
 
-  .pagina h1 {
-    text-align: start;
+  form{
+width: 85%;
   }
-
   nav {
     display: flex;
     justify-content: space-between;
@@ -570,80 +737,8 @@ ul li{
 .logo{
   padding-left: 0;
 }
-  .button-container {
-    padding-right: 40%;
-  }
+ 
 
 }
-.button-container{
-  padding-right: 40%;
-}
-.social-icons {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
 
-.social-icon:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-  transition: 0.5s;
-}
 
-/* Individual hover colors */
-.social-icon.facebook:hover {
-  color: #3b5998; /* Facebook blue */
-  
-}
-
-.social-icon.twitter:hover {
-  color: #1da1f2; /* Twitter blue */
-}
-
-.social-icon.instagram:hover {
-  color: #e4405f; /* Instagram pink */
-}
-
-.social-icon.linkedin:hover {
-  color: #0077b5; /* LinkedIn blue */
-}
-
-.social-icon.pinterest:hover {
-  color: #bd081c; /* Pinterest red */
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 71%;
-  font-size: clamp(2rem, 2.8vw, 5rem);
-  font-family: Raleway;
-  font-weight: bold;
-}
-.typewriter {
-    width: 80.5ch;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 4px solid #212121;
-    animation: cursor 1s step-start infinite, text 5s steps(100) alternate infinite;
-}
-
-@keyframes cursor {
-    0%, 100% {
-        border-color: #ffffff;
-    }
-}
-
-@keyframes text {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 36.5ch;
-    }
-}
-.bot{
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}

@@ -1,10 +1,27 @@
 <?php
-session_start();
-
-include "Users/user.class.php";
-include "Users/UserRegistration.php";
-
+// session_start();
+ 
+// include "database.php";
+// include "Users/user.class.php";
+// include "Users/UserRegistration.php";
+ 
+// $db = new Database();
+ 
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//     $name = $_POST['Naam'];
+//     $adres = $_POST['Adres'];
+//     $Rijbewijsnummer = $_POST['Rijbewijsnummer'];
+//     $Telefoonnummer = $_POST['Telefoonnummer'];
+//     $Emailadres = $_POST['Emailadres'];
+//     $Wachtwoord = $_POST['Wachtwoord'];
+ 
+//     $newUser = new User($name, $adres, $Rijbewijsnummer,$Telefoonnummer, $Emailadres, $Wachtwoord  );
+//     $userRegistration = new UserRegistration();
+//     $klantID = $userRegistration->registerUser($db, $newUser);
+//     $_SESSION['klantID'] = $klantID;
+// }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +29,7 @@ include "Users/UserRegistration.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent A Car</title> 
     <link rel="icon" href="logog4.png" >
-    <link rel="stylesheet" href="styleloginn.css">
+    <link rel="stylesheet" href="styleloguitt.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
@@ -34,6 +51,7 @@ include "Users/UserRegistration.php";
         
            
             <?php
+            
         error_reporting(0);
         ini_set('display_errors', '0');
         ini_set('log_errors', '1');
@@ -85,46 +103,38 @@ include "Users/UserRegistration.php";
 </nav>
  <div class="contener">
     <div class="hoofdpagina">
-                      
+                
         <form action="" method="POST">
             
             <div class="pagina">
-              <div class="ce">  
-            <h1>Login</h1>
-           <label for="Emailadres">E-mail</label>
-           <input type="email" name="Emailadres"><br>
+             
+           <div class="ce">  <h1>Registreren</h1>
+      
+           <label for="Naam">Naam:</label>
+           <input type="text" name="Naam">
+
+           <label for="Adres">Adres:</label>
+           <input type="text" name="Adres">
+
+           <label for="Rijbewijsnummer">Rijbewijsnummer:</label>
+           <input type="tel" name="Rijbewijsnummer">
+
+           <label for="Telefoonnummer">Telefoonnummer:</label>
+           <input type="tel" name="Telefoonnummer">
+
+           <label for="Emailadres">E-mail:</label>
+           <input type="text" name="Emailadres">
            
-           <label for="Wachtwoord">Wachtwoord</label>
+           <label for="Wachtwoord">Wachtwoord:</label>
            <input type="password" name="Wachtwoord"><br>
 
            <input type="submit" name="submit">
-           <a href="registreer.php">Geen acccount? registreer hier!</a>
-           <?php
-
-
-if (isset($_POST['submit'])) {
-   $email = $_POST['Emailadres'];
-   $wachtwoord = $_POST['Wachtwoord'];
-
-   if ($db->customerLogin($email, $wachtwoord)) {
-     $klantID = $db->getKlantIDByEmail($email);
-     $_SESSION['klantID'] = $klantID;
-       $_SESSION['email'] = $email;  
-       $_SESSION['rol'];
-       header("Location: homepagina.php");
-       exit();
-   } else {
-       
-       echo '<p style="color: red;">Ongeldig e-mailadres of wachtwoord!</p>';
-
-
-   }
-}
-
-
-?>
-       </div></div>
+           <a href="login.php">Heb je al een account?</a>
+           </div></div>
        </form>
+   
+   </div>
+</div>
     </div>
        </div>
 
@@ -168,6 +178,24 @@ if (isset($_POST['submit'])) {
     let ul = document.querySelectorAll("ul");
 }
 
+    function fillReservationForm(merk, model, jaar, kenteken) {
+        // You can use JavaScript to populate the form fields with the selected car details
+        document.getElementById('car').value = merk + ' ' + model;
+        document.getElementById('year').value = jaar;
+        document.getElementById('license_plate').value = kenteken;
+
+        // You might want to scroll to the reservation form after filling the details
+        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
+    }
+    function fillReservationForm(merk, model, jaar, kenteken) {
+        // You can use JavaScript to populate the form fields with the selected car details
+        document.getElementById('car').value = merk + ' ' + model;
+        document.getElementById('year').value = jaar;
+        document.getElementById('license_plate').value = kenteken;
+
+        // You might want to scroll to the reservation form after filling the details
+        document.getElementById('reservation-form').scrollIntoView({ behavior: 'smooth' });
+    }
 
 </script>
 </body>
