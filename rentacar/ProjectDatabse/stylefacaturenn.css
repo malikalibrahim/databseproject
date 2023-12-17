@@ -93,12 +93,11 @@
       
   }
   .hoofdpagina{
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(br.jpg);
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(facts.jpg);
       background-position: center;
       background-repeat: no-repeat; 
       background-size: cover; 
       display: flex;
-      
       justify-content: center;
       align-items: center;
       

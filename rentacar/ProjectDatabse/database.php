@@ -34,7 +34,11 @@ class Database {
             die("Error fetching car information: " . $e->getMessage());
         }
     }
-
+    public function selectdeletedCars() {
+        $sql = "SELECT * FROM $this->carsTable WHERE Beschikbaarheid = 1 ";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function selectAllCars() {
         $sql = "SELECT * FROM $this->carsTable WHERE Beschikbaarheid = 0 ";
         $stmt = $this->pdo->query($sql);

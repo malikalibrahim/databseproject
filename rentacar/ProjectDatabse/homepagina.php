@@ -149,7 +149,7 @@ if ($rol == 'Admin' || $rol == 'medewerker') {
                 $cars = $db->selectadminAllCars();
                 echo "<a href='editCar.php?id={$car['AutoID']}' class='add-car-button'>bewerken</a>";
                 // Provide additional functionality for admins/medewerkers, e.g., reserve or delete
-                echo "<a href='DeleteCar.php?id={$car['AutoID']}' class='add-car-button2'>verwijder</a>";
+                echo "<a href='beschikbaar.php?id={$car['AutoID']}' class='add-car-button2'>verwijder</a>";
             } else {
                 $cars = $db->selectAllCars();
                 // For non-admin and non-medewerker users, show the "Add a Car" button

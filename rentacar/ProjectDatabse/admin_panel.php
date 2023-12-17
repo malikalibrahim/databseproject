@@ -16,7 +16,9 @@
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            display: flex;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center;
             flex-direction: column;
             min-height: 100vh;
             overflow-x: hidden;
@@ -24,6 +26,7 @@
 
         #sidebar {
             width: 250px;
+            
             height: 100%;
             background-color: #000;
             color: white;
@@ -53,7 +56,7 @@
             cursor: pointer;
             padding: 20px;
             background-color: transparent;
-            color: white;
+           
             text-align: center;
             position: fixed;
             z-index: 2;
@@ -71,6 +74,8 @@
         }
 
         .content {
+            width: 700px;
+            height: 400px !important;
             transition: margin-left 0.5s;
             padding: 16px;
             flex-grow: 1;

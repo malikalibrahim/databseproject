@@ -19,6 +19,8 @@
             margin: 0;
             padding: 0;
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
             min-height: 100vh;
             overflow-x: hidden;
@@ -55,7 +57,6 @@
             cursor: pointer;
             padding: 20px;
             background-color: transparent;
-            color: white;
             text-align: center;
             position: fixed;
             z-index: 2;

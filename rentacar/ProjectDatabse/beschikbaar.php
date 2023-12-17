@@ -98,21 +98,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             color: #4caf50;
         }
+       
+                .auto-info {
+                    border: 1px solid #ddd;
+                    width: 150px;
+                    padding: 10px;
+                    margin-bottom: 20px;
+                    border-radius: 8px;
+                    background-color: #f9f9f9;
+                }
+
+                .auto-info h3 {
+                    color: #333;
+                }
+
+                .auto-info p {
+                    margin: 5px 0;
+                }
+
+                .auto-image {
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                    margin-top: 10px;
+                    border-radius: 4px;
+                }
+                .hoofdpagina{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 14px;
+                    padding-left: 20px
+                }
+         
     </style>
 </head>
 <body>
     <h1>Beschikbaarheid</h1>
 
     <form action="" method="POST">
-        <label for="opnull">Zetten naar Beschikbaar:</label>
+        <label for="opnull">Zet auto op Beschikbaar:</label>
         <input type="text" id="opnull" name="opnull" placeholder="Voer een ID">
         <input type="submit" name="verzend_naar_nul" value="Beschikbaar">
     </form>
 
     <form action="" method="POST">
-        <label for="opnul">Zetten naar Niet Beschikbaar:</label>
+        <label for="opnul">Verwijder Auto:</label>
         <input type="text" id="opnul" name="opnul" placeholder="Voer een ID ">
         <input type="submit" name="verzend_naar_een" value="Niet Beschikbaar">
     </form>
+    <div><h1>Verwijderde Auto's</h1></div> 
+    <div class="hoofdpagina">
+       
+    <?php
+    $cars = $db->selectdeletedCars();
+
+    foreach ($cars as $car) {
+        ?>
+        <div class="auto-info">
+            <h3>Auto ID: <?php echo $car['AutoID']; ?></h3>
+            <p><strong>Merk:</strong> <?php echo $car['Merk']; ?></p>
+            <p><strong>Model:</strong> <?php echo $car['Model']; ?></p>
+            <p><strong>Jaar:</strong> <?php echo $car['Jaar']; ?></p>
+            <p><strong>Kenteken:</strong> <?php echo $car['Kenteken']; ?></p>
+            <p><strong>Beschikbaarheid:</strong> <?php echo $car['Beschikbaarheid']; ?></p>
+            <p><strong>Prijs:</strong> <?php echo $car['Prijs']; ?></p>
+            <!-- Voeg andere velden toe indien nodig -->
+
+            <!-- Voeg CSS-stijlen toe voor de auto-info div -->
+          
+        </div>
+        <?php
+    }
+    ?>
+</div>
+
 </body>
 </html>
