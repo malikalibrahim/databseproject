@@ -37,99 +37,107 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Beschikbaar</title>
     
     <style>
-        /* Reset some default styles and set a base font */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background: linear-gradient(#141e30, #243b55);
+            
         }
 
-        /* Style the forms */
         form {
             max-width: 400px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            background: rgba(0,0,0,.5);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.6);
+            border-radius: 10px;
         }
 
-        /* Style the input fields */
         input[type="text"] {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            transition: border 0.3s;
-        }
-
-        /* Change input border color on focus */
-        input[type="text"]:focus {
-            border-color: #4caf50;
-        }
-
-        /* Style the submit buttons */
-        input[type="submit"] {
-            background-color: #4caf50;
+            padding: 10px 0;
+            font-size: 16px;
             color: #fff;
-            padding: 12px 20px;
+            margin-bottom: 30px;
             border: none;
-            border-radius: 4px;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #03e9f4;
+        }
+
+        input[type="submit"] {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #03e9f4;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+            letter-spacing: 4px;
+            background: transparent;
+            border: 2px solid #03e9f4;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
 
-        /* Change button background color on hover */
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background: #03e9f4;
+            color: #fff;
+            box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+            border-radius: 5px;
         }
 
-        /* Add some spacing between form elements */
         form > * {
             margin-bottom: 15px;
+            color: #ddd;
         }
 
-        /* Style the page title */
         h1 {
             text-align: center;
-            color: #4caf50;
+            color: #fff;
         }
-       
-                .auto-info {
-                    border: 1px solid #ddd;
-                    width: 150px;
-                    padding: 10px;
-                    margin-bottom: 20px;
-                    border-radius: 8px;
-                    background-color: #f9f9f9;
-                }
 
-                .auto-info h3 {
-                    color: #333;
-                }
+        .auto-info {
+            border: 1px solid #ddd;
+            width: 150px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
 
-                .auto-info p {
-                    margin: 5px 0;
-                }
+        .auto-info h3 {
+            color: #333;
+        }
 
-                .auto-image {
-                    max-width: 100%;
-                    height: auto;
-                    display: block;
-                    margin-top: 10px;
-                    border-radius: 4px;
-                }
-                .hoofdpagina{
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 14px;
-                    padding-left: 20px
-                }
-         
+        .auto-info p {
+            margin: 5px 0;
+        }
+
+        .auto-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .hoofdpagina {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -143,10 +151,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form action="" method="POST">
         <label for="opnul">Verwijder Auto:</label>
-        <input type="text" id="opnul" name="opnul" placeholder="Voer een ID ">
+        <input type="text" id="opnul" name="opnul" placeholder="Voer een ID">
         <input type="submit" name="verzend_naar_een" value="Niet Beschikbaar">
     </form>
-    <div><h1>Verwijderde Auto's</h1></div> 
+
+    <div>
+        <h1>Verwijderde Auto's</h1>
+    </div>
+</body>
+</html>
+
     <div class="hoofdpagina">
        
     <?php

@@ -33,65 +33,107 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voeg Auto Toe</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #d3d3d3;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 1px;
             margin: 0;
             padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            background-image: url(https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        form {
-            max-width: 400px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .login {
+            position: relative;
+            height: auto;
+            width: auto;
+            margin: auto;
+            padding: 60px 60px;
+            background-color: #505050;
+            box-shadow: 0px 30px 60px -5px #000;
             border-radius: 8px;
             text-align: center;
         }
 
-        h2 {
-            color: #4caf50;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
+        form {
+            padding-top: 20px;
         }
 
-        label {
-            display: block;
-            margin: 10px 0 8px;
-            color: #333;
-            font-weight: bold;
+        h2 {
+            padding-left: 12px;
+            font-size: 22px;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            letter-spacing: 2px;
+            display: inline-block;
+            font-weight: 100;
+        }
+
+        span {
+            text-transform: uppercase;
+            font-size: 12px;
+            opacity: 0.4;
+            display: inline-block;
+            position: relative;
+            top: -20px;
+            transition: all 0.5s ease-in-out;
         }
 
         input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
+            border: none;
+            width: 100%;
+            padding: 10px 20px;
+            display: block;
+            height: 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0);
+            overflow: hidden;
+            margin-top: 15px;
+            transition: all 0.5s ease-in-out;
+            color: #fff;
         }
 
-        input[type="file"] {
-            display: none;
+        input:focus {
+            outline: 0;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0);
+        }
+
+        input:focus+span {
+            opacity: 0.6;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
         }
 
         .upload-btn-wrapper {
             position: relative;
             overflow: hidden;
             display: inline-block;
+            margin-top: 15px;
         }
 
         .btn {
-            border: 2px solid #4caf50;
-            color: #4caf50;
-            background-color: white;
+            border: 2px solid #1161ed;
+            color: #1161ed;
+            background-color: transparent;
             padding: 10px 20px;
             border-radius: 8px;
             font-size: 16px;
@@ -99,28 +141,8 @@ if (isset($_POST['submit'])) {
             cursor: pointer;
         }
 
-        .upload-btn-wrapper input[type=file] {
-            font-size: 100px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .custom-file-selected {
-            color: #495057;
-            font-size: 14px;
-            margin-top: 8px;
-        }
-
-        .uploaded-image {
-            margin-top: 16px;
-            text-align: center;
-        }
-
         .btn-primary {
-            background-color: #4caf50;
+            background-color: #1161ed;
             border: none;
             padding: 12px 20px;
             border-radius: 5px;
@@ -129,45 +151,125 @@ if (isset($_POST['submit'])) {
             cursor: pointer;
             transition: background-color 0.3s;
             color: #fff;
+            margin-top: 30px;
+            height: 50px;
         }
 
         .btn-primary:hover {
-            background-color: #45a049;
+            background-color: #4082f5;
+        }
+
+        .custom-checkbox {
+            -webkit-appearance: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            border-radius: 2px;
+            display: inline-block;
+            position: relative;
+            top: 6px;
+            margin-top: 15px;
+        }
+
+        .custom-checkbox:checked {
+            background-color: rgba(17, 97, 237, 1);
+        }
+
+        .custom-checkbox:checked:after {
+            content: '\2714';
+            font-size: 10px;
+            position: absolute;
+            top: 1px;
+            left: 4px;
+            color: #fff;
+        }
+
+        .custom-checkbox:focus {
+            outline: none;
+        }
+
+        label {
+            display: inline-block;
+            padding-top: 10px;
+            padding-left: 5px;
+        }
+
+        .uploaded-image {
+            margin-top: 16px;
+            text-align: center;
+        }
+        .file-upload-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #1161ed;
+            border-radius: 8px;
+            background-color: transparent;
+            color: #1161ed;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .file-upload:hover {
+            background-color: #1161ed;
+            color: #fff;
+        }
+
+        #file-name {
+            display: inline-block;
+            margin-top: 15px;
+            opacity: 0.6;
+        }
+
+        #image {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <form action="" method="post" enctype="multipart/form-data">
+    <div class="login">
         <h2>Voeg een nieuwe auto toe</h2>
+        <form action="" method="post" enctype="multipart/form-data">
 
-        <label for="merk">Merk:</label>
-        <input type="text" id="merk" name="merk" required>
+            <label for="merk">Merk:</label>
+            <input type="text" id="merk" name="merk" required>
+          
 
-        <label for="model">Model:</label>
-        <input type="text" id="model" name="model" required>
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required>
+    
 
-        <label for="jaar">Jaar:</label>
-        <input type="number" id="jaar" name="jaar" required>
+            <label for="jaar">Jaar:</label>
+            <input type="number" id="jaar" name="jaar" required>
+        
 
-        <label for="kenteken">Kenteken:</label>
-        <input type="text" id="kenteken" name="kenteken" required>
+            <label for="kenteken">Kenteken:</label>
+            <input type="text" id="kenteken" name="kenteken" required>
+      
 
-        <label for="beschikbaarheid">Beschikbaarheid:</label>
-        <input type="text" id="beschikbaarheid" name="beschikbaarheid" required>
+            <label for="beschikbaarheid">Beschikbaarheid:</label>
+            <input type="text" id="beschikbaarheid" name="beschikbaarheid" required>
+         
+            <label for="prijs">Prijs:</label>
+            <input type="text" id="prijs" name="prijs" required>
+            
 
-        <label for="prijs">Prijs:</label>
-        <input type="text" id="prijs" name="prijs" required>
+            <div class="file-upload-wrapper">
+                <label for="image" class="file-upload">Kies een afbeelding</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <div id="file-name"></div>
+            </div>
 
-        <div class="upload-btn-wrapper">
-            <label for="image" class="btn">Kies een afbeelding</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
-            <div class="custom-file-selected" id="file-name">Bestand niet geselecteerd</div>
-        </div>
+            <div class="uploaded-image" id="uploaded-image"></div>
 
-        <div class="uploaded-image" id="uploaded-image"></div>
-
-        <input type="submit" class="btn-primary" value="Voeg Auto Toe" name="submit">
+            <input type="submit" class="btn-primary" value="Voeg Auto Toe" name="submit">
+        </form>
 
         <script>
             document.getElementById('image').addEventListener('change', function () {
