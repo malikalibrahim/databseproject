@@ -207,12 +207,26 @@ display: none;
   align-items: center;
   text-align: end;
   margin: 0;
-  width: 100%;
+  width: 100px;
   height: 100%;
 
   padding-left: 45rem;
   padding-right: 30px;
 }
+@media only screen and (max-width: 1500px) {
+.nav-list2{
+  padding-left: 30rem;
+}
+}
+@media only screen and (max-width: 1450px) {
+  .nav-list2{
+    padding-left: 27rem;
+    max-width: 100%;
+  }
+  }
+
+
+
 .nav-list2 li{
   transition: 0.3s;
   display: flex;
