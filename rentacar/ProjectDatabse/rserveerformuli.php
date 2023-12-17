@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent A Car</title> 
     <link rel="icon" href="logog4.png" >
-    <link rel="stylesheet" href="stylereserveeringg.css">
+    <link rel="stylesheet" href="stylereserveeringgg.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
@@ -41,23 +41,23 @@
             if ($rol == 'Admin') {
               
                 echo '<li><a href="admin_panel.php">Admin</a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href="#"></a></li>';
+                echo '<li><a href="#"></a></li>';
                 echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';
             } else if ($rol == 'medewerker') {
               
                 echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href=""></a></li>';
+                echo '<li><a href=""></a></li>';
                 echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';
                
             } else if ($rol == 0) {  
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
-                echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+                echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
                 echo '<ul  class="nav-list2">';
            
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
@@ -66,7 +66,7 @@
         } else {
             
             echo '<li><a href="facaturen.php">Facturen</a></li>';
-            echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+            echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
             echo '<ul  class="nav-list2">';
             echo '<li><a href="login.php">Inloggen</a></li>';
             echo '</ul>';
@@ -215,10 +215,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         });
     }
     function toggleMenu() {
-    var dropdown = document.getElementById("dropdown");
-    dropdown.classList.toggle("active");
-    let ul = document.querySelectorAll("ul");
-}
+        var dropdown = document.getElementById("dropdown");
+        dropdown.classList.toggle("active");
+    }
 
     function fillReservationForm(merk, model, jaar, kenteken) {
         // You can use JavaScript to populate the form fields with the selected car details

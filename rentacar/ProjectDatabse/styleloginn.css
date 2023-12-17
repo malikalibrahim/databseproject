@@ -239,6 +239,7 @@ nav{
     justify-content: space-between;
     background-color: black;
     position: fixed;
+    z-index: 1;
     
     
 }
@@ -530,9 +531,17 @@ img {
 
 
 @media screen and (max-width: 768px) {
-  .pagina {
+  form{
     width: 80%;
-  }
+    height: 70%;
+        }
+        .pagina{
+          height: auto;
+        }
+        .hoofdpagina{
+          width: 100%;
+        }
+   
 
   .pagina h1 {
     text-align: start;
@@ -737,7 +746,6 @@ nav img {
 
 .nav-list {
     width: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -775,8 +783,7 @@ nav img {
 }
 
 .footer-container {
-    flex-direction: column;
-    align-items: center;
+
     gap: 20px;
 }
 

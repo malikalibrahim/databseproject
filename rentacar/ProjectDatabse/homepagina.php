@@ -42,16 +42,16 @@
             if ($rol == 'Admin') {
               
                 echo '<li><a href="admin_panel.php">Admin</a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href="#"></a></li>';
+                echo '<li><a href="#"></a></li>';
                 echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';
             } else if ($rol == 'medewerker') {
               
                 echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href=""></a></li>';
+                echo '<li><a href=""></a></li>';
                 echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';

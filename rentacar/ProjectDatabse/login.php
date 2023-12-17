@@ -21,7 +21,7 @@ include "Users/UserRegistration.php";
     
 <nav> 
      
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>  <a href="homepagina.php"><img src="logog.png" alt="logo" class="logo"></a>
+ <a href="homepagina.php"><img src="logog.png" alt="logo" class="logo"></a><div class="menu-toggle" onclick="toggleMenu()">☰</div> 
     <div class="dropdown" id="dropdown">
     <ul class="nav-list">
   
@@ -48,23 +48,23 @@ include "Users/UserRegistration.php";
             if ($rol == 'Admin') {
               
                 echo '<li><a href="admin_panel.php">Admin</a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href="#"></a></li>';
+                echo '<li><a href="#"></a></li>';
                 echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';
             } else if ($rol == 'medewerker') {
               
                 echo '<li><a href="medewerker_panel.php">Medewerker</a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
-                echo '<li><a href="loguit.php"></a></li>';
+                echo '<li><a href=""></a></li>';
+                echo '<li><a href=""></a></li>';
                 echo '<ul  class="nav-list2">';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';
                
             } else if ($rol == 0) {  
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
-                echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+                echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
                 echo '<ul  class="nav-list2">';
            
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
@@ -73,7 +73,7 @@ include "Users/UserRegistration.php";
         } else {
             
             echo '<li><a href="facaturen.php">Facturen</a></li>';
-            echo '<li><a href="reserveerFormulier.php">Reserveringen</a></li>';
+            echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
             echo '<ul  class="nav-list2">';
             echo '<li><a href="login.php">Inloggen</a></li>';
             echo '</ul>';
@@ -98,7 +98,7 @@ include "Users/UserRegistration.php";
            <input type="password" name="Wachtwoord"><br>
 
            <input type="submit" name="submit">
-           <a href="registreer.php">Geen acccount? registreer hier!</a>
+           <a href="registreren.php">Geen acccount? registreer hier!</a>
            <?php
 
 
