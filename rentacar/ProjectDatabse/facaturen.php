@@ -12,7 +12,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent A Car</title> 
     <link rel="icon" href="logog4.png" >
-    <link rel="stylesheet" href="stylefacaturenn.css">
+    <link rel="stylesheet" href="stylefacaturen.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
@@ -124,36 +124,61 @@ if (isset($_SESSION['klantID'])) {
   ?>
   
   <div class="factuur">
-    <?php foreach ($facturen as $factuur) : ?>
-      <div class="row">
-        <div><strong>FactuurID:</strong></div>
-        <div><?php echo $factuur['FactuurID']; ?></div>
-      </div>
-      <div class="row">
-        <div><strong>Factuurdatum:</strong></div>
-        <div><?php echo $factuur['FactuurDatum']; ?></div>
-      </div>
-      <div class="row">
-        <div><strong>TotaalBedrag:</strong></div>
-        <div><?php echo $factuur['TotaalBedrag']; ?></div>
-      </div>
-      <?php
-      $autoID = $factuur['AutoID'];
-      if (!empty($autoDetails)) :
-      ?>
-        <div class="row">
-          <div><strong>Merk:</strong></div>
-          <div><?php echo $autoDetails[0]['Merk']; ?></div>
-        </div>
-        <div class="row">
-          <div><strong>Model:</strong></div>
-          <div><?php echo $autoDetails[0]['Model']; ?></div>
-        </div>
-      <?php endif; ?>
-    <?php endforeach; ?>
-  </div>
-</div>
+          
+          <ul>
+          <?php foreach ($facturen as $factuur) : ?>
+  <li>
+      <table>
+          <tr>
+              <td><strong>FactuurID:</strong></td>
+              <td><?php echo $factuur['FactuurID']; ?></td>
+          </tr>
+          <tr>
+              <td><strong>Factuurdatum:</strong></td>
+              <td><?php echo $factuur['FactuurDatum']; ?></td>
+          </tr>
+          <tr>
+              <td><strong>TotaalBedrag:</strong></td>
+              <td><?php echo $factuur['TotaalBedrag']; ?></td>
+          </tr>
+          <?php
+          // Haal autogegevens op
+          $autoID = $factuur['AutoID'];
+         
+          
 
+          if (!empty($autoDetails)) {
+              ?>
+               <tr>
+          <td style="text-align: left;"><strong>Merk:</strong></td>
+          <td style="text-align: center;">
+              <?php
+             
+              echo "<li>" . $autoDetails[0]['Merk'] . "</li>";
+            
+              ?>
+          </td>
+      </tr>
+              <tr>
+                  <td><strong>Model:</strong></td>
+                  <td>
+                      <?php
+                      
+                      echo "<li><strong>Model:</strong> " . $autoDetails[0]['Model'] . "</li>";
+                   
+                      ?>
+                  </td>
+              </tr>
+              <?php
+          }
+          ?>
+      </table>
+  </li>
+<?php endforeach; ?>
+          </ul>
+      </div>
+ 
+</div>
 
     <footer class="footer">
     <div class="footer-container">

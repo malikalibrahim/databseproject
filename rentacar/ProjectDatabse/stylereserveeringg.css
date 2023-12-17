@@ -6,7 +6,7 @@ body{
   
 }
 .hoofdpagina{
-background-image: url('br.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(facts.jpg);
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply; /* This blends the background image with the background color */
   background-position: center;
@@ -91,7 +91,7 @@ a {
   color: #2196F3;
   text-decoration: none !important;
   display: block;
-  margin-top: 10px;
+
 }
 
 a:hover {
