@@ -59,7 +59,7 @@
                
             } else if ($rol == 0) {  
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
-                echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
+                echo '<li><a href="rserveerformuli.php">Reserveren</a></li>';
                 echo '<ul  class="nav-list2">';
            
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
@@ -68,7 +68,7 @@
         } else {
             
             echo '<li><a href="facaturen.php">Facturen</a></li>';
-            echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
+            echo '<li><a href="rserveerformuli.php">Reserveren</a></li>';
             echo '<ul  class="nav-list2">';
             echo '<li><a href="login.php">Inloggen</a></li>';
             echo '</ul>';
@@ -152,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
              <form method="post" action="factuurpagina.php" <?php if (!isset($autoID) || empty($autoID)) echo 'style="display: none;"'; ?>> >
              <div class="pagina" >
               
-            <div class="ce">  <h1>Reserveringen</h1>
+            <div class="ce">  <h1>Reserveren</h1>
        
            
             <label for="Verhuurdatum">Startdatum verhuur:</label>
