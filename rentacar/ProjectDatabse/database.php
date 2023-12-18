@@ -331,6 +331,30 @@ class Database {
             die("Fout bijwerken gebruikersinformatie: " . $e->getMessage());
         }
     }
+    public function editUserr($klantID, $name, $address, $licenseNumber, $phoneNumber, $email, $password): bool {
+        try {
+            // Validate input
+            $klantID = (int)$klantID;
+            $name = $this->validateInput($name);
+            $address = $this->validateInput($address);
+            $licenseNumber = $this->validateInput($licenseNumber);
+            $phoneNumber = $this->validateInput($phoneNumber);
+            $email = $this->validateInput($email);
+    
+            // If a new password is provided, hash it; otherwise, use the existing hashed password
+            $hashedPassword = $password ? password_hash($password, PASSWORD_DEFAULT) : null;
+    
+            // Update gebruikersinformatie
+            $sql = "UPDATE klanten SET Naam = ?, Adres = ?, Rijbewijsnummer = ?, Telefoonnummer = ?, Emailadres = ?, Wachtwoord = ? WHERE KlantID = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $success = $stmt->execute([$name, $address, $licenseNumber, $phoneNumber, $email, $hashedPassword, $klantID]);
+    
+            return $success;
+        } catch (PDOException $e) {
+            die("Fout bijwerken gebruikersinformatie: " . $e->getMessage());
+        }
+    }
+    
     
     public function addReservering($verhuurdatum, $eindVerhuurdatum, $klantID, $autoID, $totaalBedrag) {
         $sql = "INSERT INTO verhuringen (Verhuurdatum, endVerhuurdatum, KlantID, AutoID, Huurperiode, Kosten) VALUES (?, ?, ?, ?, ?, ?)";
@@ -455,6 +479,7 @@ class Database {
             die("Query failed: " . $e->getMessage());
         }
     }
+    
 }    
     
 

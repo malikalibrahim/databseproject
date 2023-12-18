@@ -58,7 +58,7 @@
                
             } else if ($rol == 0) {  
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
-                echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
+                echo '<li><a href="rserveerformuli.php">Reserveren</a></li>';
                 echo '<ul  class="nav-list2">';
            
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
@@ -67,7 +67,7 @@
         } else {
             
             echo '<li><a href="facaturen.php">Facturen</a></li>';
-            echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
+            echo '<li><a href="rserveerformuli.php">Reserveren</a></li>';
             echo '<ul  class="nav-list2">';
             echo '<li><a href="login.php">Inloggen</a></li>';
             echo '</ul>';

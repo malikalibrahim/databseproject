@@ -217,7 +217,8 @@ button a {
             <p><strong>Emailadres:</strong> <?php echo $klantData['Emailadres']; ?></p>
             <!-- Voeg andere klantgegevens toe zoals nodig -->
         </div>
-<button><a href="facaturen.php">Bekijk hier je facatuur</a></button>
+        <button onclick="window.print()"><a href="facaturen.php">Bekijk hier je factuur</a></button>
+
         <!-- Auto-informatie sectie -->
         
 

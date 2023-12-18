@@ -58,16 +58,17 @@
                
             } else if ($rol == 0) {  
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
-                echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
+               
+                echo '<li><a href="rserveerformuli.php">Reserveren</a></li>';
                 echo '<ul  class="nav-list2">';
-           
+                echo '<li><a href="gegevensbewerken.php">Gegevens</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';
             }
         } else {
             
             echo '<li><a href="facaturen.php">Facturen</a></li>';
-            echo '<li><a href="rserveerformuli.php">Reserveringen</a></li>';
+            echo '<li><a href="rserveerformuli.php">Reserveren</a></li>';
             echo '<ul  class="nav-list2">';
             echo '<li><a href="login.php">Inloggen</a></li>';
             echo '</ul>';
@@ -153,7 +154,7 @@ if ($rol == 'Admin' || $rol == 'medewerker') {
             } else {
                 $cars = $db->selectAllCars();
                 // For non-admin and non-medewerker users, show the "Add a Car" button
-                echo "<a href='rserveerformuli.php?id={$car['AutoID']}' class='add-car-button'>Add a Car</a>";
+                echo "<a href='rserveerformuli.php?id={$car['AutoID']}' class='add-car-button'>Reserveren   </a>";
             }
     
             echo "</div>";
