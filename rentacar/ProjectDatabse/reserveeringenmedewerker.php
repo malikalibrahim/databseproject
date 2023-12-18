@@ -18,7 +18,8 @@ $reserveringen = $db->query("SELECT * FROM facturen");
             font-family: 'Arial', sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
+            padding-right: 120px;
+            width: 100%;
         }
 
         h1 {
@@ -28,26 +29,29 @@ $reserveringen = $db->query("SELECT * FROM facturen");
         }
 
         table {
-            width: 80%;
+            overflow-x: scroll;
+           text-align: start;
+            width: 50%;
             margin: 20px auto;
+            backdrop-filter: blur(15px);
             border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            
         }
 
         th, td {
+            color: white;
             border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
         }
 
         th {
-            background-color: #f2f2f2;
-            color: #333;
+      
         }
 
         tbody tr:hover {
-            background-color: #f5f5f5;
+           
         }
 
         a {
@@ -78,10 +82,11 @@ $reserveringen = $db->query("SELECT * FROM facturen");
 
 body {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url(https://wallpaperaccess.com/full/26894.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://wallpaperaccess.com/full/26894.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

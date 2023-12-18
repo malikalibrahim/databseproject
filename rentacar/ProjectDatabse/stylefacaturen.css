@@ -213,6 +213,28 @@
     padding-left: 45rem;
     padding-right: 30px;
   }
+
+  
+@media only screen and (max-width: 1500px) {
+  .nav-list2{
+    padding-left: 27rem;
+  }
+  }
+  @media only screen and (max-width: 1490px) {
+    .nav-list2{
+      padding-left: 20rem;
+    }
+    }
+    @media only screen and (max-width: 1250px) {
+      .nav-list2{
+        padding-left: 15rem;
+      }
+      }
+      @media only screen and (max-width: 1050px) {
+        .nav-list2{
+          padding-left: 5rem;
+        }
+        }
   .nav-list2 li{
     transition: 0.3s;
     display: flex;

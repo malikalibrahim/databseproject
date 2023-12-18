@@ -80,7 +80,7 @@ input {
 /* Basisstijl voor de knop */
 /* Basisstijlen voor de submitknop */
 input[type="submit"] {
-  background-color: #0b0b0b;
+  background-color: #341212;
   color: #fff;
   cursor: pointer;
   padding: 10px 20px; /* Optioneel: voeg wat vulling toe voor een betere uitstraling */
@@ -91,7 +91,7 @@ input[type="submit"] {
 
 /* Stijlen voor de submitknop bij hover */
 input[type="submit"]:hover {
-  background-color: #000000;
+  background-color: #491a1a;
   color: #fff;
   transform: scale(1.05); /* Optioneel: voeg een schaal toe bij hover voor een subtiele vergrotingseffect */
 }
@@ -281,6 +281,27 @@ display: none;
   padding-left: 45rem;
   padding-right: 30px;
 }
+
+@media only screen and (max-width: 1500px) {
+  .nav-list2{
+    padding-left: 27rem;
+  }
+  }
+  @media only screen and (max-width: 1490px) {
+    .nav-list2{
+      padding-left: 20rem;
+    }
+    }
+    @media only screen and (max-width: 1250px) {
+      .nav-list2{
+        padding-left: 15rem;
+      }
+      }
+      @media only screen and (max-width: 1050px) {
+        .nav-list2{
+          padding-left: 5rem;
+        }
+        }
 .nav-list2 li{
   transition: 0.3s;
   display: flex;

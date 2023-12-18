@@ -133,7 +133,7 @@ $customers = $database->fetchAllCustomers();
             </table>
         </div>
     </div>
-
+</div>
     <!-- Bootstrap JS (Popper.js and jQuery are required for Bootstrap) -->
 
 </body>

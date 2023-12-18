@@ -39,16 +39,12 @@ body {
   animation: animate 1s linear infinite;
 }
 
-@keyframes animate {
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
+
 
 /* Heading styling */
 .forrm h1,
-.forrm h2 {
-  color: #fff;
+h2 {
+  color: #fff !important;
   text-align: center;
 }
 
@@ -108,7 +104,10 @@ label {
   margin-top: 20px;
   color: #fff;
 }
-
+.table-responsive {
+  overflow-x:scroll;
+  width: 70%;
+}
 .table-sm th,
 .table-sm td {
   padding: 10px;

@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
             width: auto;
             margin: auto;
             padding: 60px 60px;
-            background-color: #505050;
+            backdrop-filter: blur(20px);
             box-shadow: 0px 30px 60px -5px #000;
             border-radius: 8px;
             text-align: center;
@@ -189,6 +189,8 @@ if (isset($_POST['submit'])) {
 
         label {
             display: inline-block;
+            width: 100%;
+            text-align: start;
             padding-top: 10px;
             padding-left: 5px;
         }
@@ -206,6 +208,7 @@ if (isset($_POST['submit'])) {
 
         .file-upload {
             display: inline-block;
+            width: auto;
             padding: 10px 20px;
             border: 2px solid #1161ed;
             border-radius: 8px;

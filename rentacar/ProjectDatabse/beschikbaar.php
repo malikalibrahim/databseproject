@@ -42,6 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin: 0;
             padding: 0;
             background: linear-gradient(#141e30, #243b55);
+            width: 100%;
+            height: 100vh;
             
         }
 
@@ -108,16 +110,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .auto-info {
-            border: 1px solid #ddd;
+            backdrop-filter: blur(30px);
+            background: rgba(0,0,0,.5);
             width: 150px;
             padding: 10px;
+            color: white;
             margin-bottom: 20px;
             border-radius: 8px;
-            background-color: #f9f9f9;
+        
         }
 
         .auto-info h3 {
-            color: #333;
+            color: #white;
         }
 
         .auto-info p {
@@ -137,6 +141,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             flex-wrap: wrap;
             gap: 14px;
             padding-left: 20px;
+            width: 98%;
+            
+            backdrop-filter: blur(15px);
         }
     </style>
 </head>
