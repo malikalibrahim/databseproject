@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addCustomer'])) {
 }
 
 // Fetch customers for display
-$customers = $database->fetchAllCustomers();
+$customers = $database->selectklanten();
 ?>
 
 <!DOCTYPE html>
@@ -35,9 +35,9 @@ $customers = $database->fetchAllCustomers();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Management</title>
-
+   
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="styleadminuser.css">
+    <link rel="stylesheet" href="medewekeruser.css">
 
 </head>
 
@@ -101,7 +101,7 @@ $customers = $database->fetchAllCustomers();
                         <th>Telefoonnummer</th>
                         <th>Emailadres</th>
                         <th >Wachtwoord</th>
-                       
+                     
                     </tr>
                 </thead>
                 <tbody>
@@ -116,9 +116,9 @@ $customers = $database->fetchAllCustomers();
                                 <td><?= $customer['Telefoonnummer'] ?></td>
                                 <td><?= $customer['Emailadres'] ?></td>
                                 <td ><?= $customer['Wachtwoord'] ?></td>
-                                <td>
-                                    
-                                    </div>
+                            
+
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -131,7 +131,7 @@ $customers = $database->fetchAllCustomers();
             </table>
         </div>
     </div>
-
+</div>
     <!-- Bootstrap JS (Popper.js and jQuery are required for Bootstrap) -->
 
 </body>

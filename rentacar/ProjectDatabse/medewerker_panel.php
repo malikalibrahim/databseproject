@@ -1,5 +1,31 @@
 
-</html>
+<?php
+session_start();
+
+include_once "database.php";
+include_once "Users/user.class.php";
+include_once "Users/UserRegistration.php";
+
+
+$db = new Database();
+
+try {
+    $customersQuery = "SELECT COUNT(*) as total_customers FROM klanten";
+    $stmtCustomers = $db->query($customersQuery);
+    $customersResult = $stmtCustomers->fetch(PDO::FETCH_ASSOC);
+
+    $reservationsQuery = "SELECT COUNT(*) as total_reservations FROM verhuringen";
+    $stmtReservations = $db->query($reservationsQuery);
+    $reservationsResult = $stmtReservations->fetch(PDO::FETCH_ASSOC);
+
+    $totalRevenueQuery = "SELECT SUM(Kosten) as total_revenue FROM verhuringen";
+    $stmtTotalRevenue = $db->query($totalRevenueQuery);
+    $totalRevenueResult = $stmtTotalRevenue->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Error: " . $e->getMessage());
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,8 +44,8 @@
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
+            display: flex !important;
+            justify-content: center !important;
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
@@ -28,6 +54,7 @@
 
         #sidebar {
             width: 250px;
+            
             height: 100%;
             background-color: #000;
             color: white;
@@ -57,6 +84,7 @@
             cursor: pointer;
             padding: 20px;
             background-color: transparent;
+           
             text-align: center;
             position: fixed;
             z-index: 2;
@@ -74,6 +102,8 @@
         }
 
         .content {
+            width: 700px;
+            height: 400px !important;
             transition: margin-left 0.5s;
             padding: 16px;
             flex-grow: 1;
@@ -170,6 +200,10 @@
             background-color: #ecf0f1;
             color: #333;
         }
+        .infoo{
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -221,6 +255,22 @@
         <!-- Add more sections and elements as needed -->
 
     </div>
+    <div  class="infoo">
+    <div class="card">
+        <h2>Number of Customers</h2>
+        <p>Total Customers: <?php echo isset($customersResult['total_customers']) ? $customersResult['total_customers'] : 'N/A'; ?></p>
+    </div>
+
+    <div class="card">
+        <h2>Number of Reservations</h2>
+        <p>Total Reservations: <?php echo isset($reservationsResult['total_reservations']) ? $reservationsResult['total_reservations'] : 'N/A'; ?></p>
+    </div>
+
+    <div class="card">
+        <h2>Total Revenue from Rentals</h2>
+        <p>Total Revenue: <?php echo isset($totalRevenueResult['total_revenue']) ? '€' . number_format($totalRevenueResult['total_revenue'], 2) : 'N/A'; ?></p>
+    </div>
+    </div>
 
     <!-- Include Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -244,6 +294,7 @@
             }
         }
     </script>
+    
 </body>
 
 </html>

@@ -35,9 +35,9 @@ $customers = $database->fetchAllCustomers();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Management</title>
-
+   
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="styleadminuser.css">
+    <link rel="stylesheet" href="styleadminuserr.css">
 
 </head>
 
@@ -117,10 +117,11 @@ $customers = $database->fetchAllCustomers();
                                 <td><?= $customer['Emailadres'] ?></td>
                                 <td ><?= $customer['Wachtwoord'] ?></td>
                                 <td>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn-sm"><a href="edit_customer.php?id=<?= $customer['KlantID'] ?>">Edit</a></button>
-                                        <button type="button" class="btn-sms"><a href="update_customer.php?id=<?= $customer['KlantID'] ?>">Delete</a></button>
-                                    </div>
+                                <div class="btn-group">
+    <button type="button" class="btn-sm" style="background-color: blue;"><a href="edit_customer.php?id=<?= $customer['KlantID'] ?>" style="color: white; text-decoration: none;">Edit</a></button>
+    <button type="button" class="btn-sm" style="background-color: red;"><a href="update_customer.php?id=<?= $customer['KlantID'] ?>" style="color: white; text-decoration: none;">Delete</a></button>
+</div>
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
