@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .auto-info h3 {
-            color: #white;
+            color: white;
         }
 
         .auto-info p {

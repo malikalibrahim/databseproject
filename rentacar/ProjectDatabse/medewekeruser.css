@@ -39,8 +39,6 @@ body {
   animation: animate 1s linear infinite;
 }
 
-
-
 /* Heading styling */
 .forrm h1,
 h2 {
@@ -103,22 +101,58 @@ label {
   width: 100%;
   margin-top: 20px;
   color: #fff;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
+
 .table-responsive {
-  overflow-x:scroll;
-  width: 70%;
+  overflow-x: auto;
+  width: 85%;
 }
+
 .table-sm th,
 .table-sm td {
-  padding: 10px;
+  padding: 12px;
   text-align: left;
   border-bottom: 1px solid #fff;
+  word-wrap: break-word;
 }
 
 .table-sm th {
   background-color: #343a40;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 0;
 }
 
 .table-sm tr:hover {
   background-color: #495057;
+}
+
+.btn-group {
+  display: flex;
+}
+
+.btn-sm {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-edit {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: #fff;
 }
