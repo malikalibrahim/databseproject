@@ -8,18 +8,18 @@ $db = new Database();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['verzend_naar_nul'])) {
-        $id = $_POST['opnull'];
-        $updateAutoSql = "UPDATE autos SET Beschikbaarheid = '0' WHERE AutoID = :AutoID";
+        $Kenteken = $_POST['opnull'];
+        $updateAutoSql = "UPDATE autos SET Beschikbaarheid = '0' WHERE Kenteken = :Kenteken";
     } elseif (isset($_POST['verzend_naar_een'])) {
-        $id = $_POST['opnul'];
-        $updateAutoSql = "UPDATE autos SET Beschikbaarheid = '1' WHERE AutoID = :AutoID";
+        $Kenteken = $_POST['opnul'];
+        $updateAutoSql = "UPDATE autos SET Beschikbaarheid = '1' WHERE Kenteken = :Kenteken";
     } else {
         echo "Invalid form submission.";
         exit();
     }
 
     $updateAutoStmt = $db->pdo->prepare($updateAutoSql);
-    $updateAutoStmt->execute(['AutoID' => $id]);
+    $updateAutoStmt->execute(['Kenteken' => $Kenteken]);
 
     // Voeg andere logica toe indien nodig
 
@@ -152,13 +152,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form action="" method="POST">
         <label for="opnull">Zet auto op Beschikbaar:</label>
-        <input type="text" id="opnull" name="opnull" placeholder="Voer een ID">
+        <input type="text" id="opnull" name="opnull" placeholder="Voer een Kenteken">
         <input type="submit" name="verzend_naar_nul" value="Beschikbaar">
     </form>
 
     <form action="" method="POST">
         <label for="opnul">Verwijder Auto:</label>
-        <input type="text" id="opnul" name="opnul" placeholder="Voer een ID">
+        <input type="text" id="opnul" name="opnul" placeholder="Voer een Kenteken">
         <input type="submit" name="verzend_naar_een" value="Niet Beschikbaar">
     </form>
 

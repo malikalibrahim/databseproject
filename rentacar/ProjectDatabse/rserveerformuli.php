@@ -161,11 +161,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="endVerhuurdatum">Einddatum verhuur:</label>
             <input type="date" id="endVerhuurdatum" name="endVerhuurdatum" oninput="calculateAndDisplay()" required>
 
-            <label for="KlantID">Klant ID:</label>
-            <input type="text" id="KlantID" name="KlantID" readonly required value="<?php echo $klantID; ?>">
+          
+            <input type="hidden" id="KlantID" name="KlantID" readonly required value="<?php echo $klantID; ?>">
 
-            <label for="AutoID">Auto ID:</label>
-            <input type="text" id="AutoID" name="AutoID" readonly required value="<?php if (isset($autoID)){echo $autoID;
+            
+            <input type="hidden" id="AutoID" name="AutoID" readonly required value="<?php if (isset($autoID)){echo $autoID;
             if ($autoID){
                 
             }} ?>">
