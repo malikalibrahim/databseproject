@@ -208,7 +208,7 @@ try {
 
 <body>
     <div id="sidebar">
-        <a href="#" onclick="toggleNav()"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#" onclick="()"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="add_car.php"><i class="fas fa-car"></i> Add New Car</a>
         <a href="admin_users.php"><i class="fas fa-user"></i> Add User</a>
         <a href="reserveeringenmedewerker.php"><i class="fas fa-calendar"></i> Reservations</a>
