@@ -207,20 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </footer>
 <script>
-      function toggleMenu() {
-        var dropdown = document.getElementById("dropdown");
-        dropdown.classList.toggle("active");
-    }
-    function scrollDown(amount) {
-        var currentPosition = window.scrollY || window.pageYOffset;
-        var targetPosition = currentPosition + amount;
 
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
-    }
-  
 
     function fillReservationForm(merk, model, jaar, kenteken) {
         // You can use JavaScript to populate the form fields with the selected car details
@@ -310,7 +297,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Display totaalBedrag in the input field
         document.getElementById("totaalBedrag").value = totaalBedrag.toFixed(2);
 }
+      function toggleMenu() {
+        var dropdown = document.getElementById("dropdown");
+        dropdown.classList.toggle("active");
+    }
+    function scrollDown(amount) {
+        var currentPosition = window.scrollY || window.pageYOffset;
+        var targetPosition = currentPosition + amount;
 
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+  
 </script>
 </body>
 </html>
