@@ -276,7 +276,11 @@ input#search {
   .nav-list2  a:hover {
     color: black !important;
   }
-  
+  @media only screen and (max-width: 2500px) {
+    .nav-list2{
+      padding-left: 36.8rem;
+    }
+    }
 @media only screen and (max-width: 1500px) {
   .nav-list2{
     padding-left: 27rem;

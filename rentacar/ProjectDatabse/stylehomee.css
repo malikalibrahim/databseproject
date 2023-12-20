@@ -1,6 +1,9 @@
 .auto {
   display: flex;
-  flex-wrap: wrap;
+justify-content: center;
+flex-direction: row;
+align-items: center;
+text-align: center;
 
 }
 .car-details h2{
@@ -21,6 +24,7 @@
     margin: 10px;
     padding: 15px;
   }
+  
 }
 
 @media only screen and (min-width: 1200px) {
@@ -93,16 +97,16 @@ body{
     
 }
 .hoofdpagina{
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(phser.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(black-sports-cars-in-autumn-3emz4gcsbzabsn9u.jpg);
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover; 
     display: flex;
     flex-direction: column;
-padding-top: 100px;
+    justify-content: center;
     align-items: start;
-    width:100% ;
-  
+   
+    height: 982px;
    
 
 }
@@ -129,6 +133,7 @@ border-radius: 5px;
 cursor: pointer;
 
 
+
 }
 .bot{
   width: 100%;
@@ -153,8 +158,8 @@ h1{
 }
 .auto{
     border-top: solid 1px rgb(46, 46, 46);
-    border-bottom: solid 1px rgb(46, 46, 46);
-    height: 150px;
+
+    height: 100px;
     background-color: black;
 }
 nav{
@@ -166,6 +171,7 @@ nav{
     justify-content: space-between;
     background-color: black;
     position: fixed;
+    z-index: 1;
     
     
 }
@@ -192,7 +198,27 @@ nav img{
     padding-right: 30px;
     
 }
+.menu-toggle{
+display: none;
+}
+.nav-list2{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-align: end;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 
+  padding-left: 45rem;
+  padding-right: 30px;
+}
+
+@media only screen and (max-width: 2500px) {
+  .nav-list2{
+    padding-left: 36.8rem;
+  }
+  }
 @media only screen and (max-width: 1500px) {
   .nav-list2{
     padding-left: 27rem;
@@ -213,21 +239,9 @@ nav img{
           padding-left: 5rem;
         }
         }
-.menu-toggle{
-display: none;
-}
-.nav-list2{
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  text-align: end;
-  margin: 0;
-  width: 100%;
-  height: 100%;
+    
+  
 
-  padding-left: 45rem;
-  padding-right: 30px;
-}
 .nav-list2 li{
   transition: 0.3s;
   display: flex;
@@ -283,12 +297,11 @@ ul li {
 
 .container {
     width: 100%;
+    height: 70px;
     display: flex;
-    flex-direction: column;
-    gap: 26px;
- 
+    justify-content: center;
+    align-items: center;
 }
-
 
 input#search {
     color: inherit;
@@ -319,6 +332,7 @@ input#search {
     color: white;
     padding: 30px 0;
     height: 180px;
+    border-top: 1px solid rgb(52, 52, 52);
 
     
   }
@@ -500,11 +514,15 @@ img {
   .pagina {
     width: 80%;
   }
-
+.hoofdpagina{
+  padding-left: 30px;
+}
   .pagina h1 {
     text-align: start;
   }
-
+.footer{
+  height: 230px;
+}
   nav {
     display: flex;
     justify-content: space-between;
@@ -633,7 +651,15 @@ ul li{
 .social-icon.pinterest:hover {
   color: #bd081c; /* Pinterest red */
 }
-
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 71%;
+  font-size: clamp(2rem, 2.8vw, 5rem);
+  font-family: Raleway;
+  font-weight: bold;
+}
 .typewriter {
     width: 80.5ch;
     white-space: nowrap;
@@ -661,603 +687,3 @@ ul li{
   flex-direction: column;
   padding: 0;
 }
-
-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(hedd.webp);
-  background-position: center;
-  background-repeat: no-repeat; 
-  background-size: cover; 
-  color: #000000;
-  text-align: center;
-  padding: 20px;
-}
-header h1 {
-  color: #ffffff;
-}
-
-header img {
-  max-width: 100px;
-  border-radius: 50%;
-}
-
-header h1 {
-  margin-top: 10px;
-  font-size: 24px;
-}
-
-header p {
-  font-size: 16px;
-}
-
-section {
-  padding: 20px;
-}
-#additional-services{
-  width: 100%;
-  background-color: #000000;
-}
-#additional-services p{
- width: 100%;
-  text-align: start;
-  color: white;
-  padding-left: 30px;
-
-}
-
-#additional-services ul{
-  display: flex;
-  justify-content: space-around;
-}
-.service, .additional-services li {
-  margin-bottom: 20px;
-}
-
-.service i, .additional-services li i {
-  margin-right: 10px;
-}
-
-a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  background-color: #2c3e50;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  bottom: 0;
-  width: 100%;
-}
-
-.popular-cars {
-  background-color: #f8f9fa;
-  padding: 50px 0;
-}
-
-.review {
-  background-color: black;
-  padding: 70px 0;
-}
-
-.contact {
-  background-color: #f8f9fa;
-  padding: 50px 0;
-}
-
-.icon {
-  font-size: 2em;
-  margin-right: 10px;
-}
-
-/* Nieuwe stijlen voor de 2e container met achtergrondafbeelding */
-.container-2 {
-  background-image: url('rental-car-background.jpg'); /* Vervang met de link naar je eigen afbeelding */
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 50px 0;
-}
-
-/* Aanvullende stijlen voor sterren */
-.stars {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.stars:before {
-  content: "\2605\2605\2605\2605\2605";
-  font-size: 24px;
-  color: #FFD700;
-}
-.review .card {
-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.review .card:hover {
-transform: scale(1.05);
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-#services{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-background-color: rgb(0, 0, 0);
-
-color: rgb(255, 255, 255);
-
-}
-#services h2{
-color: white;
-
-}
-header {
-  width: 100%;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 70px 0;
-}
-#contactt{
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(bg.jpg);
-text-align: start;
-background-position: center;
-background-repeat: no-repeat; 
-background-size: cover; 
-color: white;
-}
-
-.ser-div{
-  width: 40px;
-  height: 40px;
-  background-color: white;
-}
-.ser-hf{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#contact{
-  width: 100%;
-  
-}
-#reviews{
-  width: 100%;
-  background-color: #000000;
-}
-
-header {
-  background-color: #ffffff;
-  color: #000000;
-  text-align: center;
-
-}
-
-header img {
-  max-width: 100px;
-  border-radius: 50%;
-}
-
-header h1 {
-  margin-top: 10px;
-  font-size: 24px;
-}
-
-header p {
-  font-size: 16px;
-}
-
-section {
-  padding: 20px;
-}
-
-.service, #additional-services li, #reviews .card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  width: 20%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.service i, #additional-services li i {
-  margin-right: 10px;
-}
-
-#additional-services li a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-#additional-services li a:hover {
-  text-decoration: underline;
-}
-
-#services .container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-}
-
-#services h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #ffffff;
-}
-
-.card-title {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.stars {
-  color: #f39c12;
-  margin-bottom: 10px;
-}
-
-.stars::before {
-  content: '\2605\2605\2605\2605\2605'; /* Unicode star character */
-}
-
-@media (max-width: 768px) {
-  .card {
-      height: auto;
-  }
-}
-.center-serv{
-  display: flex;
-  justify-content: space-around;
-}
-
-.row{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 12px;
-}
-.dinst{
-  display: flex;
-  justify-content: space-around;
-  
-gap: 12px;
-}
-.card {
-  width: 23rem;
-  background-color: #ffffff;
-  height: 200px;
-}
-header {
-  background-color: #ffffff;
-  color: #000000;
-  text-align: center;
-
-}
-
-header img {
-  max-width: 100px;
-  border-radius: 50%;
-}
-
-header h1 {
-  margin-top: 20px;
-  font-size: 36px;
-}
-
-header p {
-  color: white;
-  font-size: 18px;
-  max-width: 600px;
-  margin: 20px auto;
-}
-
-#services {
- 
-
-}
-
-#services h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 40px;
-
-}
-
-.center-serv {
-  display: flex;
-  justify-content: space-around;
-
-}
-
-.service {
-  text-align: center;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 20px 20px;
-}
-
-.service i {
-  font-size: 36px;
-  color: #3498db;
-  margin-bottom: 20px;
-}
-
-.service h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #000000;
-
-}
-
-.service p {
-  font-size: 16px;
-  color: #000000;
-  
-}
-
-.service a {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-#additional-services {
-text-align: start;
-  padding: 40px 0;
-}
-
-#additional-services h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #ffffff;
-}
-
-#additional-services ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#additional-services li {
-  margin-bottom: 15px;
-}
-
-#additional-services li i {
-  font-size: 24px;
-  color: #3498db;
-  margin-right: 10px;
-}
-
-#additional-services li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-#additional-services p {
-  font-size: 22px;
-  color: #ffffff;
-width: 50%;
-text-align: center;
-  margin: 20px auto;
-}
-
-#contact {
-  padding: 40px 0;
-  text-align: start;
-}
-
-#contact h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #333;
-}
-
-#contact p {
-  font-size: 18px;
-  color: #555;
-  max-width: 600px;
-  margin: 20px auto;
-}
-
-#contact a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-#contact a:hover {
-  text-decoration: underline;
-}
-
-#services .dinst {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-#services .card {
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 20px 20px;
-}
-
-#services .card h4 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-#services .card p {
-  font-size: 16px;
-  color: #555;
-}
-
-#reviews {
-
-  padding: 40px 0;
-}
-
-#reviews h2 {
-  font-size: 36px;
-  color: #000000;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-#reviews .card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 0 20px 20px;
-}
-
-#reviews .card h5 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-#reviews .stars {
-  color: #f39c12;
-  margin-bottom: 10px;
-}
-
-#reviews .card p {
-  font-size: 16px;
-  color: #555;
-}
-.containerr{
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-}
-.cardh-1000{
-  width: 300px;
-  border-radius: 7px;
-  color: #000000;
-  text-align: center;
-  background-color: #ffffff;
-}
-.logopage{
-  height: 60px;
-
-}
-#contact-formulier {
-  background-color: #ffffff;
-  padding: 40px 20px;
-  border-radius: 8px;
- 
-  margin: 40px auto;
-  max-width: 600px;
-}
-
-#contact-formulier h2 {
-  font-size: 36px;
-  color: #000000;
-  margin-bottom: 20px;
-}
-
-#contact-formulier p {
-  font-size: 18px;
-  color: #000000;
-  margin-bottom: 20px;
-}
-
-.invoer-veld {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.verzend-knop {
-  display: inline-block;
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 18px;
-  text-decoration: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.verzend-knop:hover {
-  background-color: #2980b9;
-}
-.conn{
-  padding-top: 70px;
-  display: flex;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  background-color: #000000;
-  padding-right: 40px;
-}
-.conn img{
-  width: 400px;
-  height: 400px;
-}
-
-@media only screen and (max-width: 1500px) {
-  .nav-list2{
-    padding-left: 27rem;
-  }
-  }
-  @media only screen and (max-width: 1490px) {
-    .nav-list2{
-      padding-left: 20rem;
-    }
-    }
-    @media only screen and (max-width: 1250px) {
-      .nav-list2{
-        padding-left: 15rem;
-      }
-      }
-      @media only screen and (max-width: 1050px) {
-        .nav-list2{
-          padding-left: 0rem;
-        }
-        }
-        @media only screen and (max-width: 796px) {
-          .conn{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            padding: 12px;
-            flex-wrap: wrap;
-          }
-          .center-serv {
-            display: flex;
-            flex-direction: column;
-      
-          }
-          .service{
-          width: 85%;
-          }
-          .row{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-          }
-          }

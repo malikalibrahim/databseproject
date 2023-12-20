@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rent A Car</title> 
     <link rel="icon" href="logog4.png" >
-    <link rel="stylesheet" href="stylesreee.css">
+    <link rel="stylesheet" href="styleser.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iUc1SZ3q6ZfQr+OpOiS460HWSl5Ll6aZO5e/Z9AnYX2Q+Brdd6zL2T2U" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -60,7 +60,7 @@
                 echo '<li><a href="facaturen.php">Facturen</a></li>';
                 echo '<li><a href="rserveerformuli.php">Reserveren</a></li>';
                 echo '<ul  class="nav-list2">';
-           
+                echo '<li><a href="gegevensbewerken.php">Profile</a></li>';
                 echo '<li><a href="loguit.php">Uitloggen</a></li>';
                 echo '</ul>';
             }

@@ -341,26 +341,6 @@ nav{
     
 }
 
-@media only screen and (max-width: 1500px) {
-  .nav-list2{
-    padding-left: 27rem;
-  }
-  }
-  @media only screen and (max-width: 1490px) {
-    .nav-list2{
-      padding-left: 20rem;
-    }
-    }
-    @media only screen and (max-width: 1250px) {
-      .nav-list2{
-        padding-left: 15rem;
-      }
-      }
-      @media only screen and (max-width: 1050px) {
-        .nav-list2{
-          padding-left: 5rem;
-        }
-        }
 
 nav img{
     padding-top: 14px;
@@ -649,7 +629,7 @@ img {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 796px) {
   .pagina {
       height: 80%;
     width: 400px;
@@ -763,3 +743,28 @@ ul li{
 }
 
 
+@media only screen and (max-width: 2500px) {
+  .nav-list2{
+    padding-left: 36.8rem;
+  }
+  }
+@media only screen and (max-width: 1500px) {
+  .nav-list2{
+    padding-left: 27rem;
+  }
+  }
+  @media only screen and (max-width: 1490px) {
+    .nav-list2{
+      padding-left: 20rem;
+    }
+    }
+    @media only screen and (max-width: 1250px) {
+      .nav-list2{
+        padding-left: 15rem;
+      }
+      }
+      @media only screen and (max-width: 1050px) {
+        .nav-list2{
+          padding-left: 5rem;
+        }
+        }
