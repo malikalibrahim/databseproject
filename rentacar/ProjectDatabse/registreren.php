@@ -1,26 +1,4 @@
-<?php
-// session_start();
- 
-// include "database.php";
-// include "Users/user.class.php";
-// include "Users/UserRegistration.php";
- 
-// $db = new Database();
- 
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $name = $_POST['Naam'];
-//     $adres = $_POST['Adres'];
-//     $Rijbewijsnummer = $_POST['Rijbewijsnummer'];
-//     $Telefoonnummer = $_POST['Telefoonnummer'];
-//     $Emailadres = $_POST['Emailadres'];
-//     $Wachtwoord = $_POST['Wachtwoord'];
- 
-//     $newUser = new User($name, $adres, $Rijbewijsnummer,$Telefoonnummer, $Emailadres, $Wachtwoord  );
-//     $userRegistration = new UserRegistration();
-//     $klantID = $userRegistration->registerUser($db, $newUser);
-//     $_SESSION['klantID'] = $klantID;
-// }
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3CQGz0wv1ClQH95cLbP0t9zPzFmB+P34MQ3gg8YOQObWBhRTt8wrMkNLp6dSTMLa" crossorigin="anonymous">
 </head>
 <body>
-    
+
 <nav> 
      
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>  <a href="homepagina.php"><img src="logog.png" alt="logo" class="logo"></a>
@@ -56,9 +34,7 @@
         ini_set('display_errors', '0');
         ini_set('log_errors', '1');
         session_start();
-        include "Database.php";
 
-        $db = new Database();
 
         if (isset($_SESSION['email'])) {
             $rol = $db->getRoleByEmail($_SESSION['email']);
@@ -128,7 +104,31 @@
            <input type="password" name="Wachtwoord"><br>
 
            <input type="submit" name="submit">
+
            <a href="login.php">Heb je al een account?</a>
+           <?php
+ 
+ include "database.php";
+ include "Users/user.class.php";
+ include "Users/UserRegistration.php";
+  
+ $db = new Database();
+  
+ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+     $name = $_POST['Naam'];
+     $adres = $_POST['Adres'];
+     $Rijbewijsnummer = $_POST['Rijbewijsnummer'];
+     $Telefoonnummer = $_POST['Telefoonnummer'];
+     $Emailadres = $_POST['Emailadres'];
+     $Wachtwoord = $_POST['Wachtwoord'];
+    $newUser = new User($name, $adres, $Rijbewijsnummer,$Telefoonnummer, $Emailadres, $Wachtwoord  );
+      $userRegistration = new UserRegistration();
+      $klantID = $userRegistration->registerUser($db, $newUser); 
+
+     $_SESSION['klantID'] = $klantID;
+ }
+ ?>
+ 
            </div></div>
        </form>
    
