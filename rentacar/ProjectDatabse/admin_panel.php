@@ -32,6 +32,57 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="stylee.css">
+
+
+    <style>
+          
+    
+          .header {
+            background-color: rgba(51, 51, 51, 0.8);
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(5px); /* Blur toegevoegd */
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .section {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Aangepast om de achtergrond donkerder te maken */
+            border-radius: 5px;
+            width: calc(33.33% - 40px); /* Aangepast om ruimte tussen kaarten toe te voegen */
+            text-align: center;
+            height: 200px; /* Aangepast naar een vaste hoogte */
+            backdrop-filter: blur(5px); /* Blur toegevoegd */
+        }
+
+        .dashboard-info h2, .section h2, .dashboard-info p, .section p {
+            color: #fff;
+        }
+
+        .card {
+            margin: 10px;
+            padding: 20px;
+          
+            border-radius: 5px;
+            height: 200px; /* Aangepast naar een vaste hoogte */
+      
+        }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -89,22 +140,27 @@ try {
             </li>
         </ul>
     </div>
-    <div id="menu-icon" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
+ 
+
 
 <div class="content">
-    <div class="dashboard-info">
+
+    <!-- Top Row -->
+    <div class="section dashboard-info">
         <h2>Car Rental Admin Dashboard</h2>
         <p>Welcome to your car rental dashboard. Manage cars, users, reservations, and availability.</p>
     </div>
 
-    <h1>Recent Activity</h1>
-    <div class="card">
-        <h2>Activity Log</h2>
-        <p>View recent activities and updates related to car rentals.</p>
+    <div class="section">
+        <h2>Recent Activity</h2>
+        <div class="card">
+            <h2>Activity Log</h2>
+            <p>View recent activities and updates related to car rentals.</p>
+        </div>
     </div>
 
-    <h1>Car Statistics</h1>
-    <div class="statistics">
+    <div class="section">
+        <h2>Car Statistics</h2>
         <div class="card">
             <h2>Car Usage Statistics</h2>
             <p>Explore statistics on car usage, popular models, and more.</p>
@@ -112,47 +168,35 @@ try {
         <!-- Add more statistics cards as needed -->
     </div>
 
-    <!-- Add more sections and elements as needed -->
+    <!-- Bottom Row -->
+    <div class="section">
+        <h2>Number of Customers</h2>
+        <div class="card">
+            <p>Total Customers: 12</p>
+        </div>
+    </div>
 
-</div>
-<div  class="infoo">
-<div class="card">
-    <h2>Number of Customers</h2>
-    <p>Total Customers: <?php echo isset($customersResult['total_customers']) ? $customersResult['total_customers'] : 'N/A'; ?></p>
-</div>
+    <div class="section">
+        <h2>Number of Reservations</h2>
+        <div class="card">
+            <p>Total Reservations: 1</p>
+        </div>
+    </div>
 
-<div class="card">
-    <h2>Number of Reservations</h2>
-    <p>Total Reservations: <?php echo isset($reservationsResult['total_reservations']) ? $reservationsResult['total_reservations'] : 'N/A'; ?></p>
-</div>
+    <div class="section">
+        <h2>Total Revenue from Rentals</h2>
+        <div class="card">
+            <p>Total Revenue: €70.00</p>
+        </div>
+    </div>
 
-<div class="card">
-    <h2>Total Revenue from Rentals</h2>
-    <p>Total Revenue: <?php echo isset($totalRevenueResult['total_revenue']) ? '€' . number_format($totalRevenueResult['total_revenue'], 2) : 'N/A'; ?></p>
-</div>
-</div>
+</div>  
 <!-- Include Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Include Font Awesome JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 
-<script>
-    function toggleNav() {
-        var sidebar = document.getElementById("sidebar");
-        var menuIcon = document.getElementById("menu-icon");
-        var content = document.getElementById("content");
 
-        if (sidebar.style.left === "0px") {
-            sidebar.style.left = "-250px";
-            menuIcon.classList.add("closed");
-            content.style.marginLeft = "0";
-        } else {
-            sidebar.style.left = "0";
-            menuIcon.classList.remove("closed");
-            content.style.marginLeft = "250px";
-        }
-    }
-</script>
 
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
